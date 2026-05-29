@@ -1,0 +1,416 @@
+---
+import PlanLayout from '../layouts/PlanLayout.astro';
+import { stripeLinks } from '../config.ts';
+import { Icon } from 'astro-icon/components';
+
+const _b = import.meta.env.BASE_URL ?? '/';
+const base = _b.endsWith('/') ? _b : _b + '/';
+
+const businesses = [
+  { icon: 'heroicons:wrench-screwdriver', label: 'Plomería' },
+  { icon: 'heroicons:home-modern', label: 'Remodelación' },
+  { icon: 'heroicons:scissors', label: 'Jardines' },
+  { icon: 'heroicons:sparkles', label: 'Limpieza' },
+  { icon: 'heroicons:paint-brush', label: 'Pintura' },
+  { icon: 'heroicons:home', label: 'Techos' },
+  { icon: 'heroicons:user', label: 'Barberías' },
+  { icon: 'heroicons:truck', label: 'Comida Móvil' },
+  { icon: 'heroicons:cog-6-tooth', label: 'Mecánicos' },
+  { icon: 'heroicons:building-office-2', label: 'Bienes Raíces' },
+];
+
+const planes = [
+  {
+    nombre: 'Nexus Mini Card',
+    etiqueta: 'Opción de entrada',
+    precio: '$99',
+    mensual: '$29',
+    periodo: '/mes',
+    descripcion: 'Una tarjeta digital de negocios. No es un sitio web completo. Ideal para compartir tu información de contacto de forma profesional.',
+    incluye: [
+      'Nombre del negocio y número de teléfono',
+      'Botón de llamada y WhatsApp',
+      'Área de servicio y horario básico',
+      '3 a 5 servicios listados',
+      'Una imagen principal',
+      'Redes sociales',
+      'Diseño adaptado a celular',
+      'Alojado en enlace administrado por Flores Nexus',
+    ],
+    destacado: false,
+    cotizacion: false,
+    boton: 'Empezar Mini Card',
+    link: stripeLinks.nexusMini,
+  },
+  {
+    nombre: 'Sitio Web Básico',
+    etiqueta: null,
+    precio: '$299',
+    mensual: '$79',
+    periodo: '/mes',
+    descripcion: 'Un sitio web de una página para negocios locales que necesitan presencia profesional en internet.',
+    incluye: [
+      'Sitio web de una página',
+      'Información del negocio y sección de servicios',
+      'Botón de llamada y texto',
+      'Google Maps o área de servicio',
+      'Redes sociales',
+      'Diseño adaptado a celular',
+      'Alojamiento incluido',
+      'Una revisión antes del lanzamiento',
+    ],
+    destacado: false,
+    cotizacion: false,
+    boton: 'Empezar Sitio Básico',
+    link: stripeLinks.starter,
+  },
+  {
+    nombre: 'Sitio Profesional',
+    etiqueta: 'Recomendado',
+    precio: '$699',
+    mensual: '$149',
+    periodo: '/mes',
+    descripcion: 'Sitio web completo con páginas de servicios, galería, sobre nosotros y formulario de contacto.',
+    incluye: [
+      'Hasta 5 páginas',
+      'Inicio, Servicios, Nosotros, Galería, Contacto',
+      'Formulario de contacto básico',
+      'Google Maps o área de servicio',
+      'Redacción básica incluida',
+      'Diseño adaptado a celular',
+      'Alojamiento incluido',
+      'Una actualización pequeña al mes',
+    ],
+    destacado: true,
+    cotizacion: false,
+    boton: 'Empezar Sitio Profesional',
+    link: stripeLinks.professional,
+  },
+  {
+    nombre: 'Sistema de Negocio',
+    etiqueta: null,
+    precio: 'Desde $2,500',
+    mensual: '$399+',
+    periodo: '/mes',
+    descripcion: 'Para negocios que necesitan formularios avanzados, pagos en línea, reservaciones, CRM o automatizaciones.',
+    incluye: [
+      'Formularios avanzados',
+      'Sistemas de reservaciones',
+      'Pagos en línea',
+      'Integración con CRM o correo',
+      'Automatizaciones de correo',
+      'Páginas de aterrizaje',
+      'Análisis y reportes',
+      'Integraciones personalizadas',
+    ],
+    destacado: false,
+    cotizacion: true,
+    boton: 'Solicitar Cotización',
+    link: stripeLinks.businessQuoteForm,
+  },
+];
+
+const pasos = [
+  { numero: 1, titulo: 'Elige tu plan', descripcion: 'Revisa los planes disponibles y elige el que mejor se ajuste a las necesidades de tu negocio.' },
+  { numero: 2, titulo: 'Realiza el pago', descripcion: 'Completa el pago de configuración de forma segura a través de Stripe.' },
+  { numero: 3, titulo: 'Completa el formulario de incorporación', descripcion: 'Envíanos el nombre de tu negocio, servicios, teléfono, fotos, área de servicio y redes sociales.' },
+  { numero: 4, titulo: 'Nosotros construimos tu sitio', descripcion: 'La producción comienza después de recibir el pago y la información completa del cliente.' },
+  { numero: 5, titulo: 'Revisa y lanza', descripcion: 'Te enviamos un enlace de vista previa. Lo apruebas y tu sitio queda activo.' },
+];
+
+const faqs = [
+  {
+    pregunta: '¿Soy dueño del sitio web?',
+    respuesta: 'Los planes mensuales son administrados dentro del sistema de Flores Nexus Group. La transferencia de propiedad puede discutirse por separado si es necesario.',
+  },
+  {
+    pregunta: '¿Qué pasa si cancelo?',
+    respuesta: 'El sitio permanece activo mientras la suscripción esté al corriente. Si no se renueva, el servicio puede pausarse. Puedes cancelar en cualquier momento enviándonos un correo.',
+  },
+  {
+    pregunta: '¿Puedo hacer cambios a mi sitio?',
+    respuesta: 'Cada plan incluye las actualizaciones indicadas. El Sitio Profesional incluye una actualización pequeña al mes. Cambios adicionales pueden solicitarse por separado.',
+  },
+  {
+    pregunta: '¿Cuánto tiempo tarda en estar listo mi sitio?',
+    respuesta: 'La producción comienza después de recibir el pago e información completa del cliente. Normalmente el sitio está listo para revisión en 5 a 7 días hábiles.',
+  },
+  {
+    pregunta: '¿Por qué no usar Wix o un constructor de páginas?',
+    respuesta: 'Wix es una opción si quieres construirlo tú mismo. Flores Nexus Group es para dueños de negocios que quieren una presencia profesional en internet construida y administrada para ellos, sin dedicarle su propio tiempo.',
+  },
+];
+---
+
+<PlanLayout
+  title="Servicios en Español — Flores Nexus Group"
+  description="Páginas web simples para negocios locales. Construimos, alojamos y administramos tu presencia en internet para que tu negocio se vea profesional."
+>
+  <div class="pt-16">
+
+    <!-- Hero -->
+    <section class="mono-mesh relative bg-[#F7F5F0] px-4 pt-20 pb-16 sm:px-6 lg:px-8">
+      <div class="mx-auto max-w-4xl text-center">
+        <h1 class="text-mono-black scroll-fade-up mb-6 text-5xl font-extrabold leading-tight sm:text-6xl">
+          Páginas web simples<br />
+          <span class="text-mono-dark">para negocios locales</span>
+        </h1>
+        <p class="text-mono-dark scroll-fade-up mb-4 text-xl leading-relaxed sm:text-2xl">
+          Creamos, alojamos y administramos tu presencia en internet para que tu negocio se vea profesional y sea más fácil de contactar.
+        </p>
+        <p class="text-mono-gray scroll-fade-up mb-10 text-base italic">
+          Construido para ti. Administrado para ti. Sin precios de agencia.
+        </p>
+        <div class="scroll-fade-up flex flex-col justify-center gap-4 sm:flex-row">
+          <a href={`${base}#pricing`} class="btn-primary px-8 py-4 text-base shadow-lg">
+            Ver planes
+          </a>
+          <a href={`${base}#contact`} class="btn-secondary px-8 py-4 text-base">
+            Empezar mi página
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Para quién es -->
+    <section id="para-quien" class="border-t border-[#D8D5CD] bg-white px-4 py-16 sm:px-6 lg:px-8">
+      <div class="mx-auto max-w-5xl">
+        <div class="scroll-fade-up mx-auto mb-12 max-w-3xl text-center">
+          <h2 class="text-mono-black mb-4 text-4xl font-bold">Para quién es este servicio</h2>
+          <p class="text-mono-dark text-xl">
+            Trabajamos con dueños de negocios locales que necesitan presencia profesional en internet sin pagar precios de agencia.
+          </p>
+        </div>
+        <div class="mx-auto grid max-w-5xl grid-cols-2 gap-5 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
+          {businesses.map((b, i) => (
+            <div class={`scroll-fade-up flex flex-col items-center rounded-2xl border border-[#D8D5CD] bg-white p-5 text-center card-shadow stagger-${(i % 9) + 1}`}>
+              <div class="mb-3 flex h-12 w-12 items-center justify-center rounded-full bg-[#0B0B0B]">
+                <Icon name={b.icon} class="h-6 w-6 text-white" />
+              </div>
+              <span class="text-mono-black text-sm font-semibold">{b.label}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Qué hacemos -->
+    <section class="border-t border-[#D8D5CD] bg-[#F7F5F0] px-4 py-16 sm:px-6 lg:px-8">
+      <div class="mx-auto max-w-4xl">
+        <div class="scroll-fade-up mb-10 text-center">
+          <h2 class="text-mono-black mb-4 text-4xl font-bold">Qué hacemos</h2>
+        </div>
+        <div class="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          {[
+            { icon: 'heroicons:globe-alt', titulo: 'Diseño profesional', detalle: 'Sitios web limpios y modernos que representan tu negocio de forma profesional en cualquier dispositivo.' },
+            { icon: 'heroicons:phone', titulo: 'Opciones de contacto claras', detalle: 'Botones de llamada, WhatsApp, formularios de contacto y Google Maps para que tus clientes te encuentren fácil.' },
+            { icon: 'heroicons:shield-check', titulo: 'Alojado y administrado', detalle: 'Tu sitio web está alojado con SSL incluido. Seguro, confiable y administrado como parte de tu plan activo.' },
+            { icon: 'heroicons:clock', titulo: 'Listo en 5 a 7 días', detalle: 'La producción comienza después del pago e información completa. Entregamos sin largos tiempos de espera.' },
+            { icon: 'heroicons:device-phone-mobile', titulo: 'Diseño para celular', detalle: 'Cada sitio está optimizado para verse perfecto en teléfonos, tabletas y computadoras.' },
+            { icon: 'heroicons:language', titulo: 'Soporte en español e inglés', detalle: 'Atendemos clientes en español e inglés. El contenido de tu sitio puede prepararse en ambos idiomas.' },
+          ].map((item, i) => (
+            <div class={`scroll-fade-up rounded-2xl border border-[#D8D5CD] bg-white p-6 card-shadow stagger-${i + 1}`}>
+              <div class="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-[#0B0B0B]">
+                <Icon name={item.icon} class="h-6 w-6 text-white" />
+              </div>
+              <h3 class="text-mono-black mb-2 font-bold">{item.titulo}</h3>
+              <p class="text-sm leading-relaxed text-mono-dark">{item.detalle}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Planes -->
+    <section id="planes" class="border-t border-[#D8D5CD] bg-white px-4 py-16 sm:px-6 lg:px-8">
+      <div class="mx-auto max-w-6xl">
+        <div class="scroll-fade-up mb-12 text-center">
+          <h2 class="text-mono-black mb-3 text-4xl font-bold">Planes</h2>
+          <p class="text-mono-dark text-xl">Precios simples y transparentes para negocios locales.</p>
+        </div>
+
+        <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
+          {planes.map((plan, i) => (
+            plan.destacado ? (
+              <div class={`scroll-fade-up scale-105 transform rounded-2xl border-2 border-[#C79A4B] card-shadow-featured stagger-${i + 1}`}>
+                <div class="flex h-full flex-col rounded-2xl bg-[#111111] p-7">
+                  <div class="mb-3 inline-block self-start rounded-full bg-[#C79A4B] px-3 py-0.5 text-xs font-semibold text-[#0B0B0B]">
+                    {plan.etiqueta}
+                  </div>
+                  <h3 class="mb-2 text-xl font-bold text-white">{plan.nombre}</h3>
+                  <div class="mb-1">
+                    <span class="text-sm text-white/60">Configuración: </span>
+                    <span class="text-lg font-bold text-white">{plan.precio}</span>
+                  </div>
+                  <div class="mb-5">
+                    <span class="text-3xl font-bold text-white">{plan.mensual}</span>
+                    <span class="text-white/60">{plan.periodo}</span>
+                  </div>
+                  <p class="mb-5 text-sm text-white/70">{plan.descripcion}</p>
+                  <ul class="mb-5 flex-1 space-y-2">
+                    {plan.incluye.map(f => (
+                      <li class="flex items-start gap-2">
+                        <Icon name="heroicons:check" class="mt-0.5 h-4 w-4 flex-shrink-0 text-[#C79A4B]" />
+                        <span class="text-sm text-white/90">{f}</span>
+                      </li>
+                    ))}
+                  </ul>
+                  <a href={plan.link !== '#' ? plan.link : `${base}#contact`} class="btn-featured mt-auto px-5 py-3 text-sm">
+                    {plan.boton}
+                  </a>
+                </div>
+              </div>
+            ) : (
+              <div class={`scroll-fade-up flex flex-col rounded-2xl border border-[#D8D5CD] bg-white p-7 card-shadow stagger-${i + 1}`}>
+                {plan.etiqueta && (
+                  <div class="mb-2 inline-block self-start rounded-full border border-[#D8D5CD] bg-[#F7F5F0] px-3 py-0.5 text-xs font-semibold text-mono-gray">
+                    {plan.etiqueta}
+                  </div>
+                )}
+                <h3 class="text-mono-black mb-2 text-xl font-bold">{plan.nombre}</h3>
+                <div class="mb-1">
+                  <span class="text-sm text-mono-gray">Configuración: </span>
+                  <span class="text-mono-black text-lg font-bold">{plan.precio}</span>
+                </div>
+                <div class="mb-5">
+                  <span class="text-mono-black text-3xl font-bold">{plan.mensual}</span>
+                  <span class="text-mono-gray">{plan.periodo}</span>
+                </div>
+                <p class="text-mono-dark mb-5 text-sm">{plan.descripcion}</p>
+                <ul class="mb-5 flex-1 space-y-2">
+                  {plan.incluye.map(f => (
+                    <li class="flex items-start gap-2">
+                      <Icon name="heroicons:check" class="mt-0.5 h-4 w-4 flex-shrink-0 text-[#0B0B0B]" />
+                      <span class="text-sm text-mono-dark">{f}</span>
+                    </li>
+                  ))}
+                </ul>
+                <a
+                  href={plan.cotizacion ? (plan.link !== '#' ? plan.link : `${base}#contact`) : (plan.link !== '#' ? plan.link : `${base}#contact`)}
+                  class={`mt-auto block w-full px-5 py-3 text-center text-sm ${plan.cotizacion ? 'btn-primary' : 'btn-secondary'}`}
+                >
+                  {plan.boton}
+                </a>
+              </div>
+            )
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Cómo funciona -->
+    <section class="border-t border-[#D8D5CD] bg-[#F7F5F0] px-4 py-16 sm:px-6 lg:px-8">
+      <div class="mx-auto max-w-5xl">
+        <div class="scroll-fade-up mb-12 text-center">
+          <h2 class="text-mono-black mb-3 text-4xl font-bold">Cómo funciona</h2>
+          <p class="text-mono-dark text-xl">Cinco pasos simples desde elegir el plan hasta el lanzamiento.</p>
+        </div>
+        <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-5">
+          {pasos.map((paso, i) => (
+            <div class={`scroll-fade-up rounded-2xl border border-[#D8D5CD] bg-white p-6 card-shadow stagger-${i + 1}`}>
+              <div class="mb-4 flex h-10 w-10 items-center justify-center rounded-full bg-[#0B0B0B] text-lg font-bold text-white">
+                {paso.numero}
+              </div>
+              <h3 class="text-mono-black mb-2 font-bold">{paso.titulo}</h3>
+              <p class="text-sm leading-relaxed text-mono-dark">{paso.descripcion}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Qué incluye / qué puede agregarse -->
+    <section class="border-t border-[#D8D5CD] bg-white px-4 py-16 sm:px-6 lg:px-8">
+      <div class="mx-auto max-w-4xl">
+        <div class="scroll-fade-up mb-10 text-center">
+          <h2 class="text-mono-black mb-4 text-4xl font-bold">Qué incluye y qué puede agregarse</h2>
+          <p class="text-mono-dark text-xl">
+            Cada plan tiene un alcance claro para que sepas exactamente lo que recibes.
+          </p>
+        </div>
+        <div class="scroll-fade-up grid grid-cols-1 gap-6 md:grid-cols-2">
+          <div class="rounded-2xl border border-[#D8D5CD] bg-[#F7F5F0] p-7">
+            <p class="mb-3 text-xs font-semibold uppercase tracking-wide text-mono-gray">Los planes base incluyen</p>
+            <p class="text-mono-dark leading-relaxed">
+              Estructura de sitio web profesional, diseño adaptado a celular, visibilidad de contacto, alojamiento y las funciones listadas bajo cada plan.
+            </p>
+          </div>
+          <div class="rounded-2xl border border-[#D8D5CD] bg-[#F7F5F0] p-7">
+            <p class="mb-3 text-xs font-semibold uppercase tracking-wide text-mono-gray">Puede agregarse por separado</p>
+            <p class="text-mono-dark leading-relaxed">
+              SEO avanzado, sistemas de reservaciones, CRM, pagos en línea, automatizaciones, manejo de redes sociales, páginas adicionales o rediseños más grandes pueden cotizarse por separado.
+            </p>
+          </div>
+        </div>
+        <div class="scroll-fade-up mt-5 rounded-2xl border border-[#D8D5CD] bg-[#0B0B0B] px-8 py-5 text-center">
+          <p class="text-sm font-medium text-white/80">
+            La producción comienza después del pago y la información completa del cliente.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ en Español -->
+    <section class="border-t border-[#D8D5CD] bg-[#F7F5F0] px-4 py-16 sm:px-6 lg:px-8">
+      <div class="mx-auto max-w-3xl">
+        <div class="scroll-fade-up mb-12 text-center">
+          <h2 class="text-mono-black mb-3 text-4xl font-bold">Preguntas frecuentes</h2>
+        </div>
+        <div class="space-y-3" id="faq-es">
+          {faqs.map((item, i) => (
+            <div class={`scroll-fade-up rounded-2xl border border-[#D8D5CD] bg-white card-shadow stagger-${i + 1}`}>
+              <button
+                class="faq-button flex w-full items-center justify-between px-6 py-5 text-left"
+                aria-expanded="false"
+              >
+                <span class="text-mono-black pr-8 font-semibold">{item.pregunta}</span>
+                <Icon name="heroicons:chevron-down" class="faq-icon h-5 w-5 flex-shrink-0 text-[#6B6B6B]" />
+              </button>
+              <div class="faq-content text-mono-dark px-6 leading-relaxed">
+                {item.respuesta}
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Final -->
+    <section id="contact" class="border-t border-[#D8D5CD] bg-[#0B0B0B] px-4 py-20 text-white sm:px-6 lg:px-8">
+      <div class="mx-auto max-w-3xl text-center">
+        <div class="scroll-fade-up">
+          <h2 class="mb-4 text-4xl font-bold">¿Listo para empezar?</h2>
+          <p class="mb-10 text-lg leading-relaxed text-white/75">
+            Elige un plan, realiza el pago y envía la información de tu negocio. Comenzamos la producción una vez que tengamos todo lo necesario.
+          </p>
+          <div class="flex flex-col justify-center gap-4 sm:flex-row">
+            <a href={`${base}#pricing`} class="inline-block rounded-[9px] bg-[#C79A4B] px-8 py-4 text-base font-semibold text-[#0B0B0B] transition-colors hover:bg-[#B68A3F]">
+              Ver planes
+            </a>
+            <a href={`mailto:${`Floresnexusgroup@gmail.com`}`} class="inline-block rounded-[9px] border-2 border-white px-8 py-4 text-base font-semibold text-white transition-colors hover:border-[#C79A4B] hover:text-[#C79A4B]">
+              Enviar mensaje
+            </a>
+          </div>
+          <p class="mt-10 text-sm text-white/50">
+            Atención en español e inglés · Precios claros · Sin compromisos a largo plazo
+          </p>
+        </div>
+      </div>
+    </section>
+
+  </div>
+</PlanLayout>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const faqButtons = document.querySelectorAll('#faq-es .faq-button');
+    faqButtons.forEach((button) => {
+      button.addEventListener('click', () => {
+        const content = button.nextElementSibling;
+        const isExpanded = button.getAttribute('aria-expanded') === 'true';
+        button.setAttribute('aria-expanded', String(!isExpanded));
+        content?.classList.toggle('active');
+      });
+    });
+  });
+</script>

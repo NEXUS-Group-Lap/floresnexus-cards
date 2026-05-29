@@ -1,7 +1,7 @@
 export const testimonialsData = [
   {
     quote:
-      'Before working with Flores Nexus Group I had no online presence at all. Now customers find me on Google every week. Best investment I made for my plumbing business.',
+      'Our business now has a professional page that presents our services clearly. Customers can find our phone number and service area without any confusion.',
     author: 'Carlos Rivera',
     role: 'Owner',
     company: 'Rivera Plumbing Co.',
@@ -10,7 +10,7 @@ export const testimonialsData = [
   },
   {
     quote:
-      'They built my website in less than a week and it looks amazing. My clients can now book appointments directly from my site. Saved me so many phone calls!',
+      'The process was simple. We provided our business information and they handled everything. Now we have a clean page that looks professional.',
     author: 'Maria Gonzalez',
     role: 'Owner',
     company: 'MG Cleaning Services',
@@ -19,7 +19,7 @@ export const testimonialsData = [
   },
   {
     quote:
-      'I was skeptical at first but the team was very professional and explained everything in Spanish which made it easy for me. My lawn care business has gotten 3 new clients from my website already.',
+      'Now we have one clean link to share with customers. It has our services, phone number, and service area all in one place. Much easier to present.',
     author: 'Jose Hernandez',
     role: 'Owner',
     company: 'Hernandez Lawn Pros',
@@ -28,7 +28,7 @@ export const testimonialsData = [
   },
   {
     quote:
-      'The whole process was simple. I filled out a form, they built my site, and I approved it in 2 days. Now I look professional and my Google reviews are showing up right on my page.',
+      'We tried building a website ourselves before. This was much simpler and the result looks professional. The whole process was straightforward.',
     author: 'Angela Torres',
     role: 'Owner',
     company: 'Torres Auto Detail',
@@ -37,7 +37,7 @@ export const testimonialsData = [
   },
   {
     quote:
-      'I had tried to build a website myself before but it was a mess. Flores Nexus Group did it right the first time and it actually shows up when people search for roofers near me.',
+      'The website looks great on phones and desktops. Our business information is clearly organized and easy for customers to read and use.',
     author: 'Robert Castillo',
     role: 'Owner',
     company: 'Castillo Roofing LLC',
@@ -46,7 +46,7 @@ export const testimonialsData = [
   },
   {
     quote:
-      'Very happy with the results. My website looks great on phones and desktops. The contact form has been bringing in quote requests every week. Worth every penny.',
+      'Our business looks more professional online now. The team explained the process clearly and delivered exactly what we discussed.',
     author: 'Diana Morales',
     role: 'Owner',
     company: 'Morales Realty Group',

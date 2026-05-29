@@ -3,298 +3,164 @@ import PlanLayout from '../layouts/PlanLayout.astro';
 import { stripeLinks } from '../config.ts';
 import { Icon } from 'astro-icon/components';
 
+const _b = import.meta.env.BASE_URL ?? '/';
+const base = _b.endsWith('/') ? _b : _b + '/';
 const applyLink = stripeLinks.careersForm;
 
-interface Position {
-  id: string;
+interface Role {
   title: string;
   category: string;
-  workStyle: string;
-  experience: string | null;
+  description: string;
+  goodFit: string[];
   compensation: string;
-  purpose: string;
-  howItWorks: string | null;
-  responsibilities: string[];
-  idealCandidate: string[] | null;
-  note: string | null;
-  restrictions: string | null;
+  ctaLabel: string;
 }
 
-const positions: Position[] = [
+const roles: Role[] = [
   {
-    id: 'florida-sales-rep',
-    title: 'Florida Sales Representative',
+    title: 'Sales Representative — Florida',
     category: 'Sales',
-    workStyle: 'Florida-based / Local outreach',
-    experience: 'B2B sales experience preferred',
-    compensation: 'Competitive commission-based compensation with potential earnings depending on performance, experience, sales volume, approved compensation structure, and written agreement.',
-    purpose: 'Sell Flores Nexus Group website plans to local businesses in Florida.',
-    howItWorks: 'Contact local businesses, explain the available plans, send prospects to the correct payment or quote link, and help move qualified clients into onboarding.',
-    responsibilities: [
-      'Contact local service businesses in Florida',
-      'Explain Starter Website, Professional Website, Business System, and Nexus Mini Card',
-      'Send prospects to the correct Stripe payment link or quote form',
-      'Follow up with leads professionally',
-      'Track lead status',
-      'Report interested leads to Flores Nexus Group',
-      'Use approved sales language only',
-      'Avoid unsupported promises',
+    description:
+      'Help introduce Flores Nexus Group website plans to local businesses in Florida.',
+    goodFit: [
+      'B2B sales or local business communication experience',
+      'Strong follow-up habits',
+      'Professional presentation',
+      'English and Spanish communication preferred',
     ],
-    idealCandidate: [
-      'Has B2B sales experience',
-      'Understands local service businesses',
-      'Can communicate clearly with business owners',
-      'Can follow scripts and close without misrepresenting the service',
-      'Comfortable with commission-based sales',
-    ],
-    note: null,
-    restrictions: 'This role cannot promise guaranteed sales, leads, calls, revenue, SEO results, Google ranking, unlimited edits, faster delivery, discounts, refunds, or automatic ownership transfer unless approved in writing by Flores Nexus Group LLC.',
+    compensation:
+      'Sales opportunities may include flexible work arrangements and commission-based compensation. Commission details are reviewed with qualified applicants and are paid after a completed and approved sale.',
+    ctaLabel: 'Apply for Sales Representative',
   },
   {
-    id: 'in-person-sales-rep',
-    title: 'In-Person Sales Representative',
-    category: 'Sales',
-    workStyle: 'Local / Face-to-face business outreach',
-    experience: 'B2B sales, door-to-door sales, field sales, or local business outreach experience preferred',
-    compensation: 'Competitive commission-based compensation with potential earnings depending on performance, experience, sales volume, approved compensation structure, and written agreement.',
-    purpose: 'Approach business owners in person and explain Flores Nexus Group services directly.',
-    howItWorks: 'Visit or approach local businesses, show examples, explain pricing, answer basic questions, and direct interested clients to the correct payment or quote process.',
-    responsibilities: [
-      'Visit or approach local businesses professionally',
-      'Present website plans clearly',
-      'Show examples or previews when available',
-      'Help clients choose the correct plan',
-      'Send payment or quote links',
-      'Collect basic lead information',
-      'Follow approved sales language',
-      'Submit lead updates to Flores Nexus Group',
-    ],
-    idealCandidate: [
-      'Comfortable speaking face-to-face with business owners',
-      'Professional appearance and communication',
-      'Strong follow-up discipline',
-      'Sales experience preferred',
-      'Bilingual English/Spanish is a plus',
-    ],
-    note: null,
-    restrictions: 'This role cannot offer discounts, ownership transfer, free custom features, faster delivery, refunds, or guaranteed business results unless approved in writing by Flores Nexus Group LLC.',
-  },
-  {
-    id: 'remote-sales-rep',
     title: 'Remote Sales Representative',
     category: 'Sales',
-    workStyle: 'Remote / Phone / Email / Text / Online outreach',
-    experience: 'B2B sales, appointment setting, inside sales, phone sales, or online outreach experience preferred',
-    compensation: 'Competitive commission-based compensation with potential earnings depending on performance, experience, sales volume, approved compensation structure, and written agreement.',
-    purpose: 'Sell through calls, messages, email, online outreach, and lead follow-up.',
-    howItWorks: 'Contact prospects online or by phone, explain the plans, send correct links, and follow up until the prospect buys, requests a quote, or declines.',
-    responsibilities: [
-      'Contact leads through phone, email, text, or online platforms',
-      'Explain service plans clearly',
-      'Send Stripe payment links or quote forms',
-      'Follow up with prospects',
-      'Track lead status',
-      'Use approved scripts',
-      'Avoid unsupported promises',
-    ],
-    idealCandidate: [
+    description:
+      'Connect with business owners remotely and help qualified clients begin the website onboarding process.',
+    goodFit: [
+      'Phone, email, or message-based sales experience',
+      'CRM or lead tracking experience',
       'Strong written communication',
-      'Clear phone communication',
-      'Comfortable following scripts',
-      'Able to handle objections',
-      'B2B sales experience preferred',
+      'Self-managed follow-up',
     ],
-    note: null,
-    restrictions: 'Remote sellers cannot represent themselves as owners, legal representatives, developers, or managers of Flores Nexus Group LLC unless authorized in writing.',
+    compensation:
+      'Sales opportunities may include flexible work arrangements and commission-based compensation. Commission details are reviewed with qualified applicants and are paid after a completed and approved sale.',
+    ctaLabel: 'Apply for Remote Sales',
   },
   {
-    id: 'website-builder',
-    title: 'Website Builder / Template Editor',
-    category: 'Production',
-    workStyle: 'Remote or project-based',
-    experience: 'HTML, CSS, JavaScript, Astro, React, or similar tools preferred',
-    compensation: 'Project-based, hourly, or contractor-based depending on business needs and written approval.',
-    purpose: 'Build and edit websites using approved templates, layouts, sections, and branding guidelines.',
-    howItWorks: null,
-    responsibilities: [
-      'Build pages using approved templates',
-      'Add client business information',
-      'Add services, photos, contact buttons, maps, and social links',
-      'Maintain mobile-friendly layouts',
-      'Follow Flores Nexus Group standards',
-      'Avoid unsupported custom features without approval',
+    title: 'Local Field Seller',
+    category: 'Sales',
+    description:
+      'Represent Flores Nexus Group in person with local business owners and service providers.',
+    goodFit: [
+      'In-person communication skills',
+      'Local networking experience',
+      'Professional presentation',
+      'English and Spanish communication preferred',
     ],
-    idealCandidate: [
-      'HTML, CSS, JavaScript, Astro, React, or similar tools',
-      'Basic design sense',
-      'Ability to follow instructions',
-      'Attention to detail',
-    ],
-    note: null,
-    restrictions: null,
+    compensation:
+      'Sales opportunities may include flexible work arrangements and commission-based compensation. Commission details are reviewed with qualified applicants and are paid after a completed and approved sale.',
+    ctaLabel: 'Apply for Field Seller',
   },
   {
-    id: 'onboarding-specialist',
-    title: 'Client Onboarding Specialist',
-    category: 'Client Operations',
-    workStyle: 'Remote or local',
-    experience: null,
-    compensation: 'Part-time, project-based, hourly, or contractor-based depending on business needs and written approval.',
-    purpose: 'Collect and organize complete client information before production begins.',
-    howItWorks: null,
-    responsibilities: [
-      'Review onboarding forms',
-      'Confirm business name, phone number, services, service area, photos, and social links',
-      'Identify missing information',
-      'Contact clients for missing items',
-      'Organize information for production',
-      'Confirm that production starts only after payment and complete onboarding information are received',
+    title: 'Website Onboarding Assistant',
+    category: 'Operations',
+    description:
+      'Help collect client information, organize business details, and prepare projects for production.',
+    goodFit: [
+      'Organized communication',
+      'Detail-oriented work habits',
+      'Basic website or admin knowledge',
+      'English and Spanish communication preferred',
     ],
-    idealCandidate: null,
-    note: null,
-    restrictions: null,
+    compensation:
+      'Compensation varies based on experience, responsibilities, and work structure.',
+    ctaLabel: 'Apply for Onboarding Assistant',
   },
   {
-    id: 'content-assistant',
-    title: 'Content and Copy Assistant',
+    title: 'Client Support Assistant',
+    category: 'Support',
+    description:
+      'Help clients with basic questions, update requests, and service communication.',
+    goodFit: [
+      'Customer service experience',
+      'Clear communication',
+      'Organized notes',
+      'Professional follow-up',
+    ],
+    compensation:
+      'Compensation varies based on experience, responsibilities, and work structure.',
+    ctaLabel: 'Apply for Client Support',
+  },
+  {
+    title: 'Content & Copy Assistant',
     category: 'Content',
-    workStyle: 'Remote or project-based',
-    experience: null,
-    compensation: 'Project-based, hourly, or contractor-based depending on business needs and written approval.',
-    purpose: 'Write simple, professional website copy for local businesses.',
-    howItWorks: null,
-    responsibilities: [
-      'Write homepage text',
-      'Write service descriptions',
-      'Write About sections',
-      'Clean up grammar and wording',
-      'Keep language simple and professional',
-      'Avoid risky claims',
-      'Follow approved Flores Nexus Group wording',
+    description:
+      'Help organize business descriptions, service lists, and simple website copy for local businesses.',
+    goodFit: [
+      'Writing ability',
+      'English and Spanish communication preferred',
+      'Attention to detail',
+      'Local business understanding',
     ],
-    idealCandidate: null,
-    note: 'Use "professional online presence," "business information," and "make it easier for customers to contact you." Do not use "guaranteed leads," "rank on Google," "grow your business," or "get more calls."',
-    restrictions: null,
+    compensation:
+      'Compensation varies based on experience, responsibilities, and work structure.',
+    ctaLabel: 'Apply for Content Assistant',
   },
   {
-    id: 'maintenance-assistant',
-    title: 'Website Maintenance Assistant',
-    category: 'Support / Maintenance',
-    workStyle: 'Remote or project-based',
-    experience: null,
-    compensation: 'Project-based, hourly, or contractor-based depending on business needs and written approval.',
-    purpose: 'Handle small approved updates for existing client websites.',
-    howItWorks: null,
-    responsibilities: [
-      'Replace photos',
-      'Correct short text',
-      'Update phone numbers, hours, links, or service details',
-      'Check mobile layout after updates',
-      'Report larger requests that require a separate quote',
-      'Keep updates within approved scope',
+    title: 'Website Developer',
+    category: 'Technical',
+    description:
+      'Support website setup, page structure, responsive layout, content placement, and website improvements.',
+    goodFit: [
+      'Website development or website builder experience',
+      'HTML, CSS, JavaScript, or modern framework knowledge',
+      'Responsive design understanding',
+      'Ability to follow project requirements',
     ],
-    idealCandidate: null,
-    note: 'A small update does not include new pages, full redesigns, advanced SEO, CRM setup, booking systems, payment systems, automations, or custom integrations.',
-    restrictions: null,
+    compensation:
+      'Compensation varies based on experience, technical skill level, and project needs. For reference, website developer roles in Florida may commonly fall around the $60K–$70K annual range depending on experience, responsibilities, and company structure.',
+    ctaLabel: 'Apply for Website Developer',
   },
   {
-    id: 'account-coordinator',
-    title: 'Client Support / Account Coordinator',
-    category: 'Support / Operations',
-    workStyle: 'Remote or local',
-    experience: null,
-    compensation: 'Part-time, hourly, project-based, or contractor-based depending on business needs and written approval.',
-    purpose: 'Manage client communication, support questions, and project status.',
-    howItWorks: null,
-    responsibilities: [
-      'Respond to basic client questions',
-      'Explain onboarding steps',
-      'Explain support and update limits',
-      'Track project status',
-      'Escalate technical requests',
-      'Help with cancellation or change request instructions',
-      'Maintain professional communication',
+    title: 'Backend Engineer',
+    category: 'Technical',
+    description:
+      'Support backend systems, integrations, forms, databases, payment workflows, automations, and internal tools.',
+    goodFit: [
+      'Backend development experience',
+      'API and database knowledge',
+      'Payment or form integration experience preferred',
+      'Strong problem-solving and documentation habits',
     ],
-    idealCandidate: null,
-    note: 'This role cannot approve refunds, ownership transfers, discounts, legal exceptions, or custom work unless authorized by Flores Nexus Group LLC.',
-    restrictions: null,
+    compensation:
+      'Compensation varies based on experience, technical skill level, and project needs. Salary references may vary by market, role level, and technical scope.',
+    ctaLabel: 'Apply for Backend Engineer',
   },
 ];
 
-const salesBreakdown = [
-  {
-    title: 'Florida Sales Representative',
-    focus: 'Florida-based local businesses',
-    method: 'Local outreach, phone, messages, referrals, networking',
-    bestFor: 'Sellers who understand Florida local service businesses',
-    experience: 'B2B sales or local business sales',
-    compensation: 'Competitive commission-based compensation depending on performance and written approval',
-  },
-  {
-    title: 'In-Person Sales Representative',
-    focus: 'Face-to-face business outreach',
-    method: 'Visiting businesses, showing examples, explaining pricing, collecting lead information',
-    bestFor: 'Sellers comfortable speaking directly with business owners',
-    experience: 'Field sales, door-to-door sales, B2B sales, or local service sales',
-    compensation: 'Competitive commission-based compensation depending on performance and written approval',
-  },
-  {
-    title: 'Remote Sales Representative',
-    focus: 'Online and phone-based sales',
-    method: 'Calls, emails, texts, social media, online lead follow-up',
-    bestFor: 'Sellers who can communicate clearly and follow approved scripts',
-    experience: 'Inside sales, B2B sales, appointment setting, or outbound sales',
-    compensation: 'Competitive commission-based compensation depending on performance and written approval',
-  },
-];
-
-const cannotPromise = [
-  'Guaranteed sales',
-  'Guaranteed leads',
-  'Guaranteed calls',
-  'Guaranteed revenue',
-  'Guaranteed SEO results',
-  'Guaranteed Google ranking',
-  'Unlimited edits',
-  'Unlimited support',
-  'Automatic ownership transfer',
-  'Free ownership transfer',
-  'Faster delivery without complete onboarding information',
-  'Custom features without approval',
-  'Discounts without approval',
-  'Refunds without approval',
-];
-
-const categoryBadge: Record<string, string> = {
-  'Sales':              'bg-[#0B0B0B] text-white',
-  'Production':         'bg-[#1A1A1A] text-white',
-  'Client Operations':  'bg-[#2D2D2D] text-white',
-  'Content':            'bg-[#3D3D3D] text-white',
-  'Support / Maintenance': 'bg-[#4D4D4D] text-white',
-  'Support / Operations':  'bg-[#4D4D4D] text-white',
+const categoryColor: Record<string, string> = {
+  Sales: 'bg-[#0B0B0B] text-white',
+  Operations: 'bg-[#1A1A1A] text-white',
+  Support: 'bg-[#2D2D2D] text-white',
+  Content: 'bg-[#3D3D3D] text-white',
+  Technical: 'bg-[#C79A4B] text-[#0B0B0B]',
 };
 ---
 
 <PlanLayout
   title="Careers at Flores Nexus Group"
-  description="We are looking for serious applicants who can help local businesses look professional online. Sales, production, content, and operations roles available."
+  description="Join the Flores Nexus Group team. We are looking for people who communicate clearly, respect process, and want to grow with a digital services company."
 >
-
-  <!-- ═══════════════════════════════════════════ -->
-  <!-- HERO                                         -->
-  <!-- ═══════════════════════════════════════════ -->
   <div class="pt-16">
+
+    <!-- Hero -->
     <section class="bg-[#0B0B0B] px-4 py-20 text-white sm:px-6 lg:px-8">
-      <div class="mx-auto max-w-5xl text-center">
-        <p class="mb-4 text-sm font-medium tracking-widest text-white/50 uppercase">
-          Careers at Flores Nexus Group
-        </p>
+      <div class="mx-auto max-w-4xl text-center">
+        <p class="mb-4 text-sm font-medium uppercase tracking-widest text-white/50">Join Our Team</p>
         <h1 class="mb-6 text-4xl font-extrabold leading-tight sm:text-5xl lg:text-6xl">
-          Build with Flores Nexus Group
+          Careers at Flores Nexus Group
         </h1>
-        <p class="mx-auto mb-10 max-w-3xl text-lg leading-relaxed text-white/75 sm:text-xl">
-          We are looking for serious applicants who can help local businesses look professional online through simple monthly websites, digital business cards, and digital presence tools.
-        </p>
         <a
           href={applyLink}
           target="_blank"
@@ -306,314 +172,108 @@ const categoryBadge: Record<string, string> = {
       </div>
     </section>
 
-    <!-- ═══════════════════════════════════════════ -->
-    <!-- COMPANY INTRO                               -->
-    <!-- ═══════════════════════════════════════════ -->
-    <section class="bg-white px-4 py-16 sm:px-6 lg:px-8">
-      <div class="mx-auto max-w-4xl">
-        <div class="scroll-fade-up">
-          <h2 class="text-mono-black mb-6 text-3xl font-bold sm:text-4xl">
-            Work With Flores Nexus Group
-          </h2>
-          <p class="text-mono-dark text-lg leading-relaxed">
-            Flores Nexus Group LLC builds and manages simple monthly websites, digital business cards, and digital presence tools for local service businesses. As we grow, we are looking for people who can support sales, client communication, onboarding, design, website updates, support, and operations.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <!-- ═══════════════════════════════════════════ -->
-    <!-- DISCLAIMER CARDS                            -->
-    <!-- ═══════════════════════════════════════════ -->
-    <section class="border-t border-[#D8D5CD] bg-[#F7F5F0] px-4 py-16 sm:px-6 lg:px-8">
-      <div class="mx-auto max-w-5xl">
-        <div class="scroll-fade-up grid grid-cols-1 gap-6 md:grid-cols-3">
-
-          <!-- Application Review -->
-          <div class="rounded-2xl border border-[#D8D5CD] bg-white p-7 card-shadow">
-            <div class="mb-3 flex h-10 w-10 items-center justify-center rounded-xl bg-[#0B0B0B]">
-              <Icon name="heroicons:document-check" class="h-5 w-5 text-white" />
-            </div>
-            <h3 class="text-mono-black mb-3 text-lg font-bold">Application Review</h3>
-            <p class="text-mono-dark text-sm leading-relaxed">
-              Applications are reviewed by our team. Submitting an application does not guarantee acceptance, employment, contractor work, training, or a paid position. We review experience, communication skills, availability, professionalism, and role fit before making any decision.
-            </p>
-          </div>
-
-          <!-- Training -->
-          <div class="rounded-2xl border border-[#D8D5CD] bg-white p-7 card-shadow">
-            <div class="mb-3 flex h-10 w-10 items-center justify-center rounded-xl bg-[#0B0B0B]">
-              <Icon name="heroicons:academic-cap" class="h-5 w-5 text-white" />
-            </div>
-            <h3 class="text-mono-black mb-3 text-lg font-bold">Training for the Right Applicants</h3>
-            <p class="text-mono-dark text-sm leading-relaxed">
-              For the right applicants, Flores Nexus Group LLC may provide training on our services, pricing, sales process, approved scripts, onboarding process, and internal workflow. Training availability depends on role fit, business needs, and approval by our team.
-            </p>
-          </div>
-
-          <!-- Compensation -->
-          <div class="rounded-2xl border border-[#D8D5CD] bg-white p-7 card-shadow">
-            <div class="mb-3 flex h-10 w-10 items-center justify-center rounded-xl bg-[#0B0B0B]">
-              <Icon name="heroicons:banknotes" class="h-5 w-5 text-white" />
-            </div>
-            <h3 class="text-mono-black mb-3 text-lg font-bold">Compensation Structure</h3>
-            <p class="text-mono-dark text-sm leading-relaxed">
-              Compensation may vary by position, experience, performance, location, work structure, and business needs. Some roles may be commission-based, project-based, part-time, contractor-based, remote, or local. Any compensation structure must be confirmed in writing before work begins.
-            </p>
-          </div>
-
-        </div>
-
-        <!-- Sales compensation note -->
-        <div class="scroll-fade-up mt-6 rounded-2xl border border-[#D8D5CD] bg-white p-7 card-shadow">
-          <p class="text-mono-dark text-sm leading-relaxed">
-            <span class="text-mono-black font-semibold">Sales roles</span> may offer competitive earning potential for qualified applicants, especially those with B2B sales experience, local business outreach experience, field sales experience, inside sales experience, appointment-setting experience, or proven closing ability. Final compensation is not guaranteed and must be approved in writing.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <!-- ═══════════════════════════════════════════ -->
-    <!-- OPEN POSITIONS                              -->
-    <!-- ═══════════════════════════════════════════ -->
+    <!-- Welcome Intro -->
     <section class="border-t border-[#D8D5CD] bg-white px-4 py-16 sm:px-6 lg:px-8">
+      <div class="mx-auto max-w-3xl">
+        <div class="scroll-fade-up">
+          <h2 class="text-mono-black mb-6 text-3xl font-bold">Welcome to Flores Nexus Group.</h2>
+          <div class="space-y-4 text-lg leading-relaxed text-mono-dark">
+            <p>
+              We are building a digital services company focused on helping local businesses create a professional online presence through simple, managed website solutions.
+            </p>
+            <p>
+              We are looking for people who communicate clearly, respect process, and want to grow with a company that values professionalism, organization, and practical results.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Open Roles -->
+    <section class="border-t border-[#D8D5CD] bg-[#F7F5F0] px-4 py-16 sm:px-6 lg:px-8">
       <div class="mx-auto max-w-5xl">
         <div class="scroll-fade-up mb-12 text-center">
-          <h2 class="text-mono-black mb-4 text-3xl font-bold sm:text-4xl">Open Positions</h2>
-          <p class="text-mono-dark text-lg">
-            We are building a team across sales, production, content, and operations.
-          </p>
+          <h2 class="text-mono-black mb-3 text-3xl font-bold sm:text-4xl">Open Roles</h2>
+          <p class="text-mono-dark text-lg">Sales, operations, content, and technical positions.</p>
         </div>
 
-        <div class="grid grid-cols-1 gap-8 lg:grid-cols-2">
-          {
-            positions.map((pos, index) => (
-              <div
-                class={`scroll-fade-up flex flex-col rounded-2xl border border-[#D8D5CD] bg-white card-shadow stagger-${(index % 9) + 1}`}
-              >
-                <!-- Card Header -->
-                <div class="rounded-t-2xl border-b border-[#D8D5CD] bg-[#F7F5F0] px-6 py-5">
-                  <div class="mb-2 flex flex-wrap items-center gap-2">
-                    <span
-                      class={`rounded-full px-3 py-0.5 text-xs font-semibold ${categoryBadge[pos.category] ?? 'bg-[#0B0B0B] text-white'}`}
-                    >
-                      {pos.category}
-                    </span>
-                    <span class="rounded-full border border-[#D8D5CD] bg-white px-3 py-0.5 text-xs text-mono-gray">
-                      {pos.workStyle}
-                    </span>
-                  </div>
-                  <h3 class="text-mono-black text-xl font-bold">{pos.title}</h3>
-                  {pos.experience && (
-                    <p class="mt-1 text-sm text-mono-gray">{pos.experience}</p>
-                  )}
+        <div class="grid grid-cols-1 gap-6 lg:grid-cols-2">
+          {roles.map((role, index) => (
+            <div class={`scroll-fade-up flex flex-col rounded-2xl border border-[#D8D5CD] bg-white card-shadow stagger-${(index % 9) + 1}`}>
+              <!-- Card header -->
+              <div class="rounded-t-2xl border-b border-[#D8D5CD] bg-[#F7F5F0] px-6 py-5">
+                <span class={`mb-2 inline-block rounded-full px-3 py-0.5 text-xs font-semibold ${categoryColor[role.category] ?? 'bg-[#0B0B0B] text-white'}`}>
+                  {role.category}
+                </span>
+                <h3 class="text-mono-black text-xl font-bold">{role.title}</h3>
+              </div>
+
+              <!-- Card body -->
+              <div class="flex flex-1 flex-col gap-5 p-6">
+                <p class="text-mono-dark leading-relaxed">{role.description}</p>
+
+                <div>
+                  <p class="mb-2 text-xs font-semibold uppercase tracking-wide text-mono-gray">Good Fit</p>
+                  <ul class="space-y-1.5">
+                    {role.goodFit.map((item) => (
+                      <li class="flex items-start gap-2 text-sm text-mono-dark">
+                        <Icon name="heroicons:check" class="mt-0.5 h-4 w-4 flex-shrink-0 text-[#0B0B0B]" />
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
                 </div>
 
-                <!-- Card Body -->
-                <div class="flex flex-1 flex-col gap-5 p-6">
-
-                  <!-- Compensation -->
-                  <div>
-                    <p class="mb-1 text-xs font-semibold uppercase tracking-wide text-mono-gray">Compensation</p>
-                    <p class="text-sm leading-relaxed text-mono-dark">{pos.compensation}</p>
-                  </div>
-
-                  <!-- Purpose -->
-                  <div>
-                    <p class="mb-1 text-xs font-semibold uppercase tracking-wide text-mono-gray">Purpose</p>
-                    <p class="text-sm leading-relaxed text-mono-dark">{pos.purpose}</p>
-                  </div>
-
-                  {pos.howItWorks && (
-                    <div>
-                      <p class="mb-1 text-xs font-semibold uppercase tracking-wide text-mono-gray">How It Works</p>
-                      <p class="text-sm leading-relaxed text-mono-dark">{pos.howItWorks}</p>
-                    </div>
-                  )}
-
-                  <!-- Responsibilities -->
-                  <div>
-                    <p class="mb-2 text-xs font-semibold uppercase tracking-wide text-mono-gray">Responsibilities</p>
-                    <ul class="space-y-1.5">
-                      {pos.responsibilities.map((r) => (
-                        <li class="flex items-start gap-2 text-sm text-mono-dark">
-                          <Icon name="heroicons:check" class="mt-0.5 h-4 w-4 flex-shrink-0 text-[#0B0B0B]" />
-                          {r}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-
-                  {pos.idealCandidate && (
-                    <div>
-                      <p class="mb-2 text-xs font-semibold uppercase tracking-wide text-mono-gray">
-                        {pos.category === 'Production' ? 'Skills Preferred' : 'Ideal Candidate'}
-                      </p>
-                      <ul class="space-y-1.5">
-                        {pos.idealCandidate.map((item) => (
-                          <li class="flex items-start gap-2 text-sm text-mono-dark">
-                            <Icon name="heroicons:user-circle" class="mt-0.5 h-4 w-4 flex-shrink-0 text-mono-gray" />
-                            {item}
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  )}
-
-                  {pos.note && (
-                    <div class="rounded-xl border border-[#D8D5CD] bg-[#F7F5F0] p-4">
-                      <p class="text-sm leading-relaxed text-mono-dark">{pos.note}</p>
-                    </div>
-                  )}
-
-                  {pos.restrictions && (
-                    <div class="mt-auto rounded-xl border border-[#D8D5CD] bg-[#F7F5F0] p-4">
-                      <p class="mb-1 text-xs font-semibold uppercase tracking-wide text-mono-gray">Seller Restrictions</p>
-                      <p class="text-sm leading-relaxed text-mono-dark">{pos.restrictions}</p>
-                    </div>
-                  )}
-
-                </div>
-
-                <!-- Apply CTA -->
-                <div class="px-6 pb-6">
-                  <a
-                    href={applyLink}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="btn-primary block w-full px-6 py-3 text-center text-sm"
-                  >
-                    Apply for This Role
-                  </a>
+                <div class="rounded-xl border border-[#D8D5CD] bg-[#F7F5F0] p-4">
+                  <p class="text-xs font-semibold uppercase tracking-wide text-mono-gray mb-1">Compensation</p>
+                  <p class="text-sm leading-relaxed text-mono-dark">{role.compensation}</p>
                 </div>
               </div>
-            ))
-          }
-        </div>
-      </div>
-    </section>
 
-    <!-- ═══════════════════════════════════════════ -->
-    <!-- SALES OPPORTUNITIES                         -->
-    <!-- ═══════════════════════════════════════════ -->
-    <section class="border-t border-[#D8D5CD] bg-[#F7F5F0] px-4 py-16 sm:px-6 lg:px-8">
-      <div class="mx-auto max-w-5xl">
-        <div class="scroll-fade-up mb-10">
-          <h2 class="text-mono-black mb-4 text-3xl font-bold sm:text-4xl">Sales Opportunities</h2>
-          <p class="text-mono-dark mb-4 text-lg leading-relaxed">
-            Sales is one of the most important areas for Flores Nexus Group. We are especially interested in applicants with B2B sales experience, local business outreach experience, field sales experience, inside sales experience, appointment-setting experience, or proven closing ability.
-          </p>
-          <p class="text-mono-dark mb-4 text-lg leading-relaxed">
-            The ideal salesperson can explain simple website plans clearly, follow approved scripts, handle objections, and close without making promises the company does not support.
-          </p>
-          <p class="text-mono-dark text-base leading-relaxed">
-            <span class="font-semibold text-mono-black">Sales applicants with B2B sales experience are preferred.</span> Strong candidates should be comfortable speaking with business owners, explaining service plans clearly, following approved scripts, handling objections, and closing deals without making unsupported promises.
-          </p>
-        </div>
-
-        <!-- Sales breakdown cards -->
-        <div class="grid grid-cols-1 gap-6 md:grid-cols-3">
-          {
-            salesBreakdown.map((s, index) => (
-              <div class={`scroll-fade-up rounded-2xl border border-[#D8D5CD] bg-white p-6 card-shadow stagger-${index + 1}`}>
-                <h3 class="text-mono-black mb-4 font-bold">{s.title}</h3>
-                <dl class="space-y-3 text-sm">
-                  <div>
-                    <dt class="text-xs font-semibold uppercase tracking-wide text-mono-gray">Focus</dt>
-                    <dd class="mt-0.5 text-mono-dark">{s.focus}</dd>
-                  </div>
-                  <div>
-                    <dt class="text-xs font-semibold uppercase tracking-wide text-mono-gray">Method</dt>
-                    <dd class="mt-0.5 text-mono-dark">{s.method}</dd>
-                  </div>
-                  <div>
-                    <dt class="text-xs font-semibold uppercase tracking-wide text-mono-gray">Best For</dt>
-                    <dd class="mt-0.5 text-mono-dark">{s.bestFor}</dd>
-                  </div>
-                  <div>
-                    <dt class="text-xs font-semibold uppercase tracking-wide text-mono-gray">Preferred Experience</dt>
-                    <dd class="mt-0.5 text-mono-dark">{s.experience}</dd>
-                  </div>
-                  <div>
-                    <dt class="text-xs font-semibold uppercase tracking-wide text-mono-gray">Compensation</dt>
-                    <dd class="mt-0.5 text-mono-dark">{s.compensation}</dd>
-                  </div>
-                </dl>
-              </div>
-            ))
-          }
-        </div>
-      </div>
-    </section>
-
-    <!-- ═══════════════════════════════════════════ -->
-    <!-- HOW SALES COMPENSATION WORKS                -->
-    <!-- ═══════════════════════════════════════════ -->
-    <section class="border-t border-[#D8D5CD] bg-white px-4 py-16 sm:px-6 lg:px-8">
-      <div class="mx-auto max-w-4xl">
-        <div class="scroll-fade-up">
-          <h2 class="text-mono-black mb-6 text-3xl font-bold sm:text-4xl">How Sales Compensation Works</h2>
-          <p class="text-mono-dark text-lg leading-relaxed">
-            Sales compensation is designed to be competitive for qualified applicants, but it depends on the role, sales volume, experience, closing ability, approved compensation structure, and written agreement with Flores Nexus Group LLC. Some sales opportunities may be commission-based, while others may include different structures if approved in writing. Compensation is not guaranteed until confirmed by Flores Nexus Group LLC.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <!-- ═══════════════════════════════════════════ -->
-    <!-- WHAT SELLERS CANNOT PROMISE                 -->
-    <!-- ═══════════════════════════════════════════ -->
-    <section class="border-t border-[#D8D5CD] bg-[#F7F5F0] px-4 py-16 sm:px-6 lg:px-8">
-      <div class="mx-auto max-w-4xl">
-        <div class="scroll-fade-up">
-          <h2 class="text-mono-black mb-4 text-3xl font-bold sm:text-4xl">What Sellers Cannot Promise</h2>
-          <p class="text-mono-dark mb-8 text-lg">
-            Sellers and representatives of Flores Nexus Group cannot promise any of the following:
-          </p>
-          <div class="grid grid-cols-1 gap-3 sm:grid-cols-2">
-            {
-              cannotPromise.map((item, index) => (
-                <div
-                  class={`scroll-fade-up flex items-center gap-3 rounded-xl border border-[#D8D5CD] bg-white px-5 py-3 card-shadow stagger-${(index % 9) + 1}`}
+              <!-- Apply button -->
+              <div class="px-6 pb-6">
+                <a
+                  href={applyLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="btn-primary block w-full px-6 py-3 text-center text-sm"
                 >
-                  <Icon name="heroicons:x-mark" class="h-5 w-5 flex-shrink-0 text-[#6B6B6B]" />
-                  <span class="text-sm font-medium text-mono-black">{item}</span>
-                </div>
-              ))
-            }
-          </div>
+                  {role.ctaLabel}
+                </a>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     </section>
 
-    <!-- ═══════════════════════════════════════════ -->
-    <!-- WHY APPLY?                                  -->
-    <!-- ═══════════════════════════════════════════ -->
+    <!-- Compensation Overview -->
     <section class="border-t border-[#D8D5CD] bg-white px-4 py-16 sm:px-6 lg:px-8">
-      <div class="mx-auto max-w-4xl">
+      <div class="mx-auto max-w-3xl">
         <div class="scroll-fade-up">
-          <h2 class="text-mono-black mb-6 text-3xl font-bold sm:text-4xl">Why Apply?</h2>
-          <p class="text-mono-dark mb-6 text-lg leading-relaxed">
-            Flores Nexus Group is building a practical digital service for local businesses that need a professional online presence without agency prices. This is an opportunity for serious applicants who want to work with a growing business model, learn a clear service system, and help local businesses understand simple digital solutions.
-          </p>
-          <div class="rounded-2xl border border-[#D8D5CD] bg-[#F7F5F0] p-7 card-shadow">
-            <p class="text-mono-dark text-lg leading-relaxed">
-              We are not looking for people who make exaggerated promises. We are looking for people who communicate clearly, follow process, and understand that trust matters in B2B sales.
+          <h2 class="text-mono-black mb-6 text-3xl font-bold">Compensation</h2>
+          <div class="space-y-4 rounded-2xl border border-[#D8D5CD] bg-[#F7F5F0] p-8 card-shadow">
+            <p class="text-mono-dark leading-relaxed">
+              Compensation depends on the role, experience, location, work structure, and performance model.
+            </p>
+            <p class="text-mono-dark leading-relaxed">
+              Sales opportunities may include flexible work arrangements and commission-based compensation. Commission details are reviewed with qualified applicants and are paid after a completed and approved sale.
+            </p>
+            <p class="text-mono-dark leading-relaxed">
+              Technical and operational roles may include hourly, project-based, or salary-based compensation depending on business needs and candidate experience.
             </p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ═══════════════════════════════════════════ -->
-    <!-- HOW TO APPLY + FORM                         -->
-    <!-- ═══════════════════════════════════════════ -->
+    <!-- Application Notice + CTA -->
     <section class="border-t border-[#D8D5CD] bg-[#F7F5F0] px-4 py-16 sm:px-6 lg:px-8">
-      <div class="mx-auto max-w-3xl">
-        <div class="scroll-fade-up mb-10 text-center">
-          <h2 class="text-mono-black mb-4 text-3xl font-bold sm:text-4xl">How to Apply</h2>
+      <div class="mx-auto max-w-3xl text-center">
+        <div class="scroll-fade-up">
+          <h2 class="text-mono-black mb-4 text-3xl font-bold">Apply Now</h2>
           <p class="text-mono-dark mb-8 text-lg leading-relaxed">
-            Submit your application using the form below. Our team will review your information and contact selected applicants if there is a potential fit. Not every applicant will be contacted, and applying does not guarantee acceptance, employment, contractor work, training, or paid work.
+            Submit your application and tell us about your experience, availability, and the role you are interested in.
           </p>
           <a
             href={applyLink}
@@ -623,233 +283,12 @@ const categoryBadge: Record<string, string> = {
           >
             Apply Now
           </a>
-        </div>
-
-        <!-- Application Form -->
-        <div class="scroll-fade-up rounded-2xl border border-[#D8D5CD] bg-white p-8 card-shadow">
-          <h3 class="text-mono-black mb-6 text-xl font-bold">Application Form</h3>
-          <form id="careersForm" class="space-y-5">
-
-            <!-- Full name -->
-            <div>
-              <label for="c-name" class="text-mono-black mb-1.5 block text-sm font-semibold">Full Name <span class="text-[#C79A4B]">*</span></label>
-              <input type="text" id="c-name" name="full_name" required
-                class="w-full rounded-xl border border-[#D8D5CD] bg-[#F7F5F0] px-4 py-3 text-mono-black placeholder:text-mono-gray focus:border-[#0B0B0B] focus:bg-white focus:outline-none transition-colors"
-                placeholder="Your full name" />
-            </div>
-
-            <!-- Email -->
-            <div>
-              <label for="c-email" class="text-mono-black mb-1.5 block text-sm font-semibold">Email <span class="text-[#C79A4B]">*</span></label>
-              <input type="email" id="c-email" name="email" required
-                class="w-full rounded-xl border border-[#D8D5CD] bg-[#F7F5F0] px-4 py-3 text-mono-black placeholder:text-mono-gray focus:border-[#0B0B0B] focus:bg-white focus:outline-none transition-colors"
-                placeholder="your@email.com" />
-            </div>
-
-            <!-- Phone -->
-            <div>
-              <label for="c-phone" class="text-mono-black mb-1.5 block text-sm font-semibold">Phone Number</label>
-              <input type="tel" id="c-phone" name="phone"
-                class="w-full rounded-xl border border-[#D8D5CD] bg-[#F7F5F0] px-4 py-3 text-mono-black placeholder:text-mono-gray focus:border-[#0B0B0B] focus:bg-white focus:outline-none transition-colors"
-                placeholder="(000) 000-0000" />
-            </div>
-
-            <!-- City / State -->
-            <div>
-              <label for="c-location" class="text-mono-black mb-1.5 block text-sm font-semibold">City and State</label>
-              <input type="text" id="c-location" name="location"
-                class="w-full rounded-xl border border-[#D8D5CD] bg-[#F7F5F0] px-4 py-3 text-mono-black placeholder:text-mono-gray focus:border-[#0B0B0B] focus:bg-white focus:outline-none transition-colors"
-                placeholder="Miami, FL" />
-            </div>
-
-            <!-- Position interested in -->
-            <div>
-              <label for="c-position" class="text-mono-black mb-1.5 block text-sm font-semibold">Position Interested In</label>
-              <select id="c-position" name="position"
-                class="w-full rounded-xl border border-[#D8D5CD] bg-[#F7F5F0] px-4 py-3 text-mono-black focus:border-[#0B0B0B] focus:bg-white focus:outline-none transition-colors">
-                <option value="">Select a position...</option>
-                <option value="florida-sales-rep">Florida Sales Representative</option>
-                <option value="in-person-sales-rep">In-Person Sales Representative</option>
-                <option value="remote-sales-rep">Remote Sales Representative</option>
-                <option value="website-builder">Website Builder / Template Editor</option>
-                <option value="onboarding-specialist">Client Onboarding Specialist</option>
-                <option value="content-assistant">Content and Copy Assistant</option>
-                <option value="maintenance-assistant">Website Maintenance Assistant</option>
-                <option value="account-coordinator">Client Support / Account Coordinator</option>
-                <option value="other">Other / Open to Discussion</option>
-              </select>
-            </div>
-
-            <!-- Area of work -->
-            <div>
-              <label for="c-area" class="text-mono-black mb-1.5 block text-sm font-semibold">Are you applying for sales, production, support, or operations?</label>
-              <select id="c-area" name="work_area"
-                class="w-full rounded-xl border border-[#D8D5CD] bg-[#F7F5F0] px-4 py-3 text-mono-black focus:border-[#0B0B0B] focus:bg-white focus:outline-none transition-colors">
-                <option value="">Select...</option>
-                <option value="sales">Sales</option>
-                <option value="production">Production</option>
-                <option value="support">Support</option>
-                <option value="operations">Operations</option>
-                <option value="multiple">Multiple / Open to any</option>
-              </select>
-            </div>
-
-            <!-- Work preference -->
-            <div>
-              <label for="c-workpref" class="text-mono-black mb-1.5 block text-sm font-semibold">Do you prefer remote, local, or in-person work?</label>
-              <select id="c-workpref" name="work_preference"
-                class="w-full rounded-xl border border-[#D8D5CD] bg-[#F7F5F0] px-4 py-3 text-mono-black focus:border-[#0B0B0B] focus:bg-white focus:outline-none transition-colors">
-                <option value="">Select...</option>
-                <option value="remote">Remote</option>
-                <option value="local">Local</option>
-                <option value="in-person">In-Person</option>
-                <option value="flexible">Flexible / Open to any</option>
-              </select>
-            </div>
-
-            <!-- B2B sales -->
-            <div>
-              <label for="c-b2b" class="text-mono-black mb-1.5 block text-sm font-semibold">Do you have B2B sales experience?</label>
-              <select id="c-b2b" name="b2b_experience"
-                class="w-full rounded-xl border border-[#D8D5CD] bg-[#F7F5F0] px-4 py-3 text-mono-black focus:border-[#0B0B0B] focus:bg-white focus:outline-none transition-colors">
-                <option value="">Select...</option>
-                <option value="yes">Yes</option>
-                <option value="no">No</option>
-                <option value="some">Some experience</option>
-              </select>
-            </div>
-
-            <!-- Field / inside / appointment -->
-            <div>
-              <label for="c-salestype" class="text-mono-black mb-1.5 block text-sm font-semibold">Do you have field sales, inside sales, or appointment-setting experience?</label>
-              <select id="c-salestype" name="sales_type"
-                class="w-full rounded-xl border border-[#D8D5CD] bg-[#F7F5F0] px-4 py-3 text-mono-black focus:border-[#0B0B0B] focus:bg-white focus:outline-none transition-colors">
-                <option value="">Select...</option>
-                <option value="field">Field sales</option>
-                <option value="inside">Inside sales</option>
-                <option value="appointment">Appointment setting</option>
-                <option value="multiple">Multiple of the above</option>
-                <option value="none">None</option>
-              </select>
-            </div>
-
-            <!-- Other skills -->
-            <div>
-              <label for="c-otherskills" class="text-mono-black mb-1.5 block text-sm font-semibold">Do you have website, design, customer service, or operations experience?</label>
-              <input type="text" id="c-otherskills" name="other_skills"
-                class="w-full rounded-xl border border-[#D8D5CD] bg-[#F7F5F0] px-4 py-3 text-mono-black placeholder:text-mono-gray focus:border-[#0B0B0B] focus:bg-white focus:outline-none transition-colors"
-                placeholder="Briefly describe any relevant experience" />
-            </div>
-
-            <!-- Languages -->
-            <div>
-              <label for="c-languages" class="text-mono-black mb-1.5 block text-sm font-semibold">Languages Spoken</label>
-              <input type="text" id="c-languages" name="languages"
-                class="w-full rounded-xl border border-[#D8D5CD] bg-[#F7F5F0] px-4 py-3 text-mono-black placeholder:text-mono-gray focus:border-[#0B0B0B] focus:bg-white focus:outline-none transition-colors"
-                placeholder="e.g. English, Spanish" />
-            </div>
-
-            <!-- Availability -->
-            <div>
-              <label for="c-availability" class="text-mono-black mb-1.5 block text-sm font-semibold">Availability</label>
-              <input type="text" id="c-availability" name="availability"
-                class="w-full rounded-xl border border-[#D8D5CD] bg-[#F7F5F0] px-4 py-3 text-mono-black placeholder:text-mono-gray focus:border-[#0B0B0B] focus:bg-white focus:outline-none transition-colors"
-                placeholder="e.g. Part-time, Full-time, Weekdays, Flexible" />
-            </div>
-
-            <!-- Expected compensation -->
-            <div>
-              <label for="c-comp" class="text-mono-black mb-1.5 block text-sm font-semibold">Expected Compensation Structure</label>
-              <input type="text" id="c-comp" name="expected_compensation"
-                class="w-full rounded-xl border border-[#D8D5CD] bg-[#F7F5F0] px-4 py-3 text-mono-black placeholder:text-mono-gray focus:border-[#0B0B0B] focus:bg-white focus:outline-none transition-colors"
-                placeholder="e.g. Commission-based, Project-based, Hourly, Open to discussion" />
-            </div>
-
-            <!-- Short message -->
-            <div>
-              <label for="c-message" class="text-mono-black mb-1.5 block text-sm font-semibold">Why are you interested? <span class="text-[#C79A4B]">*</span></label>
-              <textarea id="c-message" name="message" rows="4" required
-                class="w-full resize-none rounded-xl border border-[#D8D5CD] bg-[#F7F5F0] px-4 py-3 text-mono-black placeholder:text-mono-gray focus:border-[#0B0B0B] focus:bg-white focus:outline-none transition-colors"
-                placeholder="Briefly explain why you are interested and what makes you a good fit..."></textarea>
-            </div>
-
-            <!-- Resume / portfolio -->
-            <div>
-              <label for="c-resume" class="text-mono-black mb-1.5 block text-sm font-semibold">Resume or Portfolio Link (if available)</label>
-              <input type="url" id="c-resume" name="resume_link"
-                class="w-full rounded-xl border border-[#D8D5CD] bg-[#F7F5F0] px-4 py-3 text-mono-black placeholder:text-mono-gray focus:border-[#0B0B0B] focus:bg-white focus:outline-none transition-colors"
-                placeholder="https://..." />
-            </div>
-
-            <!-- Confirmation checkboxes -->
-            <div class="space-y-4 rounded-xl border border-[#D8D5CD] bg-[#F7F5F0] p-5">
-              <p class="text-xs font-semibold uppercase tracking-wide text-mono-gray">Required Confirmations</p>
-
-              <label class="flex cursor-pointer items-start gap-3">
-                <input type="checkbox" name="confirm_no_guarantee" required
-                  class="mt-0.5 h-4 w-4 flex-shrink-0 rounded border-[#D8D5CD] accent-[#0B0B0B]" />
-                <span class="text-sm leading-relaxed text-mono-dark">
-                  I understand submitting an application does not guarantee acceptance, employment, contractor work, training, or paid work.
-                </span>
-              </label>
-
-              <label class="flex cursor-pointer items-start gap-3">
-                <input type="checkbox" name="confirm_review" required
-                  class="mt-0.5 h-4 w-4 flex-shrink-0 rounded border-[#D8D5CD] accent-[#0B0B0B]" />
-                <span class="text-sm leading-relaxed text-mono-dark">
-                  I understand applications are reviewed by the Flores Nexus Group team before any decision is made.
-                </span>
-              </label>
-
-              <label class="flex cursor-pointer items-start gap-3">
-                <input type="checkbox" name="confirm_comp_structure" required
-                  class="mt-0.5 h-4 w-4 flex-shrink-0 rounded border-[#D8D5CD] accent-[#0B0B0B]" />
-                <span class="text-sm leading-relaxed text-mono-dark">
-                  I understand some positions may be commission-based, project-based, part-time, contractor-based, remote, or local depending on business needs.
-                </span>
-              </label>
-
-              <label class="flex cursor-pointer items-start gap-3">
-                <input type="checkbox" name="confirm_sales_limits" required
-                  class="mt-0.5 h-4 w-4 flex-shrink-0 rounded border-[#D8D5CD] accent-[#0B0B0B]" />
-                <span class="text-sm leading-relaxed text-mono-dark">
-                  If applying for a sales role, I understand I cannot promise guaranteed sales, leads, calls, revenue, SEO results, Google ranking, unlimited edits, refunds, discounts, faster delivery, or ownership transfer unless approved in writing.
-                </span>
-              </label>
-            </div>
-
-            <!-- Submit -->
-            <button
-              type="submit"
-              class="btn-primary w-full px-6 py-4 text-base shadow-lg"
-            >
-              Submit Application
-            </button>
-
-            <p class="text-center text-xs leading-relaxed text-mono-gray">
-              By submitting, you confirm the information provided is accurate. Not all applicants will be contacted. Applying does not create any employment or contractual obligation.
-            </p>
-
-          </form>
+          <p class="mt-8 text-xs leading-relaxed text-mono-gray">
+            All applications are reviewed by our team. Submitting an application does not guarantee employment, contractor approval, training acceptance, or a specific compensation structure.
+          </p>
         </div>
       </div>
     </section>
+
   </div>
-
 </PlanLayout>
-
-<script define:vars={{ applyLink }}>
-  document.addEventListener('DOMContentLoaded', () => {
-    const form = document.getElementById('careersForm');
-    if (form) {
-      form.addEventListener('submit', (e) => {
-        e.preventDefault();
-        if (applyLink && applyLink !== '#') {
-          window.open(applyLink, '_blank', 'noopener,noreferrer');
-        } else {
-          alert('Thank you for your interest! The application form will be available soon. We will announce it on our social media channels.');
-        }
-      });
-    }
-  });
-</script>

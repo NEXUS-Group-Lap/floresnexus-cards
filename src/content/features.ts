@@ -1,56 +1,56 @@
 export const featuresContent = [
   {
     icon: 'lightning',
-    title: 'Professional Websites',
+    title: 'Professional Website',
     description:
-      'Clean, modern websites that represent your business and make a great first impression. Mobile-friendly and ready to be found on Google.',
+      'Clean, modern websites that represent your business professionally and make a strong first impression on any device.',
   },
   {
     icon: 'code',
-    title: 'Smart Integrations',
+    title: 'Clear Contact Options',
     description:
-      'Connect your website with Google Business Profile, contact forms, booking tools, payment links, and more — all in one place.',
+      'Call buttons, text buttons, contact forms, and Google Maps integration so customers can reach you easily.',
   },
   {
     icon: 'chart',
-    title: 'Real-Time Analytics',
+    title: 'Basic Website Analytics',
     description:
-      'See how many people visit your site, where they come from, and what pages they view. Understand what\'s working and grow smarter.',
+      'Basic visibility into your site traffic through standard hosting tools so you can see how your site is being used.',
   },
   {
     icon: 'chat',
-    title: 'Bilingual Support',
+    title: 'English & Spanish Support',
     description:
-      'We serve clients in English and Spanish. Your website can be built in both languages so you reach every customer in your community.',
+      'We serve clients in English and Spanish. Website content can be built in both languages when needed.',
   },
   {
     icon: 'shield',
-    title: 'Secure & Reliable',
+    title: 'Secure & Hosted',
     description:
-      'Your website is hosted on fast, secure servers with SSL included. Customers trust a site that loads quickly and shows the padlock.',
+      'Your website is hosted with SSL included. Secure, reliable, and managed as part of your active plan.',
   },
   {
     icon: 'clock',
-    title: 'Live in 7 Days',
+    title: 'Live in 5–7 Days',
     description:
-      'We build and launch your website in less than a week. No long waits, no endless back-and-forth — just results, fast.',
+      'Production starts after payment and complete client information are received. We build and deliver without long waits.',
   },
   {
     icon: 'brush',
-    title: 'Custom Branding',
+    title: 'Mobile-Friendly Design',
     description:
-      'Your colors, your logo, your style. We design each website to match your brand so customers recognize and remember you.',
+      'Every website is built for mobile-first viewing. Looks clean and professional on phones, tablets, and desktops.',
   },
   {
     icon: 'layers',
-    title: 'Digital Marketing',
+    title: 'Business Information Display',
     description:
-      'SEO optimization, Google Business Profile, and social media setup to help new customers find your business online.',
+      'Services, business name, hours, service area, social links, and contact options clearly organized for your customers.',
   },
   {
     icon: 'zap',
-    title: 'Business Automation',
+    title: 'Managed Service',
     description:
-      'Save time with automatic quote forms, appointment reminders, and follow-up emails. Let your website work for you 24/7.',
+      'You do not need to manage the technical side. Hosting, basic structure, and plan-included updates are handled for you.',
   },
 ];

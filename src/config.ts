@@ -40,10 +40,10 @@ export const siteConfig = {
   // ============================================
   navigation: {
     links: [
-      { name: 'Who We Help', href: `${base}#who-we-help` },
       { name: 'Plans', href: `${base}#pricing` },
       { name: 'How It Works', href: `${base}#how-it-works` },
       { name: 'FAQ', href: `${base}#faq` },
+      { name: 'Servicios', href: `${base}servicios` },
     ],
     cta: {
       text: 'View Plans',
@@ -144,47 +144,33 @@ export const siteConfig = {
   },
 
   // ============================================
-  // WHAT WE ARE NOT
+  // PLAN SCOPE & ADD-ON OPTIONS
   // ============================================
-  whatWeAreNot: {
-    title: 'What Flores Nexus Group Is Not',
-    subtitle:
-      'We want you to know exactly what you are getting — and what you are not.',
-    items: [
-      {
-        statement: 'Not an open support agency',
-        meaning:
-          'We do not offer unlimited calls, open-ended support, or ongoing project work outside your plan scope.',
-      },
-      {
-        statement: 'No guaranteed sales or leads',
-        meaning:
-          'We provide a professional online presence. We do not guarantee sales, calls, leads, revenue, or business growth.',
-      },
-      {
-        statement: 'No social media management in base plans',
-        meaning:
-          'Social media management, ad campaigns, and content creation are outside the scope of Starter and Professional plans.',
-      },
-      {
-        statement: 'No unlimited edits or redesigns',
-        meaning:
-          'Changes are limited by your plan. Professional includes one small update per month. Other changes are billed separately.',
-      },
-      {
-        statement: 'No guaranteed Google ranking',
-        meaning:
-          'Our websites are built with basic structure and contact visibility. Advanced SEO work must be quoted separately.',
-      },
+  planScope: {
+    title: 'Plan Scope & Add-On Options',
+    intro:
+      'Every Flores Nexus Group plan is designed with a clear scope so clients know what they are receiving before starting.',
+    basePlans:
+      'Base plans include a professional website structure, mobile-friendly design, contact visibility, hosting, and the features listed under each plan.',
+    addOns:
+      'Additional features such as advanced SEO, booking systems, CRM, online payments, automations, social media management, extra pages, or larger redesigns can be quoted separately.',
+    addOnItems: [
+      { label: 'Advanced SEO', detail: 'Basic website structure is included. Advanced SEO work is available as a custom service.' },
+      { label: 'Booking & Scheduling', detail: 'Booking systems and appointment tools are available through custom plans or upgrades.' },
+      { label: 'CRM & Automations', detail: 'CRM, booking tools, online payments, and automations are available through custom plans or upgrades.' },
+      { label: 'Social Media Management', detail: 'Social media management and content creation are outside base plan scope and can be quoted separately.' },
+      { label: 'Extra Pages & Redesigns', detail: 'Each plan includes the updates listed in the plan. Additional pages or larger changes can be requested separately.' },
+      { label: 'Ownership Transfer', detail: 'Monthly plans are managed inside the Flores Nexus Group system. Ownership transfer can be discussed separately if needed.' },
     ],
+    production: 'Production begins after payment and complete client information are received.',
   },
 
   // ============================================
   // TESTIMONIALS
   // ============================================
   testimonials: {
-    title: 'Trusted by Small Businesses',
-    subtitle: 'See what our clients have to say about Flores Nexus Group',
+    title: 'What Our Clients Say',
+    subtitle: 'Local business owners across Florida working with Flores Nexus Group.',
   },
 
   // ============================================
@@ -312,14 +298,14 @@ export const siteConfig = {
   // CONTACT
   // ============================================
   contact: {
-    title: 'Start with a Plan or Request a Quote',
+    title: 'Ready to Start Your Website?',
     subtitle:
-      'Not sure which plan fits your business? Send us a message and we will help you choose.',
+      'Choose a plan, complete payment, and submit your onboarding information so we can begin reviewing your project.',
     benefits: [
-      'No commitment required',
+      'No long-term commitment required',
       'Response within 24 hours',
       'English and Spanish support',
-      'Clear pricing based on your needs',
+      'Clear pricing — no surprises',
     ],
     email: 'info@floresnexusgroup.com',
     form: {
@@ -381,10 +367,10 @@ export const siteConfig = {
       {
         title: 'Company',
         links: [
-          { name: 'Who We Help', href: `${base}#who-we-help` },
           { name: 'How It Works', href: `${base}#how-it-works` },
           { name: 'FAQ', href: `${base}#faq` },
           { name: 'Contact', href: `${base}#contact` },
+          { name: 'Servicios', href: `${base}servicios` },
           { name: 'Careers', href: `${base}careers` },
         ],
       },
