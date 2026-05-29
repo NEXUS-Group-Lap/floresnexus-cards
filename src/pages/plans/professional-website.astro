@@ -1,0 +1,14 @@
+---
+import PlanLayout from '../../layouts/PlanLayout.astro';
+import PlanDetail from '../../components/PlanDetail.astro';
+import { mainPlans } from '../../content/plans.ts';
+
+const plan = mainPlans.find((p) => p.id === 'professional-website')!;
+---
+
+<PlanLayout
+  title={`${plan.name} — Flores Nexus Group`}
+  description={plan.description}
+>
+  <PlanDetail plan={plan} />
+</PlanLayout>

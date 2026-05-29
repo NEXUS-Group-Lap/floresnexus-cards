@@ -3,10 +3,13 @@ import '../styles/globals.css';
 import { siteConfig } from '../config.ts';
 import Navigation from '../components/Navigation.astro';
 import Hero from '../components/Hero.astro';
+import WhoWeHelp from '../components/WhoWeHelp.astro';
+import ValueComparison from '../components/ValueComparison.astro';
 import Features from '../components/Features.astro';
-import HowItWorks from '../components/HowItWorks.astro';
-import Testimonials from '../components/Testimonials.astro';
 import Pricing from '../components/Pricing.astro';
+import HowItWorks from '../components/HowItWorks.astro';
+import WhatWeAreNot from '../components/WhatWeAreNot.astro';
+import Testimonials from '../components/Testimonials.astro';
 import FAQ from '../components/FAQ.astro';
 import Contact from '../components/Contact.astro';
 import Footer from '../components/Footer.astro';
@@ -46,13 +49,16 @@ import Footer from '../components/Footer.astro';
     />
   </head>
 
-  <body class="text-mono-black bg-white font-sans antialiased">
+  <body class="bg-[#F7F5F0] font-sans text-mono-black antialiased">
     <Navigation />
     <Hero />
+    <WhoWeHelp />
+    <ValueComparison />
     <Features />
-    <HowItWorks />
-    <Testimonials />
     <Pricing />
+    <HowItWorks />
+    <WhatWeAreNot />
+    <Testimonials />
     <FAQ />
     <Contact />
     <Footer />

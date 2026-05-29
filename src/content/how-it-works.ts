@@ -1,32 +1,32 @@
 export const howItWorksSteps = [
   {
     number: 1,
-    title: 'Define Your Goal',
+    title: 'Choose Your Plan',
     description:
-      'Describe what you want to automate in plain English. No technical jargon needed.',
+      'Review the Starter, Professional, or Business System plan and select the one that fits your business.',
   },
   {
     number: 2,
-    title: 'Connect Your Tools',
+    title: 'Pay Through Stripe',
     description:
-      'Link your existing apps and services. We support 1000+ integrations out of the box.',
+      'Complete your setup payment securely. You will receive a confirmation and a link to the next step.',
   },
   {
     number: 3,
-    title: 'Deploy Your Agent',
+    title: 'Complete the Onboarding Form',
     description:
-      'Our AI configures and optimizes your agent automatically. Review and launch in one click.',
+      'Fill out your business info: name, services, photos, phone number, address or service area, and social links.',
   },
   {
     number: 4,
-    title: 'Monitor & Optimize',
+    title: 'We Build Your Website',
     description:
-      'Track performance in real-time and let your agents learn and improve continuously.',
+      'Production starts only after payment and complete information are received. Our team builds your site — you do nothing.',
   },
   {
     number: 5,
-    title: 'Scale & Grow',
+    title: 'Review and Launch',
     description:
-      "Add more agents, automate new workflows, and watch your team's productivity soar.",
+      'We send you a preview link. You review, request one revision if needed, approve, and your website goes live.',
   },
 ];

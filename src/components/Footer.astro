@@ -3,9 +3,8 @@ import { siteConfig } from '../config.ts';
 import { Icon } from 'astro-icon/components';
 
 const iconMap = {
-  twitter: 'simple-icons:x',
-  github: 'simple-icons:github',
-  dribbble: 'simple-icons:dribbble',
+  facebook: 'simple-icons:facebook',
+  instagram: 'simple-icons:instagram',
   linkedin: 'simple-icons:linkedin',
 };
 ---
@@ -14,7 +13,13 @@ const iconMap = {
   <div class="mx-auto max-w-7xl">
     <div class="mb-12 grid grid-cols-1 gap-12 md:grid-cols-4">
       <div class="md:col-span-1">
-        <div class="mb-4 text-2xl font-bold">{siteConfig.site.name}</div>
+        <a href="/" aria-label={siteConfig.site.name} class="mb-4 inline-block">
+          <img
+            src="/logo-white.png"
+            alt={siteConfig.site.name}
+            class="h-16 w-auto"
+          />
+        </a>
         <p class="text-mono-light text-sm leading-relaxed">
           {siteConfig.footer.tagline}
         </p>
@@ -50,10 +55,10 @@ const iconMap = {
           siteConfig.footer.social.map((social) => (
             <a
               href={social.href}
-              class="text-mono-light"
+              class="text-mono-light transition-colors hover:text-[#C79A4B]"
               aria-label={social.name}
             >
-              <Icon name={iconMap[social.icon]} class="h-6 w-6" />
+              <Icon name={iconMap[social.icon]} class="h-5 w-5" />
             </a>
           ))
         }

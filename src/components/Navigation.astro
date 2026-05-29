@@ -4,27 +4,38 @@ import { Icon } from 'astro-icon/components';
 ---
 
 <nav
-  class="border-mono-lighter fixed top-0 z-50 w-full border-b bg-white/95 backdrop-blur-sm"
+  class="fixed top-0 z-50 w-full border-b border-[#D8D5CD] bg-[#F7F5F0]/95 backdrop-blur-sm"
 >
   <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
     <div class="flex h-16 items-center justify-between">
       <div class="flex items-center">
-        <a href="/" class="text-mono-black text-xl font-bold"
-          >{siteConfig.site.name}</a
-        >
+        <a href="/" class="flex items-center" aria-label={siteConfig.site.name}>
+          <img
+            src="/logo-dark.png"
+            alt={siteConfig.site.name}
+            class="h-12 w-auto"
+            onerror="this.style.display='none'; this.nextElementSibling.style.display='block';"
+          />
+          <span class="text-mono-black text-xl font-bold" style="display:none">
+            {siteConfig.site.name}
+          </span>
+        </a>
       </div>
 
       <div class="hidden items-center space-x-8 md:flex">
         {
           siteConfig.navigation.links.map((link) => (
-            <a href={link.href} class="text-mono-dark">
+            <a
+              href={link.href}
+              class="text-mono-gray text-sm font-medium transition-colors hover:text-mono-black"
+            >
               {link.name}
             </a>
           ))
         }
         <a
           href={siteConfig.navigation.cta.href}
-          class="bg-mono-black rounded-lg px-6 py-2 text-white"
+          class="btn-primary px-5 py-2 text-sm"
         >
           {siteConfig.navigation.cta.text}
         </a>
@@ -45,14 +56,17 @@ import { Icon } from 'astro-icon/components';
       <div class="flex flex-col space-y-3">
         {
           siteConfig.navigation.links.map((link) => (
-            <a href={link.href} class="text-mono-dark py-2">
+            <a
+              href={link.href}
+              class="text-mono-gray py-2 text-sm font-medium hover:text-mono-black"
+            >
               {link.name}
             </a>
           ))
         }
         <a
           href={siteConfig.navigation.cta.href}
-          class="bg-mono-black rounded-lg px-6 py-3 text-center text-white"
+          class="btn-primary px-6 py-3 text-center"
         >
           {siteConfig.navigation.cta.text}
         </a>
@@ -65,18 +79,14 @@ import { Icon } from 'astro-icon/components';
   document.addEventListener('DOMContentLoaded', () => {
     const mobileMenuButton = document.getElementById('mobileMenuButton');
     const mobileMenu = document.getElementById('mobileMenu');
-
     if (mobileMenuButton && mobileMenu) {
       mobileMenuButton.addEventListener('click', () => {
-        const isExpanded =
-          mobileMenuButton.getAttribute('aria-expanded') === 'true';
+        const isExpanded = mobileMenuButton.getAttribute('aria-expanded') === 'true';
         mobileMenuButton.setAttribute('aria-expanded', String(!isExpanded));
         mobileMenu.setAttribute('aria-hidden', String(isExpanded));
         mobileMenu.classList.toggle('hidden');
       });
-
-      const mobileMenuLinks = mobileMenu.querySelectorAll('a');
-      mobileMenuLinks.forEach((link) => {
+      mobileMenu.querySelectorAll('a').forEach((link) => {
         link.addEventListener('click', () => {
           mobileMenuButton.setAttribute('aria-expanded', 'false');
           mobileMenu.setAttribute('aria-hidden', 'true');

@@ -1,0 +1,201 @@
+---
+import PlanLayout from '../layouts/PlanLayout.astro';
+import { siteConfig } from '../config.ts';
+
+const { companyName, location, email, cancellationLastUpdated } = siteConfig.legal;
+---
+
+<PlanLayout
+  title="Cancellation Policy — Flores Nexus Group"
+  description="Cancellation Policy for Flores Nexus Group LLC. Learn how to cancel your subscription, what is refunded, and what happens to your website."
+>
+  <div class="pt-16">
+
+    <!-- Header -->
+    <section class="bg-[#0B0B0B] px-4 py-16 text-white sm:px-6 lg:px-8">
+      <div class="mx-auto max-w-4xl">
+        <p class="mb-3 text-sm font-medium tracking-widest text-white/50 uppercase">Legal</p>
+        <h1 class="mb-4 text-4xl font-extrabold sm:text-5xl">Cancellation Policy</h1>
+        <p class="text-white/60 text-sm">Last updated: {cancellationLastUpdated}</p>
+      </div>
+    </section>
+
+    <!-- Content -->
+    <section class="bg-[#F7F5F0] px-4 py-16 sm:px-6 lg:px-8">
+      <div class="mx-auto max-w-4xl space-y-12">
+
+        <!-- Intro -->
+        <div class="rounded-2xl border border-[#D8D5CD] bg-white p-8 card-shadow">
+          <p class="text-mono-dark text-lg leading-relaxed">
+            This Cancellation Policy applies to all services provided by <strong class="text-mono-black">{companyName}</strong>. By purchasing any service, you agree to this Cancellation Policy, the Terms of Service, and the Privacy Policy.
+          </p>
+        </div>
+
+        <!-- 1. How to Cancel -->
+        <div class="scroll-fade-up">
+          <h2 class="text-mono-black mb-6 text-2xl font-bold">1. How to Cancel</h2>
+          <div class="rounded-2xl border border-[#D8D5CD] bg-white p-8 card-shadow">
+            <p class="text-mono-dark mb-4 leading-relaxed">
+              To cancel your subscription or service, you must submit a written cancellation request by email to:
+            </p>
+            <div class="rounded-xl border border-[#D8D5CD] bg-[#F7F5F0] p-5">
+              <a
+                href={`mailto:${email}`}
+                class="text-mono-black text-lg font-semibold hover:text-[#C79A4B] transition-colors"
+              >
+                {email}
+              </a>
+            </div>
+            <p class="text-mono-dark mt-5 leading-relaxed">
+              Cancellation requests must be submitted in writing. Verbal cancellations, social media messages, or form submissions that are not confirmed in writing by {companyName} do not constitute a completed cancellation.
+            </p>
+            <p class="text-mono-dark mt-4 leading-relaxed">
+              Cancellation stops future billing after the cancellation is processed by {companyName}. It is your responsibility to submit the cancellation request before the next billing cycle if you do not wish to be charged for the following period.
+            </p>
+          </div>
+        </div>
+
+        <!-- 2. Refund Policy -->
+        <div class="scroll-fade-up">
+          <h2 class="text-mono-black mb-6 text-2xl font-bold">2. Refund Policy</h2>
+          <div class="space-y-4">
+            <div class="rounded-2xl border border-[#D8D5CD] bg-white p-8 card-shadow">
+              <h3 class="text-mono-black mb-3 text-lg font-semibold">2.1 Setup Fees</h3>
+              <p class="text-mono-dark leading-relaxed">
+                Setup fees are non-refundable. Once a setup fee is paid and production begins, the fee covers the work required to design, build, and launch the website regardless of subsequent changes, cancellations, or decisions by the client.
+              </p>
+            </div>
+            <div class="rounded-2xl border border-[#D8D5CD] bg-white p-8 card-shadow">
+              <h3 class="text-mono-black mb-3 text-lg font-semibold">2.2 Monthly Subscription Fees</h3>
+              <p class="text-mono-dark leading-relaxed">
+                Monthly subscription fees are non-refundable once charged, unless required by applicable law. Partial-month refunds are not provided unless required by law. Cancellation stops future billing after it is processed; it does not result in a refund of the current month's charge.
+              </p>
+            </div>
+            <div class="rounded-2xl border border-[#D8D5CD] bg-white p-8 card-shadow">
+              <h3 class="text-mono-black mb-3 text-lg font-semibold">2.3 Incomplete Onboarding</h3>
+              <p class="text-mono-dark leading-relaxed">
+                Production starts only after payment and complete onboarding information are received. If a client pays but does not complete the onboarding form or provide all required information, {companyName} is not responsible for delays, and no refund is guaranteed.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3. Service Suspension -->
+        <div class="scroll-fade-up">
+          <h2 class="text-mono-black mb-6 text-2xl font-bold">3. Payment Failures and Service Suspension</h2>
+          <div class="rounded-2xl border border-[#D8D5CD] bg-white p-8 card-shadow">
+            <p class="text-mono-dark leading-relaxed">
+              If a payment fails, becomes overdue, is disputed, reversed, canceled, or charged back, {companyName} may suspend or disable the related website, digital business card, hosting, forms, links, or related services until the account is brought current.
+            </p>
+            <p class="text-mono-dark mt-4 leading-relaxed">
+              It is the client's responsibility to ensure their payment method remains current and that there are no billing interruptions. {companyName} is not responsible for losses resulting from service suspension due to payment failure.
+            </p>
+          </div>
+        </div>
+
+        <!-- 4. Ownership After Cancellation -->
+        <div class="scroll-fade-up">
+          <h2 class="text-mono-black mb-6 text-2xl font-bold">4. Ownership After Cancellation</h2>
+          <div class="space-y-4">
+            <div class="rounded-2xl border border-[#D8D5CD] bg-white p-8 card-shadow">
+              <p class="text-mono-dark leading-relaxed">
+                Cancellation does not automatically include ownership transfer, website files, source code, design files, templates, hosting access, domains, subdomains, forms, automations, integrations, or internal technical configurations.
+              </p>
+            </div>
+            <div class="rounded-2xl border border-[#D8D5CD] bg-white p-8 card-shadow">
+              <h3 class="text-mono-black mb-3 text-lg font-semibold">Transfer as a Separate Option</h3>
+              <p class="text-mono-dark leading-relaxed">
+                A transfer, export, or buyout may be available as a separate paid option depending on the size of the website, plan type, custom work, integrations, domain setup, and technical requirements. Any transfer must be reviewed, approved in writing, quoted separately, and paid in full before release.
+              </p>
+            </div>
+            <div class="rounded-2xl border border-[#D8D5CD] bg-white p-8 card-shadow">
+              <h3 class="text-mono-black mb-3 text-lg font-semibold">Transfer Limitations</h3>
+              <p class="text-mono-dark leading-relaxed">
+                {companyName} does not guarantee that every website, domain, integration, third-party account, licensed asset, automation, plugin, platform configuration, template, or subscription can be transferred. Some tools, subscriptions, templates, software, or licensed assets may remain restricted by third-party terms and cannot be transferred regardless of payment.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 5. No Guarantees -->
+        <div class="scroll-fade-up">
+          <h2 class="text-mono-black mb-6 text-2xl font-bold">5. No Guarantees</h2>
+          <div class="rounded-2xl border border-[#D8D5CD] bg-white p-8 card-shadow">
+            <p class="text-mono-dark mb-4 leading-relaxed">
+              {companyName} does not guarantee and makes no representations or warranties regarding:
+            </p>
+            <ul class="space-y-2">
+              {[
+                'Sales, leads, calls, or customer inquiries resulting from your website',
+                'Revenue, income, or business growth of any kind',
+                'Search engine rankings, SEO performance, or Google visibility',
+                'Advertising performance or marketing results',
+                'Business outcomes related to or dependent on your website',
+              ].map((item) => (
+                <li class="flex items-start gap-3 text-mono-dark">
+                  <span class="mt-2 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-[#0B0B0B]"></span>
+                  {item}
+                </li>
+              ))}
+            </ul>
+            <p class="text-mono-dark mt-5 leading-relaxed">
+              Our services are designed to help your business look professional online and make it easier for customers to contact you. Results depend on many factors outside our control.
+            </p>
+          </div>
+        </div>
+
+        <!-- 6. Policy Updates -->
+        <div class="scroll-fade-up">
+          <h2 class="text-mono-black mb-6 text-2xl font-bold">6. Updates to This Policy</h2>
+          <div class="rounded-2xl border border-[#D8D5CD] bg-white p-8 card-shadow">
+            <p class="text-mono-dark leading-relaxed">
+              {companyName} may update this Cancellation Policy from time to time. Updated versions will be posted on this page with a new effective date. Continued use of our services after a policy update constitutes acceptance of the revised policy.
+            </p>
+          </div>
+        </div>
+
+        <!-- Quick Reference -->
+        <div class="scroll-fade-up">
+          <h2 class="text-mono-black mb-6 text-2xl font-bold">Quick Reference</h2>
+          <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
+            {[
+              { label: 'How to cancel', value: `Email ${email}` },
+              { label: 'Format required', value: 'Written request only' },
+              { label: 'Setup fees', value: 'Non-refundable' },
+              { label: 'Monthly fees', value: 'Non-refundable once charged' },
+              { label: 'Partial months', value: 'Not refunded unless required by law' },
+              { label: 'Ownership transfer', value: 'Not included — separate paid option' },
+              { label: 'Governing law', value: 'State of Florida' },
+            ].map((row) => (
+              <div class="rounded-xl border border-[#D8D5CD] bg-white px-5 py-4 card-shadow">
+                <p class="text-xs font-semibold uppercase tracking-wide text-mono-gray">{row.label}</p>
+                <p class="mt-1 font-medium text-mono-black">{row.value}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <!-- Contact -->
+        <div class="scroll-fade-up rounded-2xl border border-[#D8D5CD] bg-[#0B0B0B] p-8 text-white">
+          <h2 class="mb-4 text-xl font-bold">Cancellation Requests and Questions</h2>
+          <p class="mb-1 text-white/80 leading-relaxed">{companyName}</p>
+          <p class="mb-1 text-white/60 text-sm">{location}</p>
+          <a
+            href={`mailto:${email}`}
+            class="mt-3 inline-block text-[#C79A4B] font-semibold hover:text-white transition-colors"
+          >
+            {email}
+          </a>
+          <div class="mt-6 border-t border-white/10 pt-6">
+            <div class="flex flex-wrap gap-4 text-sm">
+              <a href="/privacy-policy" class="text-white/60 hover:text-white transition-colors">Privacy Policy</a>
+              <a href="/terms-of-service" class="text-white/60 hover:text-white transition-colors">Terms of Service</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </div>
+</PlanLayout>

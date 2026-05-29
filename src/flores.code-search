@@ -1,0 +1,30 @@
+# Query: flores
+# ContextLines: 1
+
+7 results - 1 file
+
+src\config.ts:
+    9    site: {
+   10:     name: 'Flores Nexus',
+   11:     title: 'Flores Nexus  - Intelligent Automation for Modern Teams',
+   12      description:
+
+   18      // Open Graph / Twitter
+   19:     ogTitle: 'Flores Nexus - Intelligent Automation',
+   20      ogDescription:
+
+   22      twitterCard: 'summary_large_image',
+   23:     twitterTitle: 'Flores Nexus',
+   24      twitterDescription: 'Intelligent automation for modern teams',
+
+  100      title: 'Loved by Teams Worldwide',
+  101:     subtitle: 'See what our customers have to say about Flores Nexus',
+  102      companyLogos: [
+
+  198      ],
+  199:     email: 'hello@floresnexus.com',
+  200      form: {
+
+  270      ],
+  271:     copyright: `${new Date().getFullYear()} Flores Nexus. All rights reserved.`,
+  272    },

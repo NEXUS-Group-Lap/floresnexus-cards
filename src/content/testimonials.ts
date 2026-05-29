@@ -1,56 +1,56 @@
 export const testimonialsData = [
   {
     quote:
-      'This platform transformed our customer support. We automated 80% of routine inquiries and our team can focus on complex issues. Game changer!',
-    author: 'Sarah Johnson',
-    role: 'Head of Operations',
-    company: 'Stripe',
-    initials: 'SJ',
+      'Before working with Flores Nexus Group I had no online presence at all. Now customers find me on Google every week. Best investment I made for my plumbing business.',
+    author: 'Carlos Rivera',
+    role: 'Owner',
+    company: 'Rivera Plumbing Co.',
+    initials: 'CR',
     rating: 5,
   },
   {
     quote:
-      'The ROI was immediate. We deployed our first agent in under an hour and saved 20 hours per week. The analytics dashboard is incredibly powerful.',
-    author: 'Michael Park',
-    role: 'CTO',
-    company: 'Shopify',
-    initials: 'MP',
+      'They built my website in less than a week and it looks amazing. My clients can now book appointments directly from my site. Saved me so many phone calls!',
+    author: 'Maria Gonzalez',
+    role: 'Owner',
+    company: 'MG Cleaning Services',
+    initials: 'MG',
     rating: 5,
   },
   {
     quote:
-      'Setup was surprisingly easy. We went from idea to production in less than a week. The support team is exceptional and always available.',
-    author: 'Emily Chen',
-    role: 'Product Lead',
-    company: 'Notion',
-    initials: 'EC',
+      'I was skeptical at first but the team was very professional and explained everything in Spanish which made it easy for me. My lawn care business has gotten 3 new clients from my website already.',
+    author: 'Jose Hernandez',
+    role: 'Owner',
+    company: 'Hernandez Lawn Pros',
+    initials: 'JH',
     rating: 5,
   },
   {
     quote:
-      'Our sales team uses AI agents to qualify leads and schedule meetings. Conversion rates increased by 45% in the first month. Absolutely worth it.',
-    author: 'David Martinez',
-    role: 'VP of Sales',
-    company: 'HubSpot',
+      'The whole process was simple. I filled out a form, they built my site, and I approved it in 2 days. Now I look professional and my Google reviews are showing up right on my page.',
+    author: 'Angela Torres',
+    role: 'Owner',
+    company: 'Torres Auto Detail',
+    initials: 'AT',
+    rating: 5,
+  },
+  {
+    quote:
+      'I had tried to build a website myself before but it was a mess. Flores Nexus Group did it right the first time and it actually shows up when people search for roofers near me.',
+    author: 'Robert Castillo',
+    role: 'Owner',
+    company: 'Castillo Roofing LLC',
+    initials: 'RC',
+    rating: 5,
+  },
+  {
+    quote:
+      'Very happy with the results. My website looks great on phones and desktops. The contact form has been bringing in quote requests every week. Worth every penny.',
+    author: 'Diana Morales',
+    role: 'Owner',
+    company: 'Morales Realty Group',
     initials: 'DM',
-    rating: 5,
-  },
-  {
-    quote:
-      "We scaled our support from 50 to 5,000 daily conversations without hiring additional staff. The AI understands context better than any tool we've tried.",
-    author: 'Rachel Green',
-    role: 'Customer Success Director',
-    company: 'Intercom',
-    initials: 'RG',
-    rating: 5,
-  },
-  {
-    quote:
-      'Integration with our existing tools was seamless. The agents handle everything from data entry to complex workflows. Our team productivity doubled.',
-    author: 'James Wilson',
-    role: 'Engineering Manager',
-    company: 'Linear',
-    initials: 'JW',
     rating: 5,
   },
 ];

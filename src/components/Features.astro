@@ -18,11 +18,11 @@ const iconMap = {
 
 <section id="features" class="relative bg-white px-4 py-20 sm:px-6 lg:px-8">
   <div
-    class="border-mono-lighter absolute top-8 left-8 h-16 w-16 border-t-2 border-l-2"
+    class="absolute top-8 left-8 h-16 w-16 border-t-2 border-l-2 border-[#D8D5CD]"
   >
   </div>
   <div
-    class="border-mono-lighter absolute top-8 right-8 h-16 w-16 border-t-2 border-r-2"
+    class="absolute top-8 right-8 h-16 w-16 border-t-2 border-r-2 border-[#D8D5CD]"
   >
   </div>
 
@@ -40,10 +40,10 @@ const iconMap = {
       {
         featuresContent.map((feature, index) => (
           <div
-            class={`group ${index % 2 === 0 ? 'scroll-fade-left' : 'scroll-fade-right'} border-mono-lighter rounded-xl border p-8 stagger-${(index % 9) + 1}`}
+            class={`group ${index % 2 === 0 ? 'scroll-fade-left' : 'scroll-fade-right'} rounded-2xl border border-[#D8D5CD] bg-white p-8 card-shadow stagger-${(index % 9) + 1}`}
           >
-            <div class="feature-icon bg-mono-black mb-6 flex h-14 w-14 items-center justify-center rounded-lg text-white">
-              <Icon name={iconMap[feature.icon]} class="h-7 w-7" />
+            <div class="mb-6 flex h-14 w-14 items-center justify-center rounded-xl bg-[#0B0B0B]">
+              <Icon name={iconMap[feature.icon]} class="h-7 w-7 text-white" />
             </div>
             <h3 class="text-mono-black mb-3 text-xl font-semibold">
               {feature.title}

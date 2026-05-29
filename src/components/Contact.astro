@@ -3,7 +3,7 @@ import { siteConfig } from '../config.ts';
 import { Icon } from 'astro-icon/components';
 ---
 
-<section id="contact" class="bg-mono-lighter px-4 py-20 sm:px-6 lg:px-8">
+<section id="contact" class="border-t border-[#D8D5CD] bg-[#F7F5F0] px-4 py-20 sm:px-6 lg:px-8">
   <div class="mx-auto max-w-7xl">
     <div class="grid grid-cols-1 items-start gap-12 lg:grid-cols-2">
       <div class="scroll-fade-left">
@@ -20,7 +20,7 @@ import { Icon } from 'astro-icon/components';
               <li class="flex items-center">
                 <Icon
                   name="heroicons:check"
-                  class="text-mono-black mr-4 h-6 w-6 flex-shrink-0"
+                  class="mr-4 h-6 w-6 flex-shrink-0 text-[#0B0B0B]"
                 />
                 <span class="text-mono-dark">{benefit}</span>
               </li>
@@ -28,19 +28,20 @@ import { Icon } from 'astro-icon/components';
           }
         </ul>
 
-        <div class="border-mono-light border-t pt-8">
+        <div class="border-t border-[#D8D5CD] pt-8">
           <p class="text-mono-gray mb-4 text-sm">
             Questions? Reach out to our team:
           </p>
           <a
             href={`mailto:${siteConfig.contact.email}`}
-            class="text-mono-black font-semibold">{siteConfig.contact.email}</a
+            class="text-mono-black font-semibold hover:text-[#C79A4B] transition-colors"
+            >{siteConfig.contact.email}</a
           >
         </div>
       </div>
 
       <div
-        class="scroll-fade-right border-mono-lighter rounded-xl border bg-white p-8 shadow-lg"
+        class="scroll-fade-right rounded-2xl border border-[#D8D5CD] bg-white p-8 card-shadow"
       >
         <form id="contactForm" class="space-y-6">
           <div>
@@ -54,7 +55,7 @@ import { Icon } from 'astro-icon/components';
               id="name"
               name="name"
               required={siteConfig.contact.form.fields.name.required}
-              class="border-mono-lighter w-full rounded-lg border px-4 py-3"
+              class="w-full rounded-xl border border-[#D8D5CD] bg-[#F7F5F0] px-4 py-3 text-mono-black placeholder:text-mono-gray focus:border-[#0B0B0B] focus:bg-white focus:outline-none transition-colors"
               placeholder={siteConfig.contact.form.fields.name.placeholder}
             />
           </div>
@@ -70,7 +71,7 @@ import { Icon } from 'astro-icon/components';
               id="email"
               name="email"
               required={siteConfig.contact.form.fields.email.required}
-              class="border-mono-lighter w-full rounded-lg border px-4 py-3"
+              class="w-full rounded-xl border border-[#D8D5CD] bg-[#F7F5F0] px-4 py-3 text-mono-black placeholder:text-mono-gray focus:border-[#0B0B0B] focus:bg-white focus:outline-none transition-colors"
               placeholder={siteConfig.contact.form.fields.email.placeholder}
             />
           </div>
@@ -85,7 +86,7 @@ import { Icon } from 'astro-icon/components';
               type="text"
               id="company"
               name="company"
-              class="border-mono-lighter w-full rounded-lg border px-4 py-3"
+              class="w-full rounded-xl border border-[#D8D5CD] bg-[#F7F5F0] px-4 py-3 text-mono-black placeholder:text-mono-gray focus:border-[#0B0B0B] focus:bg-white focus:outline-none transition-colors"
               placeholder={siteConfig.contact.form.fields.company.placeholder}
             />
           </div>
@@ -100,22 +101,22 @@ import { Icon } from 'astro-icon/components';
               id="message"
               name="message"
               rows="4"
-              class="form-input border-mono-lighter w-full resize-none rounded-lg border px-4 py-3"
+              class="w-full resize-none rounded-xl border border-[#D8D5CD] bg-[#F7F5F0] px-4 py-3 text-mono-black placeholder:text-mono-gray focus:border-[#0B0B0B] focus:bg-white focus:outline-none transition-colors"
               placeholder={siteConfig.contact.form.fields.message.placeholder}
             ></textarea>
           </div>
 
           <button
             type="submit"
-            class="bg-mono-black w-full rounded-lg px-6 py-4 font-semibold text-white shadow-lg"
+            class="btn-primary w-full px-6 py-4 text-base shadow-lg"
           >
             {siteConfig.contact.form.cta}
           </button>
 
           <p class="text-mono-gray text-center text-xs leading-relaxed">
             By submitting this form, you agree to our
-            <a href="#" class="underline">Terms of Service</a> and
-            <a href="#" class="underline">Privacy Policy</a>
+            <a href="/terms-of-service" class="underline hover:text-mono-black">Terms of Service</a> and
+            <a href="/privacy-policy" class="underline hover:text-mono-black">Privacy Policy</a>
           </p>
         </form>
       </div>

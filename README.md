@@ -1,4 +1,4 @@
-# AI Agent Landing Page
+# Flores Nexus Landing Page
 
 ![Demo](public/screenshot.jpeg)
 

@@ -1,56 +1,56 @@
 export const featuresContent = [
   {
     icon: 'lightning',
-    title: 'Autonomous Execution',
+    title: 'Professional Websites',
     description:
-      'AI agents that understand context, make decisions, and execute tasks without constant supervision.',
+      'Clean, modern websites that represent your business and make a great first impression. Mobile-friendly and ready to be found on Google.',
   },
   {
     icon: 'code',
-    title: 'Smart Integration',
+    title: 'Smart Integrations',
     description:
-      'Seamlessly connect with your tools: Slack, email, databases, APIs, and 1000+ platforms.',
+      'Connect your website with Google Business Profile, contact forms, booking tools, payment links, and more — all in one place.',
   },
   {
     icon: 'chart',
     title: 'Real-Time Analytics',
     description:
-      'Monitor performance, track success rates, and optimize workflows with detailed insights.',
+      'See how many people visit your site, where they come from, and what pages they view. Understand what\'s working and grow smarter.',
   },
   {
     icon: 'chat',
-    title: 'Natural Language',
+    title: 'Bilingual Support',
     description:
-      'Configure agents using plain English. No complex programming or technical expertise required.',
+      'We serve clients in English and Spanish. Your website can be built in both languages so you reach every customer in your community.',
   },
   {
     icon: 'shield',
-    title: 'Enterprise Security',
+    title: 'Secure & Reliable',
     description:
-      'Bank-level encryption, SOC 2 compliance, and complete data privacy. Your data stays secure.',
+      'Your website is hosted on fast, secure servers with SSL included. Customers trust a site that loads quickly and shows the padlock.',
   },
   {
     icon: 'clock',
-    title: '24/7 Operation',
+    title: 'Live in 7 Days',
     description:
-      'Agents work around the clock, handling tasks while you sleep. Reliable uptime guaranteed.',
+      'We build and launch your website in less than a week. No long waits, no endless back-and-forth — just results, fast.',
   },
   {
     icon: 'brush',
-    title: 'Custom Workflows',
+    title: 'Custom Branding',
     description:
-      'Build tailored automation flows that match your unique business processes and requirements.',
+      'Your colors, your logo, your style. We design each website to match your brand so customers recognize and remember you.',
   },
   {
     icon: 'layers',
-    title: 'Multi-Agent Teams',
+    title: 'Digital Marketing',
     description:
-      'Coordinate multiple specialized agents working together to solve complex, multi-step challenges.',
+      'SEO optimization, Google Business Profile, and social media setup to help new customers find your business online.',
   },
   {
     icon: 'zap',
-    title: 'Instant Scaling',
+    title: 'Business Automation',
     description:
-      'Scale from 1 to 1000+ agents instantly. Handle peak loads without infrastructure headaches.',
+      'Save time with automatic quote forms, appointment reminders, and follow-up emails. Let your website work for you 24/7.',
   },
 ];

@@ -1,0 +1,247 @@
+---
+import PlanLayout from '../layouts/PlanLayout.astro';
+import { siteConfig } from '../config.ts';
+
+const { companyName, location, email, tosLastUpdated } = siteConfig.legal;
+---
+
+<PlanLayout
+  title="Terms of Service — Flores Nexus Group"
+  description="Terms of Service for Flores Nexus Group LLC. Read the terms that govern our website services, payments, ownership, and client responsibilities."
+>
+  <div class="pt-16">
+
+    <!-- Header -->
+    <section class="bg-[#0B0B0B] px-4 py-16 text-white sm:px-6 lg:px-8">
+      <div class="mx-auto max-w-4xl">
+        <p class="mb-3 text-sm font-medium tracking-widest text-white/50 uppercase">Legal</p>
+        <h1 class="mb-4 text-4xl font-extrabold sm:text-5xl">Terms of Service</h1>
+        <p class="text-white/60 text-sm">Last updated: {tosLastUpdated}</p>
+      </div>
+    </section>
+
+    <!-- Content -->
+    <section class="bg-[#F7F5F0] px-4 py-16 sm:px-6 lg:px-8">
+      <div class="mx-auto max-w-4xl space-y-12">
+
+        <!-- Intro -->
+        <div class="rounded-2xl border border-[#D8D5CD] bg-white p-8 card-shadow">
+          <p class="text-mono-dark text-lg leading-relaxed">
+            These Terms of Service govern the relationship between <strong class="text-mono-black">{companyName}</strong> ("we," "us," or "our") and any individual or business ("you," "client," or "customer") who purchases, uses, or requests services from us. By purchasing a service, submitting payment, or engaging with {companyName}, you agree to these Terms of Service.
+          </p>
+        </div>
+
+        <!-- 1. Services -->
+        <div class="scroll-fade-up">
+          <h2 class="text-mono-black mb-6 text-2xl font-bold">1. Services</h2>
+          <div class="rounded-2xl border border-[#D8D5CD] bg-white p-8 card-shadow">
+            <p class="text-mono-dark mb-4 leading-relaxed">
+              {companyName} provides Website-as-a-Service, digital business cards, websites, landing pages, hosting, website management, and related digital presence services for local service businesses.
+            </p>
+            <p class="text-mono-dark leading-relaxed">
+              Services are described on our pricing pages, plan detail pages, and service descriptions. All services are subject to these Terms of Service, the Privacy Policy, and the Cancellation Policy.
+            </p>
+          </div>
+        </div>
+
+        <!-- 2. Website-as-a-Service Model -->
+        <div class="scroll-fade-up">
+          <h2 class="text-mono-black mb-6 text-2xl font-bold">2. Website-as-a-Service Model</h2>
+          <div class="rounded-2xl border border-[#D8D5CD] bg-white p-8 card-shadow">
+            <p class="text-mono-dark mb-4 leading-relaxed">
+              {companyName} operates under a Website-as-a-Service model. Clients pay for active website service, hosting, management, and access while their subscription is current.
+            </p>
+            <p class="text-mono-dark leading-relaxed">
+              Setup fees cover the initial design, build, and launch of your website. Monthly subscription fees cover ongoing hosting, access, and the service scope of your selected plan. Both setup fees and monthly fees are described on the applicable plan page before purchase.
+            </p>
+          </div>
+        </div>
+
+        <!-- 3. Ownership and Transfer -->
+        <div class="scroll-fade-up">
+          <h2 class="text-mono-black mb-6 text-2xl font-bold">3. Ownership and Transfer</h2>
+          <div class="space-y-4">
+            <div class="rounded-2xl border border-[#D8D5CD] bg-white p-8 card-shadow">
+              <h3 class="text-mono-black mb-3 text-lg font-semibold">3.1 Default Ownership</h3>
+              <p class="text-mono-dark leading-relaxed">
+                Website ownership transfer is not included by default in any subscription plan. Clients pay for access to an active, managed website service while the subscription is current.
+              </p>
+            </div>
+            <div class="rounded-2xl border border-[#D8D5CD] bg-white p-8 card-shadow">
+              <h3 class="text-mono-black mb-3 text-lg font-semibold">3.2 Transfer as a Separate Option</h3>
+              <p class="text-mono-dark leading-relaxed">
+                Website ownership transfer, file export, domain transfer, or website buyout may be available as a separate paid option depending on the size of the website, plan type, custom design, custom code, integrations, third-party tools, domain setup, and technical requirements. Any transfer must be reviewed, approved in writing, quoted separately, and paid in full before anything is released.
+              </p>
+            </div>
+            <div class="rounded-2xl border border-[#D8D5CD] bg-white p-8 card-shadow">
+              <h3 class="text-mono-black mb-3 text-lg font-semibold">3.3 Transfer Limitations</h3>
+              <p class="text-mono-dark leading-relaxed">
+                {companyName} does not guarantee that every website, domain, integration, third-party account, licensed asset, automation, plugin, platform configuration, template, or subscription can be transferred. Some tools, subscriptions, templates, software, or licensed assets may remain restricted by third-party terms and cannot be transferred regardless of payment.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 4. Payment and Stripe -->
+        <div class="scroll-fade-up">
+          <h2 class="text-mono-black mb-6 text-2xl font-bold">4. Payment and Billing</h2>
+          <div class="space-y-4">
+            <div class="rounded-2xl border border-[#D8D5CD] bg-white p-8 card-shadow">
+              <h3 class="text-mono-black mb-3 text-lg font-semibold">4.1 Payment Processing</h3>
+              <p class="text-mono-dark leading-relaxed">
+                {companyName} uses Stripe to process online payments, including setup fees, monthly subscriptions, annual subscriptions, upgrade charges, change requests, and other approved service payments. By submitting payment through Stripe, the client authorizes the selected charge or subscription and agrees to the pricing, billing cycle, service scope, these Terms of Service, the Privacy Policy, and the Cancellation Policy.
+              </p>
+              <div class="mt-5 rounded-xl border border-[#D8D5CD] bg-[#F7F5F0] p-4">
+                <p class="text-sm leading-relaxed text-mono-dark">
+                  <strong class="text-mono-black">Payment Notice:</strong> Payments are processed online through Stripe. {companyName} does not directly store full credit card numbers. By submitting payment, you agree to the selected plan, setup fee, subscription terms, and applicable policies.
+                </p>
+              </div>
+            </div>
+            <div class="rounded-2xl border border-[#D8D5CD] bg-white p-8 card-shadow">
+              <h3 class="text-mono-black mb-3 text-lg font-semibold">4.2 Subscription Renewal</h3>
+              <p class="text-mono-dark leading-relaxed">
+                Monthly subscriptions may renew automatically until canceled according to the Cancellation Policy. It is the client's responsibility to cancel before the next billing cycle if they do not wish to continue service.
+              </p>
+            </div>
+            <div class="rounded-2xl border border-[#D8D5CD] bg-white p-8 card-shadow">
+              <h3 class="text-mono-black mb-3 text-lg font-semibold">4.3 Payment Failures and Service Suspension</h3>
+              <p class="text-mono-dark leading-relaxed">
+                If a payment fails, is disputed, reversed, canceled, or becomes overdue, {companyName} may suspend or disable the related website, digital business card, hosting, forms, links, or services until the account is brought current. {companyName} does not directly store full credit card numbers. Payment information is handled by Stripe according to Stripe's own terms, privacy policy, and security practices.
+              </p>
+            </div>
+            <div class="rounded-2xl border border-[#D8D5CD] bg-white p-8 card-shadow">
+              <h3 class="text-mono-black mb-3 text-lg font-semibold">4.4 Non-Refundable Setup Fees</h3>
+              <p class="text-mono-dark leading-relaxed">
+                Setup fees are non-refundable. Once a setup fee is paid and production begins, the fee covers the work required to build and launch the website regardless of subsequent changes, cancellations, or decisions by the client.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 5. Production and Delivery -->
+        <div class="scroll-fade-up">
+          <h2 class="text-mono-black mb-6 text-2xl font-bold">5. Production and Delivery</h2>
+          <div class="rounded-2xl border border-[#D8D5CD] bg-white p-8 card-shadow">
+            <p class="text-mono-dark mb-4 leading-relaxed">
+              Production starts only after payment and complete onboarding information are received. The estimated delivery timeline of 5–7 business days begins from the date that both payment and all required onboarding information are confirmed by {companyName}.
+            </p>
+            <p class="text-mono-dark leading-relaxed">
+              If a client pays but does not complete the onboarding form or provide the required information, {companyName} is not responsible for delays, and no refund is guaranteed.
+            </p>
+          </div>
+        </div>
+
+        <!-- 6. Client Responsibilities -->
+        <div class="scroll-fade-up">
+          <h2 class="text-mono-black mb-6 text-2xl font-bold">6. Client Responsibilities</h2>
+          <div class="rounded-2xl border border-[#D8D5CD] bg-white p-8 card-shadow">
+            <p class="text-mono-dark mb-4 leading-relaxed">By purchasing our services, you represent and agree that:</p>
+            <ul class="space-y-3">
+              {[
+                'You are providing accurate, complete, and current business information.',
+                'You have the legal right to use, submit, and publish all logos, photos, text, videos, links, trademarks, and other materials you provide to us.',
+                'You will not submit content that is illegal, defamatory, infringing, fraudulent, misleading, or otherwise in violation of applicable law.',
+                'You are responsible for reviewing and approving your website content before launch.',
+                'You understand that our services provide a professional online presence — not a guarantee of sales, leads, calls, revenue, or business growth.',
+              ].map((item) => (
+                <li class="flex items-start gap-3 text-mono-dark">
+                  <span class="mt-2 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-[#0B0B0B]"></span>
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+
+        <!-- 7. No Guarantees -->
+        <div class="scroll-fade-up">
+          <h2 class="text-mono-black mb-6 text-2xl font-bold">7. No Guarantees</h2>
+          <div class="rounded-2xl border border-[#D8D5CD] bg-white p-8 card-shadow">
+            <p class="text-mono-dark mb-4 leading-relaxed">
+              {companyName} does not guarantee and makes no representations or warranties regarding:
+            </p>
+            <ul class="space-y-2">
+              {[
+                'Sales, leads, calls, or customer inquiries resulting from your website',
+                'Revenue, income, or business growth of any kind',
+                'Search engine rankings, SEO performance, or Google visibility',
+                'Advertising performance or marketing results',
+                'Uptime guarantees beyond industry-standard hosting practices',
+                'Third-party tool performance, availability, or changes',
+              ].map((item) => (
+                <li class="flex items-start gap-3 text-mono-dark">
+                  <span class="mt-2 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-[#0B0B0B]"></span>
+                  {item}
+                </li>
+              ))}
+            </ul>
+            <p class="text-mono-dark mt-5 leading-relaxed">
+              Our services are designed to help your business look professional online and make it easier for customers to contact you. Results depend on many factors outside of our control.
+            </p>
+          </div>
+        </div>
+
+        <!-- 8. Cancellation -->
+        <div class="scroll-fade-up">
+          <h2 class="text-mono-black mb-6 text-2xl font-bold">8. Cancellation</h2>
+          <div class="rounded-2xl border border-[#D8D5CD] bg-white p-8 card-shadow">
+            <p class="text-mono-dark leading-relaxed">
+              Cancellation terms are governed by the <a href="/cancellation-policy" class="text-mono-black font-semibold underline underline-offset-2 hover:text-[#C79A4B] transition-colors">Cancellation Policy</a>, which is incorporated into these Terms of Service by reference. Setup fees are non-refundable. Monthly fees are non-refundable once charged unless required by law.
+            </p>
+          </div>
+        </div>
+
+        <!-- 9. Limitation of Liability -->
+        <div class="scroll-fade-up">
+          <h2 class="text-mono-black mb-6 text-2xl font-bold">9. Limitation of Liability</h2>
+          <div class="rounded-2xl border border-[#D8D5CD] bg-white p-8 card-shadow">
+            <p class="text-mono-dark leading-relaxed">
+              To the fullest extent permitted by applicable law, {companyName} shall not be liable for any indirect, incidental, special, consequential, or punitive damages, including but not limited to loss of revenue, loss of business, loss of data, or loss of goodwill arising out of or related to your use of our services, whether based on warranty, contract, tort, or any other legal theory. Our total liability shall not exceed the amount paid by the client for the specific service giving rise to the claim in the three months preceding the claim.
+            </p>
+          </div>
+        </div>
+
+        <!-- 10. Governing Law -->
+        <div class="scroll-fade-up">
+          <h2 class="text-mono-black mb-6 text-2xl font-bold">10. Governing Law</h2>
+          <div class="rounded-2xl border border-[#D8D5CD] bg-white p-8 card-shadow">
+            <p class="text-mono-dark leading-relaxed">
+              These Terms of Service are governed by and construed in accordance with the laws of the State of Florida, United States, without regard to conflict of law principles. Any disputes arising from these Terms shall be subject to the jurisdiction of the courts located in Florida.
+            </p>
+          </div>
+        </div>
+
+        <!-- 11. Updates -->
+        <div class="scroll-fade-up">
+          <h2 class="text-mono-black mb-6 text-2xl font-bold">11. Updates to These Terms</h2>
+          <div class="rounded-2xl border border-[#D8D5CD] bg-white p-8 card-shadow">
+            <p class="text-mono-dark leading-relaxed">
+              {companyName} may update these Terms of Service from time to time. Updated versions will be posted on this page with a new effective date. Continued use of our services after an update constitutes acceptance of the revised terms.
+            </p>
+          </div>
+        </div>
+
+        <!-- Contact -->
+        <div class="scroll-fade-up rounded-2xl border border-[#D8D5CD] bg-[#0B0B0B] p-8 text-white">
+          <h2 class="mb-4 text-xl font-bold">Questions About These Terms</h2>
+          <p class="mb-1 text-white/80 leading-relaxed">{companyName}</p>
+          <p class="mb-1 text-white/60 text-sm">{location}</p>
+          <a
+            href={`mailto:${email}`}
+            class="mt-3 inline-block text-[#C79A4B] font-semibold hover:text-white transition-colors"
+          >
+            {email}
+          </a>
+          <div class="mt-6 border-t border-white/10 pt-6">
+            <div class="flex flex-wrap gap-4 text-sm">
+              <a href="/privacy-policy" class="text-white/60 hover:text-white transition-colors">Privacy Policy</a>
+              <a href="/cancellation-policy" class="text-white/60 hover:text-white transition-colors">Cancellation Policy</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </div>
+</PlanLayout>

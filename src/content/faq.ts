@@ -1,32 +1,32 @@
 export const faqItems = [
   {
-    question: 'What is an AI agent and how does it work?',
+    question: 'Do I own the website?',
     answer:
-      'An AI agent is an autonomous software program that can understand instructions, make decisions, and perform tasks on your behalf. Our agents use advanced language models to interpret your goals, connect with your tools, and execute complex workflows automatically—learning and improving over time.',
+      'Under monthly plans, the website is managed inside the Flores Nexus Group system. You are paying for the active website service, hosting, and management. Ownership transfer is not included unless purchased separately.',
   },
   {
-    question: 'Do I need coding knowledge to use this platform?',
+    question: 'What happens if I stop paying?',
     answer:
-      'Not at all! Our platform is designed for everyone. You configure agents using natural language—just describe what you want in plain English. The AI handles all the technical complexity behind the scenes. That said, developers can also access advanced features and APIs for custom integrations.',
+      'The website remains active while the subscription is current. If payment is not current, the service may be suspended until payment is updated.',
   },
   {
-    question: 'How secure is my data?',
+    question: 'Can I make changes whenever I want?',
     answer:
-      'Security is our top priority. We use bank-level encryption (AES-256) for data at rest and in transit, are SOC 2 Type II certified, and maintain strict access controls. Your data is never used to train AI models, and we offer enterprise options including on-premise deployment for maximum control.',
+      'Changes depend on the plan. Professional Website includes one small update per month — replacing one photo, correcting short text, updating phone number or hours, or updating one link. Other changes are billed separately and must go through the Change Request Form.',
   },
   {
-    question: 'Can I integrate with my existing tools?',
+    question: 'Will this bring me customers?',
     answer:
-      'Yes! We support 1000+ integrations including Slack, Microsoft Teams, Gmail, Salesforce, HubSpot, databases, and custom APIs. Most integrations take just a few clicks to set up. If you need a custom integration, our Enterprise plan includes dedicated support to build exactly what you need.',
+      'Flores Nexus Group does not guarantee sales, leads, calls, revenue, or Google ranking. The service provides a professional online presence that makes your business easier to present and contact.',
   },
   {
-    question: "What happens if I exceed my plan's task limit?",
+    question: 'Why not just use Wix or an AI builder?',
     answer:
-      "We'll notify you when you approach your limit. You can upgrade to a higher plan anytime, or purchase additional task packs. Your agents won't stop working—we'll never leave you hanging mid-workflow. We believe in flexible, fair pricing that grows with your needs.",
+      'Wix or AI builders are cheaper if you want to build it yourself. Flores Nexus Group is for business owners who want a professional online presence built and managed for them — without needing to learn any tools or spend their own time on it.',
   },
   {
-    question: 'Can I cancel my subscription anytime?',
+    question: 'How long does it take to have my website live?',
     answer:
-      "Absolutely. You can cancel anytime with no penalties or fees. You'll retain access until the end of your billing period, and you can export all your data and configurations. We're confident you'll love the platform, but we never lock you in.",
+      'Site ready in 5–7 days after payment and complete client information. Production begins only after both are received. You will get a preview link to review and approve before launch.',
   },
 ];
