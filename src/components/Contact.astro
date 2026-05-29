@@ -1,6 +1,8 @@
 ---
 import { siteConfig } from '../config.ts';
 import { Icon } from 'astro-icon/components';
+const _b = import.meta.env.BASE_URL ?? '/';
+const base = _b.endsWith('/') ? _b : _b + '/';
 ---
 
 <section id="contact" class="border-t border-[#D8D5CD] bg-[#F7F5F0] px-4 py-20 sm:px-6 lg:px-8">
@@ -115,8 +117,8 @@ import { Icon } from 'astro-icon/components';
 
           <p class="text-mono-gray text-center text-xs leading-relaxed">
             By submitting this form, you agree to our
-            <a href="/terms-of-service" class="underline hover:text-mono-black">Terms of Service</a> and
-            <a href="/privacy-policy" class="underline hover:text-mono-black">Privacy Policy</a>
+            <a href={`${base}terms-of-service`} class="underline hover:text-mono-black">Terms of Service</a> and
+            <a href={`${base}privacy-policy`} class="underline hover:text-mono-black">Privacy Policy</a>
           </p>
         </form>
       </div>

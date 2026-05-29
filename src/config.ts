@@ -1,3 +1,6 @@
+const _b = import.meta.env.BASE_URL ?? '/';
+const base = _b.endsWith('/') ? _b : _b + '/';
+
 // ============================================
 // STRIPE PAYMENT LINK PLACEHOLDERS
 // Replace "#" with real Stripe links when ready
@@ -37,14 +40,14 @@ export const siteConfig = {
   // ============================================
   navigation: {
     links: [
-      { name: 'Who We Help', href: '#who-we-help' },
-      { name: 'Plans', href: '#pricing' },
-      { name: 'How It Works', href: '#how-it-works' },
-      { name: 'FAQ', href: '#faq' },
+      { name: 'Who We Help', href: `${base}#who-we-help` },
+      { name: 'Plans', href: `${base}#pricing` },
+      { name: 'How It Works', href: `${base}#how-it-works` },
+      { name: 'FAQ', href: `${base}#faq` },
     ],
     cta: {
       text: 'View Plans',
-      href: '#pricing',
+      href: `${base}#pricing`,
     },
   },
 
@@ -61,11 +64,11 @@ export const siteConfig = {
     cta: {
       primary: {
         text: 'View Plans',
-        href: '#pricing',
+        href: `${base}#pricing`,
       },
       secondary: {
         text: 'Start My Website',
-        href: '#contact',
+        href: `${base}#contact`,
       },
     },
     stats: [
@@ -369,28 +372,28 @@ export const siteConfig = {
       {
         title: 'Plans',
         links: [
-          { name: 'Starter Website', href: '#pricing' },
-          { name: 'Professional Website', href: '#pricing' },
-          { name: 'Business System', href: '#pricing' },
-          { name: 'Nexus Mini Card', href: '#pricing' },
+          { name: 'Starter Website', href: `${base}#pricing` },
+          { name: 'Professional Website', href: `${base}#pricing` },
+          { name: 'Business System', href: `${base}#pricing` },
+          { name: 'Nexus Mini Card', href: `${base}#pricing` },
         ],
       },
       {
         title: 'Company',
         links: [
-          { name: 'Who We Help', href: '#who-we-help' },
-          { name: 'How It Works', href: '#how-it-works' },
-          { name: 'FAQ', href: '#faq' },
-          { name: 'Contact', href: '#contact' },
-          { name: 'Careers', href: '/careers' },
+          { name: 'Who We Help', href: `${base}#who-we-help` },
+          { name: 'How It Works', href: `${base}#how-it-works` },
+          { name: 'FAQ', href: `${base}#faq` },
+          { name: 'Contact', href: `${base}#contact` },
+          { name: 'Careers', href: `${base}careers` },
         ],
       },
       {
         title: 'Legal',
         links: [
-          { name: 'Privacy Policy', href: '/privacy-policy' },
-          { name: 'Terms of Service', href: '/terms-of-service' },
-          { name: 'Cancellation Policy', href: '/cancellation-policy' },
+          { name: 'Privacy Policy', href: `${base}privacy-policy` },
+          { name: 'Terms of Service', href: `${base}terms-of-service` },
+          { name: 'Cancellation Policy', href: `${base}cancellation-policy` },
         ],
       },
     ],

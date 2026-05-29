@@ -2,6 +2,8 @@
 // PLANS DATA — Single source of truth
 // Used by: Pricing.astro (cards) + /plans/* (detail pages)
 // =====================================================
+const _b = import.meta.env.BASE_URL ?? '/';
+const base = _b.endsWith('/') ? _b : _b + '/';
 
 export interface PlanStep {
   step: string;
@@ -47,7 +49,7 @@ export const mainPlans: Plan[] = [
     description: 'Simple professional website for small local businesses.',
     bestFor:
       'Small businesses that need a simple professional online presence to make it easier for customers to find and contact them. One page, no extras, just what you need.',
-    detailPageUrl: '/plans/starter-website/',
+    detailPageUrl: `${base}plans/starter-website/`,
     paymentLink: 'https://buy.stripe.com/placeholder-starter',
     paymentButtonText: 'Pay for Starter Website',
     cardButtonText: 'Start Starter Website',
@@ -103,7 +105,7 @@ export const mainPlans: Plan[] = [
     description: 'Complete website and stronger online presentation.',
     bestFor:
       'Businesses that need a complete multi-page website with a stronger online presentation, a contact form, and a gallery to showcase their work.',
-    detailPageUrl: '/plans/professional-website/',
+    detailPageUrl: `${base}plans/professional-website/`,
     paymentLink: 'https://buy.stripe.com/placeholder-professional',
     paymentButtonText: 'Pay for Professional Website',
     cardButtonText: 'Start Professional Website',
@@ -159,7 +161,7 @@ export const mainPlans: Plan[] = [
       'Advanced tools, integrations, booking, payments, CRM, and automations.',
     bestFor:
       'Businesses that need more than a website — booking systems, online payments, CRM integrations, automated follow-ups, and advanced tools built around their operations.',
-    detailPageUrl: '/plans/business-system/',
+    detailPageUrl: `${base}plans/business-system/`,
     paymentLink: null, // No direct checkout — requires quote
     paymentButtonText: 'Request Custom Quote',
     cardButtonText: 'View Business System',
@@ -224,7 +226,7 @@ export const nexusMiniCardPlan: Plan = {
     'Not a full website. A simple digital business card — a professional shareable link with your business info and contact buttons.',
   bestFor:
     'Business owners who need a professional shareable link right now but are not ready for a full website. A good first step or for very simple needs.',
-  detailPageUrl: '/plans/mini-card/',
+  detailPageUrl: `${base}plans/mini-card/`,
   paymentLink: 'https://buy.stripe.com/placeholder-mini-card',
   paymentButtonText: 'Pay for Mini Card',
   cardButtonText: 'Start Mini Card',

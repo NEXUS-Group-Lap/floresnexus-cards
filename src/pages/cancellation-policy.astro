@@ -3,6 +3,8 @@ import PlanLayout from '../layouts/PlanLayout.astro';
 import { siteConfig } from '../config.ts';
 
 const { companyName, location, email, cancellationLastUpdated } = siteConfig.legal;
+const _b = import.meta.env.BASE_URL ?? '/';
+const base = _b.endsWith('/') ? _b : _b + '/';
 ---
 
 <PlanLayout
@@ -188,8 +190,8 @@ const { companyName, location, email, cancellationLastUpdated } = siteConfig.leg
           </a>
           <div class="mt-6 border-t border-white/10 pt-6">
             <div class="flex flex-wrap gap-4 text-sm">
-              <a href="/privacy-policy" class="text-white/60 hover:text-white transition-colors">Privacy Policy</a>
-              <a href="/terms-of-service" class="text-white/60 hover:text-white transition-colors">Terms of Service</a>
+              <a href={`${base}privacy-policy`} class="text-white/60 hover:text-white transition-colors">Privacy Policy</a>
+              <a href={`${base}terms-of-service`} class="text-white/60 hover:text-white transition-colors">Terms of Service</a>
             </div>
           </div>
         </div>

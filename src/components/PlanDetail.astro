@@ -1,6 +1,8 @@
 ---
 import { Icon } from 'astro-icon/components';
 import type { Plan } from '../content/plans.ts';
+const _b = import.meta.env.BASE_URL ?? '/';
+const base = _b.endsWith('/') ? _b : _b + '/';
 
 interface Props {
   plan: Plan;
@@ -14,7 +16,7 @@ const { plan } = Astro.props;
   <div class="border-b border-[#D8D5CD] bg-white px-4 py-4 sm:px-6 lg:px-8">
     <div class="mx-auto max-w-5xl">
       <a
-        href="/#pricing"
+        href={`${base}#pricing`}
         class="flex w-fit items-center gap-2 text-sm text-mono-gray transition-colors hover:text-mono-black"
       >
         <Icon name="heroicons:arrow-left" class="h-4 w-4" />
@@ -170,7 +172,7 @@ const { plan } = Astro.props;
             </a>
           ) : (
             <a
-              href="/#contact"
+              href={`${base}#contact`}
               class="btn-primary inline-block px-10 py-4 text-lg shadow-lg"
             >
               {plan.paymentButtonText}
@@ -185,9 +187,9 @@ const { plan } = Astro.props;
                 Payments are processed online through Stripe. Flores Nexus Group LLC does not directly store full credit card numbers. By submitting payment, you agree to the selected plan, setup fee, subscription terms, and applicable policies.
               </p>
               <div class="mt-2 flex flex-wrap gap-3 text-xs">
-                <a href="/terms-of-service" class="text-mono-gray underline underline-offset-2 hover:text-mono-black transition-colors">Terms of Service</a>
-                <a href="/privacy-policy" class="text-mono-gray underline underline-offset-2 hover:text-mono-black transition-colors">Privacy Policy</a>
-                <a href="/cancellation-policy" class="text-mono-gray underline underline-offset-2 hover:text-mono-black transition-colors">Cancellation Policy</a>
+                <a href={`${base}terms-of-service`} class="text-mono-gray underline underline-offset-2 hover:text-mono-black transition-colors">Terms of Service</a>
+                <a href={`${base}privacy-policy`} class="text-mono-gray underline underline-offset-2 hover:text-mono-black transition-colors">Privacy Policy</a>
+                <a href={`${base}cancellation-policy`} class="text-mono-gray underline underline-offset-2 hover:text-mono-black transition-colors">Cancellation Policy</a>
               </div>
             </div>
           )

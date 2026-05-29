@@ -3,6 +3,8 @@ import PlanLayout from '../layouts/PlanLayout.astro';
 import { siteConfig } from '../config.ts';
 
 const { companyName, location, email, tosLastUpdated } = siteConfig.legal;
+const _b = import.meta.env.BASE_URL ?? '/';
+const base = _b.endsWith('/') ? _b : _b + '/';
 ---
 
 <PlanLayout
@@ -186,7 +188,7 @@ const { companyName, location, email, tosLastUpdated } = siteConfig.legal;
           <h2 class="text-mono-black mb-6 text-2xl font-bold">8. Cancellation</h2>
           <div class="rounded-2xl border border-[#D8D5CD] bg-white p-8 card-shadow">
             <p class="text-mono-dark leading-relaxed">
-              Cancellation terms are governed by the <a href="/cancellation-policy" class="text-mono-black font-semibold underline underline-offset-2 hover:text-[#C79A4B] transition-colors">Cancellation Policy</a>, which is incorporated into these Terms of Service by reference. Setup fees are non-refundable. Monthly fees are non-refundable once charged unless required by law.
+              Cancellation terms are governed by the <a href={`${base}cancellation-policy`} class="text-mono-black font-semibold underline underline-offset-2 hover:text-[#C79A4B] transition-colors">Cancellation Policy</a>, which is incorporated into these Terms of Service by reference. Setup fees are non-refundable. Monthly fees are non-refundable once charged unless required by law.
             </p>
           </div>
         </div>
@@ -234,8 +236,8 @@ const { companyName, location, email, tosLastUpdated } = siteConfig.legal;
           </a>
           <div class="mt-6 border-t border-white/10 pt-6">
             <div class="flex flex-wrap gap-4 text-sm">
-              <a href="/privacy-policy" class="text-white/60 hover:text-white transition-colors">Privacy Policy</a>
-              <a href="/cancellation-policy" class="text-white/60 hover:text-white transition-colors">Cancellation Policy</a>
+              <a href={`${base}privacy-policy`} class="text-white/60 hover:text-white transition-colors">Privacy Policy</a>
+              <a href={`${base}cancellation-policy`} class="text-white/60 hover:text-white transition-colors">Cancellation Policy</a>
             </div>
           </div>
         </div>
