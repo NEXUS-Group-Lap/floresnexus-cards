@@ -87,6 +87,20 @@
       }
       .btn:hover { opacity: 0.8; }
 
+      .btn-primary {
+        background: #3a6bc4;
+        color: #ffffff;
+        border-color: #3a6bc4;
+        margin-bottom: 0.75rem;
+      }
+
+      .actions {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        align-items: center;
+      }
+
       footer {
         text-align: center;
         padding: 1.25rem;
@@ -100,12 +114,15 @@
       <div class="card">
         <span class="badge">Example Mini Card</span>
         <h1>Pulpería La Morenita</h1>
-        <p class="subtitle">Mini card coming soon.</p>
+        <p class="subtitle">Comida latina y productos de pulpería</p>
         <p class="description">
-          This temporary page will be used as the first example mini card
-          for Flores Nexus Cards.
+          Visita el sitio completo de Pulpería La Morenita para ver el menú,
+          fotos del local y cómo contactarlos.
         </p>
-        <a href="/" class="btn">← Back to Flores Nexus Cards</a>
+        <div class="actions">
+          <a href="https://nexus-group-lap.github.io/lamorenitawebsite/" class="btn btn-primary" target="_blank" rel="noopener">Visitar sitio completo →</a>
+          <a href="/" class="btn">← Back to Flores Nexus Cards</a>
+        </div>
       </div>
     </main>
     <footer>Powered by Flores Nexus Group</footer>
