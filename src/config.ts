@@ -59,8 +59,7 @@ export const siteConfig = {
     subheadline: 'for local businesses',
     description:
       'Get a professional online presence built for you, managed for you, and launched without agency prices.',
-    spanishLine:
-      'Páginas web simples para negocios locales — hechas por nosotros, administradas por nosotros y sin precios de agencia.',
+    spanishLine: '',
     cta: {
       primary: {
         text: 'View Plans',
