@@ -23,6 +23,8 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          submodules: true
 
       - name: Setup Node
         uses: actions/setup-node@v4
@@ -35,6 +37,23 @@ jobs:
 
       - name: Build Astro site
         run: npm run build
+
+      - name: Install La Morenita dependencies
+        run: npm ci
+        working-directory: pulperia-la-morenita
+
+      - name: Build La Morenita site
+        run: npm run build
+        working-directory: pulperia-la-morenita
+        env:
+          SITE_URL: https://floresnexus.cards
+          BASE_PATH: /lamorenita/
+
+      - name: Merge La Morenita into dist
+        run: |
+          rm -rf dist/lamorenita
+          mkdir -p dist/lamorenita
+          cp -r pulperia-la-morenita/dist/. dist/lamorenita/
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
