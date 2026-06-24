@@ -1,4 +1,27 @@
 ---
+import '../styles/globals.css';
+import { AnimatedMarqueeHero } from '../components/ui/hero-3';
+
+const nexusCards = [
+  {
+    name: "Pulpería La Morenita",
+    category: "Latin Grocery",
+    description: "Authentic Latin grocery store with fresh food and community favorites.",
+    siteUrl: "https://nexus-group-lap.github.io/lamorenitawebsite/",
+  },
+  {
+    name: "Alma Closet",
+    category: "Fashion & Resale",
+    description: "Curated fashion — unique pieces on Poshmark, eBay, and Mercari.",
+    siteUrl: "/alma/",
+  },
+  {
+    name: "Flores Lawn Care",
+    category: "Landscaping",
+    description: "Professional lawn care in Cape Coral, FL — mowing, trimming, and more.",
+    siteUrl: "/floreslawn/",
+  },
+];
 ---
 
 <!doctype html>
@@ -6,147 +29,177 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Flores Nexus Cards — Mini websites for local businesses." />
-    <title>Flores Nexus Cards</title>
-    <style>
-      *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-      body {
-        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-        background: #f4f6f8;
-        color: #0d1f3c;
-        min-height: 100vh;
-        display: flex;
-        flex-direction: column;
-      }
-
-      main {
-        flex: 1;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        padding: 2rem 1.25rem;
-      }
-
-      .card {
-        background: #ffffff;
-        border-radius: 12px;
-        box-shadow: 0 4px 24px rgba(13, 31, 60, 0.08);
-        padding: 3rem 2.5rem;
-        max-width: 560px;
-        width: 100%;
-        text-align: center;
-      }
-
-      .badge {
-        display: inline-block;
-        background: #1a3a6b;
-        color: #ffffff;
-        font-size: 0.7rem;
-        font-weight: 700;
-        letter-spacing: 0.12em;
-        text-transform: uppercase;
-        padding: 0.3rem 0.85rem;
-        border-radius: 999px;
-        margin-bottom: 1.5rem;
-      }
-
-      h1 {
-        font-size: 2rem;
-        font-weight: 800;
-        color: #0d1f3c;
-        line-height: 1.2;
-        margin-bottom: 0.5rem;
-      }
-
-      .subtitle {
-        font-size: 1.05rem;
-        color: #3a6bc4;
-        font-weight: 600;
-        margin-bottom: 1.25rem;
-      }
-
-      .description {
-        font-size: 0.95rem;
-        color: #4b5563;
-        line-height: 1.65;
-        margin-bottom: 2rem;
-      }
-
-      .buttons {
-        display: flex;
-        flex-direction: column;
-        gap: 0.75rem;
-        margin-bottom: 1.5rem;
-      }
-
-      .btn {
-        display: inline-block;
-        padding: 0.8rem 1.5rem;
-        border-radius: 8px;
-        font-size: 0.95rem;
-        font-weight: 600;
-        text-decoration: none;
-        transition: opacity 0.15s;
-      }
-      .btn:hover { opacity: 0.85; }
-
-      .btn-primary {
-        background: #1a3a6b;
-        color: #ffffff;
-      }
-
-      .btn-secondary {
-        background: #f4f6f8;
-        color: #1a3a6b;
-        border: 1.5px solid #c8d6ea;
-      }
-
-      .coming-soon {
-        font-size: 0.8rem;
-        color: #9ca3af;
-      }
-
-      footer {
-        text-align: center;
-        padding: 1.25rem;
-        font-size: 0.78rem;
-        color: #9ca3af;
-      }
-
-      @media (min-width: 480px) {
-        .buttons {
-          flex-direction: row;
-          justify-content: center;
-        }
-        .btn {
-          flex: 1;
-          max-width: 220px;
-        }
-      }
-    </style>
+    <meta
+      name="description"
+      content="Nexus Cards — Browse business pages powered by Flores Nexus Group."
+    />
+    <title>Nexus Cards | Flores Nexus Group</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap"
+      rel="stylesheet"
+    />
   </head>
-  <body>
-    <main>
-      <div class="card">
-        <span class="badge">floresnexus.cards</span>
-        <h1>Flores Nexus Cards</h1>
-        <p class="subtitle">Mini websites for local businesses.</p>
-        <p class="description">
-          This domain is used by Flores Nexus Group to host simple, fast,
-          and mobile-friendly mini websites for local businesses.
-        </p>
-        <div class="buttons">
-          <a href="https://www.floresnexus.com" class="btn btn-primary">
-            Visit Flores Nexus Group
-          </a>
-          <a href="/lamorenita" class="btn btn-secondary">
-            View Example Card
-          </a>
+  <body
+    class="min-h-screen bg-mono-white text-mono-black antialiased"
+    style="font-family: 'Inter', system-ui, -apple-system, sans-serif;"
+  >
+    <!-- ═══ HERO ═══ -->
+    <AnimatedMarqueeHero
+      client:load
+      tagline="floresnexus.cards"
+      title="Nexus Cards Directory"
+      description="Business pages powered by Flores Nexus Group — browse our active sites below."
+      ctaText="Browse Directory"
+      ctaHref="#directory"
+      secondaryCtaText="Get Yours at FloresNexus.com"
+      secondaryCtaHref="https://floresnexus.com"
+      images={[
+        "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&h=800&fit=crop&auto=format&q=80",
+        "https://images.unsplash.com/photo-1604719312566-8912e9227c6a?w=600&h=800&fit=crop&auto=format&q=80",
+        "https://images.unsplash.com/photo-1592417817098-8fd3d9eb14a5?w=600&h=800&fit=crop&auto=format&q=80",
+        "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=800&fit=crop&auto=format&q=80",
+        "https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=600&h=800&fit=crop&auto=format&q=80",
+        "https://images.unsplash.com/photo-1556742111-a301076d9d18?w=600&h=800&fit=crop&auto=format&q=80",
+        "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=800&fit=crop&auto=format&q=80",
+        "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=600&h=800&fit=crop&auto=format&q=80",
+      ]}
+    />
+
+    <!-- ═══ DIRECTORY ═══ -->
+    <section class="px-5 py-20 sm:px-6" id="directory">
+      <div class="mx-auto max-w-[1100px]">
+        <div class="scroll-fade-up mb-14 text-center">
+          <p class="mb-4 text-xs font-bold uppercase tracking-[0.15em] text-accent">Directory</p>
+          <h2 class="mb-3 text-[clamp(1.75rem,4vw,2.5rem)] font-extrabold leading-[1.15]">
+            Active Nexus Cards
+          </h2>
+          <p class="mx-auto max-w-[460px] text-[1.05rem] text-mono-gray">
+            Real businesses, real sites — built and managed by Flores Nexus Group.
+          </p>
         </div>
-        <p class="coming-soon">Client Nexus Cards coming soon.</p>
+
+        <div class="mx-auto grid max-w-[1000px] grid-cols-1 gap-7 sm:grid-cols-2 lg:grid-cols-3">
+          {nexusCards.map((card, i) => (
+            <div class={`scroll-fade-up stagger-${i + 1}`}>
+              <a
+                href={card.siteUrl}
+                target={card.siteUrl.startsWith('http') ? '_blank' : undefined}
+                rel={card.siteUrl.startsWith('http') ? 'noopener noreferrer' : undefined}
+                class="group block cursor-pointer overflow-hidden rounded-2xl border border-mono-lighter bg-mono-white no-underline transition-all duration-[350ms] hover:-translate-y-1 hover:shadow-xl"
+              >
+                <div class="flex items-center gap-1.5 border-b border-mono-lighter bg-mono-white px-4 py-2.5">
+                  <span class="h-2 w-2 rounded-full bg-mono-light/40"></span>
+                  <span class="h-2 w-2 rounded-full bg-mono-light/40"></span>
+                  <span class="h-2 w-2 rounded-full bg-mono-light/40"></span>
+                  <span class="ml-2 flex-1 overflow-hidden rounded-md bg-mono-white px-3 py-1 border border-mono-lighter">
+                    <span class="block truncate text-[10px] text-mono-gray">
+                      {card.siteUrl.startsWith('http')
+                        ? card.siteUrl.replace(/^https?:\/\//, '')
+                        : `floresnexus.cards${card.siteUrl}`}
+                    </span>
+                  </span>
+                </div>
+                <div class="site-preview">
+                  <iframe
+                    src={card.siteUrl}
+                    loading="lazy"
+                    tabindex="-1"
+                    title={`${card.name} preview`}
+                  ></iframe>
+                </div>
+                <div class="p-5">
+                  <div class="mb-3 flex items-center justify-between">
+                    <span class="inline-block rounded-full bg-accent/10 px-3 py-1 text-[0.7rem] font-bold uppercase tracking-wider text-accent">
+                      {card.category}
+                    </span>
+                    <svg class="h-4 w-4 text-mono-light transition-colors duration-200 group-hover:text-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg>
+                  </div>
+                  <h3 class="mb-1.5 text-lg font-bold text-mono-black">{card.name}</h3>
+                  <p class="text-sm leading-relaxed text-mono-gray">
+                    {card.description}
+                  </p>
+                </div>
+              </a>
+            </div>
+          ))}
+        </div>
       </div>
-    </main>
-    <footer>Powered by Flores Nexus Group</footer>
+    </section>
+
+    <!-- ═══ CTA ═══ -->
+    <section class="bg-mono-black px-5 py-16 text-center sm:px-6">
+      <div class="scroll-fade-up mx-auto max-w-[520px]">
+        <h2 class="mb-3 text-[clamp(1.5rem,3.5vw,2rem)] font-extrabold leading-[1.2] text-mono-white">
+          Want your business here?
+        </h2>
+        <p class="mb-8 text-[1rem] leading-[1.7] text-mono-light">
+          See our plans and services at FloresNexus.com
+        </p>
+        <a
+          href="https://floresnexus.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex cursor-pointer items-center gap-2 rounded-full bg-accent px-9 py-3.5 text-base font-bold text-white no-underline transition-all duration-200 hover:scale-[1.03] hover:bg-accent-hover"
+        >
+          Visit FloresNexus.com
+          <svg class="h-[18px] w-[18px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg>
+        </a>
+      </div>
+    </section>
+
+    <!-- ═══ FOOTER ═══ -->
+    <footer class="bg-mono-darker px-5 pb-8 pt-10 sm:px-6">
+      <div class="mx-auto flex max-w-[1000px] flex-col items-center gap-6">
+        <div class="text-center">
+          <p class="text-sm text-mono-light">
+            Powered by
+            <a
+              href="https://floresnexus.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="font-semibold text-accent no-underline transition-colors duration-200 hover:underline"
+            >
+              Flores Nexus Group
+            </a>
+          </p>
+        </div>
+
+        <nav class="flex flex-wrap justify-center gap-5">
+          {nexusCards.map((card) => (
+            <a
+              href={card.siteUrl}
+              target={card.siteUrl.startsWith('http') ? '_blank' : undefined}
+              rel={card.siteUrl.startsWith('http') ? 'noopener noreferrer' : undefined}
+              class="text-sm text-mono-light no-underline transition-colors duration-200 hover:text-accent"
+            >
+              {card.name}
+            </a>
+          ))}
+          <a href="https://floresnexus.com" target="_blank" rel="noopener noreferrer" class="text-sm text-mono-light no-underline transition-colors duration-200 hover:text-accent">FloresNexus.com</a>
+        </nav>
+
+        <div class="h-px w-full max-w-[600px] bg-white/[0.08]"></div>
+
+        <p class="text-center text-xs text-mono-gray">
+          &copy; 2026 Flores Nexus Group LLC. All rights reserved.
+        </p>
+      </div>
+    </footer>
+
+    <script>
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('visible');
+            }
+          });
+        },
+        { threshold: 0.15 }
+      );
+      document.querySelectorAll('.scroll-fade-up').forEach((el) => observer.observe(el));
+    </script>
   </body>
 </html>

@@ -232,9 +232,9 @@ const faqs = [
         <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
           {planes.map((plan, i) => (
             plan.destacado ? (
-              <div class={`scroll-fade-up scale-105 transform rounded-2xl border-2 border-[#C79A4B] card-shadow-featured stagger-${i + 1}`}>
+              <div class={`scroll-fade-up scale-105 transform rounded-2xl border-2 border-[#2563EB] card-shadow-featured stagger-${i + 1}`}>
                 <div class="flex h-full flex-col rounded-2xl bg-[#111111] p-7">
-                  <div class="mb-3 inline-block self-start rounded-full bg-[#C79A4B] px-3 py-0.5 text-xs font-semibold text-[#0B0B0B]">
+                  <div class="mb-3 inline-block self-start rounded-full bg-[#2563EB] px-3 py-0.5 text-xs font-semibold text-white">
                     {plan.etiqueta}
                   </div>
                   <h3 class="mb-2 text-xl font-bold text-white">{plan.nombre}</h3>
@@ -250,7 +250,7 @@ const faqs = [
                   <ul class="mb-5 flex-1 space-y-2">
                     {plan.incluye.map(f => (
                       <li class="flex items-start gap-2">
-                        <Icon name="heroicons:check" class="mt-0.5 h-4 w-4 flex-shrink-0 text-[#C79A4B]" />
+                        <Icon name="heroicons:check" class="mt-0.5 h-4 w-4 flex-shrink-0 text-[#2563EB]" />
                         <span class="text-sm text-white/90">{f}</span>
                       </li>
                     ))}
@@ -384,10 +384,10 @@ const faqs = [
             Elige un plan, realiza el pago y envía la información de tu negocio. Comenzamos la producción una vez que tengamos todo lo necesario.
           </p>
           <div class="flex flex-col justify-center gap-4 sm:flex-row">
-            <a href={`${base}#pricing`} class="inline-block rounded-[9px] bg-[#C79A4B] px-8 py-4 text-base font-semibold text-[#0B0B0B] transition-colors hover:bg-[#B68A3F]">
+            <a href={`${base}#pricing`} class="inline-block rounded-[9px] bg-[#2563EB] px-8 py-4 text-base font-semibold text-white transition-colors hover:bg-[#1D4ED8]">
               Ver planes
             </a>
-            <a href={`mailto:${`Floresnexusgroup@gmail.com`}`} class="inline-block rounded-[9px] border-2 border-white px-8 py-4 text-base font-semibold text-white transition-colors hover:border-[#C79A4B] hover:text-[#C79A4B]">
+            <a href={`mailto:${`Floresnexusgroup@gmail.com`}`} class="inline-block rounded-[9px] border-2 border-white px-8 py-4 text-base font-semibold text-white transition-colors hover:border-[#2563EB] hover:text-[#2563EB]">
               Enviar mensaje
             </a>
           </div>

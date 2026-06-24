@@ -43,13 +43,13 @@ const platforms = [
       {
         testimonialsData.map((testimonial, index) => (
           <div
-            class={`scroll-fade-up rounded-2xl border border-[#D8D5CD] bg-white p-8 card-shadow border-l-4 border-l-[#C79A4B] stagger-${(index % 9) + 1}`}
+            class={`scroll-fade-up rounded-2xl border border-[#D8D5CD] bg-white p-8 card-shadow border-l-4 border-l-[#2563EB] stagger-${(index % 9) + 1}`}
           >
             <div class="mb-4 flex">
               {Array.from({ length: testimonial.rating }).map(() => (
                 <Icon
                   name="heroicons:star-solid"
-                  class="h-5 w-5 text-[#C79A4B]"
+                  class="h-5 w-5 text-[#2563EB]"
                 />
               ))}
             </div>
