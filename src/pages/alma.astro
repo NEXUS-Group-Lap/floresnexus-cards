@@ -1,0 +1,455 @@
+---
+---
+
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="description" content="Thank you for supporting Alma Closet. Find Alma on Instagram, Poshmark, eBay, and Mercari, and follow new drops from her personal closet.">
+    <title>Alma Closet | Thank You & Links</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --background-main: #FEFAF5;
+            --background-soft: #F9F3E8;
+            --text-main: #2C2825;
+            --accent-gold: #C8A86C;
+            --accent-gold-dark: #AE8F54;
+            --button-main: #C8A86C;
+            --button-main-hover: #AE8F54;
+            --border-soft: #e2d9d0;
+            --card-bg: #ffffff;
+            --shadow-sm: 0 8px 20px rgba(0, 0, 0, 0.03);
+            --shadow-md: 0 12px 28px -8px rgba(0, 0, 0, 0.08);
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--background-main);
+            color: var(--text-main);
+            line-height: 1.5;
+            scroll-behavior: smooth;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        section {
+            padding: 4rem 0;
+        }
+
+        h1, h2, h3, .logo, .section-title {
+            font-family: 'Playfair Display', serif;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            font-weight: 600;
+            text-align: center;
+            margin-bottom: 2rem;
+            color: var(--text-main);
+            letter-spacing: -0.01em;
+            position: relative;
+        }
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 2px;
+            background: var(--accent-gold);
+            margin: 0.6rem auto 0;
+            border-radius: 2px;
+        }
+
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            background: var(--button-main);
+            color: white;
+            font-weight: 600;
+            padding: 0.8rem 1.8rem;
+            border-radius: 3rem;
+            text-decoration: none;
+            transition: transform 250ms ease, box-shadow 250ms ease, background-color 250ms ease;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.9rem;
+            border: none;
+            cursor: pointer;
+        }
+        .btn-primary:hover {
+            background: var(--button-main-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(166, 106, 91, 0.2);
+        }
+        .btn-outline {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: #fff;
+            border: 1px solid var(--border-soft);
+            color: var(--text-main);
+            font-weight: 500;
+            padding: 0.7rem 1.4rem;
+            border-radius: 3rem;
+            text-decoration: none;
+            transition: transform 250ms ease, box-shadow 250ms ease, background-color 250ms ease;
+            font-size: 0.85rem;
+        }
+        .btn-outline:hover {
+            background: var(--background-soft);
+            color: var(--accent-gold-dark);
+            border-color: var(--accent-gold);
+            transform: translateY(-2px);
+        }
+
+        .header {
+            background: rgba(254, 250, 245, 0.94);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid rgba(200,168,108,0.2);
+        }
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--text-main);
+            text-decoration: none;
+            letter-spacing: -0.5px;
+        }
+        .logo span {
+            color: var(--accent-gold);
+        }
+        .nav-links {
+            display: flex;
+            gap: 1.8rem;
+            align-items: center;
+        }
+        .nav-links a {
+            text-decoration: none;
+            font-weight: 500;
+            color: var(--text-main);
+            font-size: 0.9rem;
+            transition: color 0.2s;
+            position: relative;
+        }
+        .nav-links a::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -6px;
+            width: 0;
+            height: 2px;
+            background: var(--accent-gold);
+            transition: width 250ms ease;
+        }
+        .nav-links a:hover::after,
+        .nav-links a.active::after {
+            width: 100%;
+        }
+        .nav-links a:hover {
+            color: var(--accent-gold);
+        }
+
+        .thankyou {
+            background: linear-gradient(100deg, #FEFAF5 0%, #FCF5EA 100%);
+            padding: 3rem 0 4rem;
+            text-align: center;
+        }
+        .thankyou h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--text-main);
+        }
+        .thankyou p {
+            max-width: 650px;
+            margin: 1rem auto;
+            font-size: 1.05rem;
+            color: #5C5550;
+        }
+        .thankyou-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+
+        .about-card {
+            background: var(--card-bg);
+            border-radius: 2rem;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--border-soft);
+        }
+        .about-card h3 {
+            font-size: 1.8rem;
+            font-family: 'Playfair Display', serif;
+            margin-bottom: 1rem;
+        }
+        .about-card p {
+            color: #5C5550;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .platforms-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            justify-content: center;
+            margin-top: 1.5rem;
+        }
+        .platform-card {
+            background: var(--card-bg);
+            border-radius: 1.5rem;
+            padding: 1.5rem;
+            text-align: center;
+            width: 180px;
+            transition: transform 250ms ease, box-shadow 250ms ease;
+            border: 1px solid var(--border-soft);
+            text-decoration: none;
+            color: var(--text-main);
+        }
+        .platform-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+            border-color: var(--accent-gold);
+        }
+        .platform-card i {
+            font-size: 2.5rem;
+            color: var(--accent-gold);
+            margin-bottom: 0.8rem;
+        }
+        .platform-card span {
+            display: block;
+            font-weight: 500;
+            font-size: 1rem;
+        }
+
+        .instagram-section {
+            background: var(--background-soft);
+            border-radius: 2rem;
+            padding: 2rem;
+            text-align: center;
+        }
+        .instagram-section h3 {
+            font-size: 1.8rem;
+            font-family: 'Playfair Display', serif;
+            margin-bottom: 0.5rem;
+        }
+        .instagram-section p {
+            color: #5C5550;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer {
+            background: #2C2825;
+            color: #D6CFC7;
+            text-align: center;
+            padding: 2rem;
+            font-size: 0.8rem;
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(24px);
+            transition: opacity 700ms ease, transform 700ms ease;
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .fade-up {
+            opacity: 0;
+            animation: fadeUp 800ms ease forwards;
+        }
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(18px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .thankyou h1 { font-size: 2.2rem; }
+            .section-title { font-size: 1.6rem; }
+            .navbar { flex-direction: column; }
+            .nav-links { gap: 1.2rem; }
+            .platform-card { width: 150px; padding: 1rem; }
+            .container { padding: 0 1.2rem; }
+            section { padding: 3rem 0; }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.01ms !important;
+                transition-duration: 0.01ms !important;
+            }
+            .reveal, .fade-up {
+                opacity: 1 !important;
+                transform: none !important;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header class="header">
+    <div class="container">
+        <div class="navbar">
+            <a href="#" class="logo fade-up" style="animation-delay: 0.1s;">Alma <span>Closet</span></a>
+            <div class="nav-links fade-up" style="animation-delay: 0.2s;">
+                <a href="#thankyou">Thank You</a>
+                <a href="#about">About Alma</a>
+                <a href="#find-me">Find Me</a>
+                <a href="#instagram">Instagram</a>
+            </div>
+        </div>
+    </div>
+</header>
+
+<main>
+    <section id="thankyou" class="thankyou">
+        <div class="container">
+            <h1 class="fade-up" style="animation-delay: 0.2s;">Thank you for your purchase &#9825;</h1>
+            <p class="fade-up" style="animation-delay: 0.3s;">I'm Alma, and this is my personal closet of selected clothing, bags, shoes, and accessories.</p>
+            <p class="fade-up" style="animation-delay: 0.4s;">Thank you for supporting my closet. I personally select and share pieces through Instagram and my resale platforms. You can use this page to find where I post, where I sell, and how to follow new drops.</p>
+            <div class="thankyou-buttons fade-up" style="animation-delay: 0.5s;">
+                <a href="https://www.instagram.com/alma_martinez_l?utm_source=qr" target="_blank" class="btn-primary"><i class="fab fa-instagram"></i> Follow on Instagram</a>
+                <a href="#find-me" class="btn-outline"><i class="fas fa-search"></i> Find Me Here</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="reveal">
+        <div class="container">
+            <div class="about-card">
+                <h3>Hi, I'm Alma</h3>
+                <p>I enjoy finding clothing, bags, shoes, and accessories with style, good value, and a second chance to be worn again. Alma Closet is my personal space where I share pieces I personally select and post online.</p>
+                <p style="margin-top: 1rem;">If you have questions about size, condition, or availability, you can message me through the platform where the item is listed.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="find-me" class="reveal">
+        <div class="container">
+            <h2 class="section-title">Find me here</h2>
+            <p style="text-align: center; max-width: 600px; margin: 0 auto 1rem auto; color: #5C5550;">You can find my available pieces and new posts through these platforms.</p>
+            <div class="platforms-grid">
+                <a href="https://www.instagram.com/alma_martinez_l?utm_source=qr" target="_blank" class="platform-card">
+                    <i class="fab fa-instagram"></i>
+                    <span>Instagram</span>
+                </a>
+                <a href="https://poshmark.com/closet/almamartinez171" target="_blank" class="platform-card">
+                    <i class="fab fa-poshmark"></i>
+                    <span>Poshmark</span>
+                </a>
+                <a href="https://ebay.us/m/H1ZyX6" target="_blank" class="platform-card">
+                    <i class="fab fa-ebay"></i>
+                    <span>eBay</span>
+                </a>
+                <a href="https://www.mercari.com/u/delalma84?sv=0" target="_blank" class="platform-card">
+                    <i class="fas fa-exchange-alt"></i>
+                    <span>Mercari</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section id="instagram" class="reveal">
+        <div class="container">
+            <div class="instagram-section">
+                <h3>Follow for new drops</h3>
+                <p>I post new pieces and updates on Instagram. Follow Alma Closet to see new clothing, bags, shoes, accessories, and special finds.</p>
+                <a href="https://www.instagram.com/alma_martinez_l?utm_source=qr" target="_blank" class="btn-primary"><i class="fab fa-instagram"></i> Follow on Instagram</a>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer class="footer">
+    <div class="container">
+        <p>Alma Closet &middot; Personal closet by Alma.<br>Selected clothing, bags, shoes, and accessories shared through Instagram, Poshmark, eBay, and Mercari.</p>
+        <p style="margin-top: 0.5rem; font-size: 0.7rem;">&copy; Alma Closet &mdash; Thank you for supporting my closet</p>
+        <p style="margin-top: 0.5rem; font-size: 0.65rem; color: #8a8078;">Powered by Flores Nexus Group LLC</p>
+    </div>
+</footer>
+
+<script>
+    const revealElements = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('active');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.2 });
+    revealElements.forEach(el => observer.observe(el));
+
+    document.querySelectorAll('.nav-links a, .thankyou-buttons a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            const targetId = this.getAttribute('href');
+            if (targetId && targetId !== "#" && targetId.startsWith('#')) {
+                e.preventDefault();
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    const offset = 80;
+                    const elementPosition = targetElement.getBoundingClientRect().top + window.scrollY;
+                    window.scrollTo({ top: elementPosition - offset, behavior: 'smooth' });
+                }
+            }
+        });
+    });
+
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.nav-links a');
+    window.addEventListener('scroll', () => {
+        let current = '';
+        const scrollPos = window.scrollY + 100;
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop;
+            const sectionHeight = section.clientHeight;
+            if (scrollPos >= sectionTop && scrollPos < sectionTop + sectionHeight) {
+                current = section.getAttribute('id');
+            }
+        });
+        navLinks.forEach(link => {
+            link.classList.remove('active');
+            const href = link.getAttribute('href').substring(1);
+            if (href === current) {
+                link.classList.add('active');
+            }
+        });
+    });
+</script>
+
+</body>
+</html>

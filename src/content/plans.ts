@@ -209,11 +209,11 @@ export const mainPlans: Plan[] = [
 ];
 
 // -------------------------------------------------------
-// NEXUS MINI CARD (shown as the entry-level option below)
+// NEXUS CARD (shown as the entry-level option below)
 // -------------------------------------------------------
 export const nexusMiniCardPlan: Plan = {
   id: 'mini-card',
-  name: 'Nexus Mini Card',
+  name: 'Nexus Card',
   tag: 'Entry Option',
   setup: '$99',
   monthly: '$29',
@@ -228,8 +228,8 @@ export const nexusMiniCardPlan: Plan = {
     'Business owners who need a professional shareable link right now but are not ready for a full website. A good first step or for very simple needs.',
   detailPageUrl: `${base}plans/mini-card/`,
   paymentLink: 'https://buy.stripe.com/placeholder-mini-card',
-  paymentButtonText: 'Pay for Mini Card',
-  cardButtonText: 'Start Mini Card',
+  paymentButtonText: 'Pay for Nexus Card',
+  cardButtonText: 'Start Nexus Card',
   disclaimer:
     'No edits after launch. Includes one initial setup only. The domain, hosting, design, code, and structure remain owned and managed by Flores Nexus Group. Ownership transfer is not included in this plan.',
   features: [
@@ -248,7 +248,7 @@ export const nexusMiniCardPlan: Plan = {
     {
       step: 'Review this option',
       description:
-        'Confirm the Nexus Mini Card fits your current needs. It is a digital card, not a full website.',
+        'Confirm the Nexus Card fits your current needs. It is a digital card, not a full website.',
     },
     {
       step: 'Complete payment',
@@ -263,7 +263,7 @@ export const nexusMiniCardPlan: Plan = {
     {
       step: 'We build it',
       description:
-        'We set up your Nexus Mini Card. Production starts only after payment and complete information are received.',
+        'We set up your Nexus Card. Production starts only after payment and complete information are received.',
     },
     {
       step: 'Review and activate',

@@ -259,7 +259,7 @@ export const siteConfig = {
       },
     ],
     nexusMiniCard: {
-      name: 'Nexus Mini Card',
+      name: 'Nexus Card',
       tag: 'Entry Option',
       setup: '$99',
       monthly: '$29',
@@ -279,7 +279,7 @@ export const siteConfig = {
       disclaimer:
         'No edits after launch. Includes one initial setup only. The domain, hosting, design, code, and structure remain owned and managed by Flores Nexus Group. Ownership transfer is not included in this plan.',
       cta: {
-        text: 'Start Mini Card',
+        text: 'Start Nexus Card',
         href: '#',
       },
     },
@@ -360,7 +360,7 @@ export const siteConfig = {
           { name: 'Starter Website', href: `${base}#pricing` },
           { name: 'Professional Website', href: `${base}#pricing` },
           { name: 'Business System', href: `${base}#pricing` },
-          { name: 'Nexus Mini Card', href: `${base}#pricing` },
+          { name: 'Nexus Card', href: `${base}#pricing` },
         ],
       },
       {
