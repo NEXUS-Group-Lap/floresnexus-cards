@@ -4,6 +4,11 @@ import React from "react";
 import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 
+interface SitePreview {
+  name: string;
+  url: string;
+}
+
 interface AnimatedMarqueeHeroProps {
   tagline: string;
   title: React.ReactNode;
@@ -12,7 +17,8 @@ interface AnimatedMarqueeHeroProps {
   ctaHref?: string;
   secondaryCtaText?: string;
   secondaryCtaHref?: string;
-  images: string[];
+  images?: string[];
+  sites?: SitePreview[];
   className?: string;
 }
 
@@ -65,6 +71,7 @@ export const AnimatedMarqueeHero: React.FC<AnimatedMarqueeHeroProps> = ({
   secondaryCtaText,
   secondaryCtaHref,
   images,
+  sites,
   className,
 }) => {
   const FADE_IN_ANIMATION_VARIANTS = {
@@ -76,7 +83,9 @@ export const AnimatedMarqueeHero: React.FC<AnimatedMarqueeHeroProps> = ({
     },
   };
 
-  const duplicatedImages = [...images, ...images];
+  const marqueeItems = sites
+    ? [...sites, ...sites, ...sites, ...sites, ...sites, ...sites]
+    : [...(images || []), ...(images || [])];
 
   return (
     <section
@@ -163,19 +172,58 @@ export const AnimatedMarqueeHero: React.FC<AnimatedMarqueeHeroProps> = ({
             },
           }}
         >
-          {duplicatedImages.map((src, index) => (
+          {marqueeItems.map((item, index) => (
             <div
               key={index}
-              className="relative aspect-[3/4] h-48 flex-shrink-0 md:h-64"
+              className="relative flex-shrink-0"
               style={{
                 rotate: `${index % 2 === 0 ? -2 : 5}deg`,
+                width: sites ? "220px" : undefined,
+                height: sites ? undefined : undefined,
               }}
             >
-              <img
-                src={src}
-                alt={`Showcase image ${index + 1}`}
-                className="h-full w-full rounded-2xl object-cover shadow-md"
-              />
+              {sites ? (
+                <div
+                  className="overflow-hidden rounded-2xl border border-mono-lighter bg-white shadow-md"
+                  style={{ width: "220px", height: "160px" }}
+                >
+                  <div className="flex items-center gap-1 border-b border-mono-lighter bg-white px-2 py-1.5">
+                    <span className="h-1.5 w-1.5 rounded-full" style={{ background: "#FF5F57" }} />
+                    <span className="h-1.5 w-1.5 rounded-full" style={{ background: "#FEBC2E" }} />
+                    <span className="h-1.5 w-1.5 rounded-full" style={{ background: "#28C840" }} />
+                    <span className="ml-1.5 flex-1 truncate rounded bg-mono-white px-2 py-0.5 text-[7px] text-mono-gray">
+                      floresnexus.cards{(item as SitePreview).url}
+                    </span>
+                  </div>
+                  <div style={{ position: "relative", width: "100%", height: "calc(100% - 24px)", overflow: "hidden" }}>
+                    <iframe
+                      src={(item as SitePreview).url}
+                      title={`${(item as SitePreview).name} preview`}
+                      loading="lazy"
+                      tabIndex={-1}
+                      style={{
+                        position: "absolute",
+                        top: 0,
+                        left: 0,
+                        width: "400%",
+                        height: "400%",
+                        transform: "scale(0.25)",
+                        transformOrigin: "top left",
+                        border: "none",
+                        pointerEvents: "none",
+                      }}
+                    />
+                  </div>
+                </div>
+              ) : (
+                <div className="aspect-[3/4] h-48 md:h-64">
+                  <img
+                    src={item as string}
+                    alt={`Showcase image ${index + 1}`}
+                    className="h-full w-full rounded-2xl object-cover shadow-md"
+                  />
+                </div>
+              )}
             </div>
           ))}
         </motion.div>
