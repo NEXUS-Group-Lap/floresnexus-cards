@@ -1,0 +1,14 @@
+---
+import { BASE } from "../consts";
+const { mode = "light" } = Astro.props;
+---
+
+<a href={BASE} class="logo flex items-center shrink-0">
+  <img
+    src={`${BASE}img/logo.webp`}
+    alt="Professional Drain Cleaning"
+    width="700"
+    height="574"
+    class={mode === "light" ? "h-14 sm:h-16 w-auto" : "h-16 sm:h-20 w-auto"}
+  />
+</a>

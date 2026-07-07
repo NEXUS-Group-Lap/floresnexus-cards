@@ -1,0 +1,66 @@
+---
+import { Image } from "astro:assets";
+import { Icon } from "astro-icon/components";
+import { BASE } from "../../consts";
+---
+
+<section class="section">
+  <div class="container">
+    <div class="grid md:grid-cols-2 gap-6 mb-8">
+      <div class="reveal-left hover-lift rounded-xl border border-gray-200 overflow-hidden">
+        <Image
+          src={`${BASE}img/real/residential-commercial/residential-job.png`}
+          alt=""
+          width="700"
+          height="420"
+          format="webp"
+          quality={55}
+          class="w-full h-48 object-cover"
+        />
+        <div class="p-6">
+          <Icon name="lucide:house" size={32} class="text-main mb-3" />
+          <h3 class="text-lg font-bold text-dark">
+            <span data-i18n="en">Residential</span>
+            <span data-i18n="es" style="display:none">Residencial</span>
+          </h3>
+          <p class="text-sm text-gray-600 mt-1">
+            <span data-i18n="en">Your home, your schedule — we treat it like our own.</span>
+            <span data-i18n="es" style="display:none">Tu casa, tu horario — la tratamos como si fuera nuestra.</span>
+          </p>
+        </div>
+      </div>
+      <div class="reveal-right hover-lift rounded-xl border border-gray-200 overflow-hidden">
+        <Image
+          src={`${BASE}img/real/residential-commercial/commercial-job.png`}
+          alt=""
+          width="700"
+          height="420"
+          format="webp"
+          quality={55}
+          class="w-full h-48 object-cover"
+        />
+        <div class="p-6">
+          <Icon name="lucide:building" size={32} class="text-main mb-3" />
+          <h3 class="text-lg font-bold text-dark">
+            <span data-i18n="en">Commercial</span>
+            <span data-i18n="es" style="display:none">Comercial</span>
+          </h3>
+          <p class="text-sm text-gray-600 mt-1">
+            <span data-i18n="en">Flexible scheduling for property managers and businesses, with invoicing available.</span>
+            <span data-i18n="es" style="display:none">Horarios flexibles para administradores de propiedades y negocios, con facturación disponible.</span>
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="reveal max-w-2xl mx-auto text-center">
+      <h2>
+        <span data-i18n="en">Residential &amp; Commercial Plumbing Services</span>
+        <span data-i18n="es" style="display:none">Servicios Residenciales y Comerciales</span>
+      </h2>
+      <p>
+        <span data-i18n="en">We help homeowners, property managers, and businesses with drain cleaning, sewer line problems, camera inspections, water heaters, bathroom remodels, well water systems, and underground plumbing.</span>
+        <span data-i18n="es" style="display:none">Ayudamos a dueños de casa, administradores de propiedades y negocios con limpieza de drenajes, problemas en líneas de sewer, inspecciones con cámara, calentadores de agua, remodelación de baños, sistemas de agua de pozo y plomería subterránea.</span>
+      </p>
+    </div>
+  </div>
+</section>

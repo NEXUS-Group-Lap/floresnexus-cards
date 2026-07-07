@@ -1,0 +1,86 @@
+---
+import { Image } from "astro:assets";
+import { Icon } from "astro-icon/components";
+import { PHONE_TEL, BASE } from "../../consts";
+
+const points = [
+  {
+    en: "You talk to the owner, every time",
+    es: "Hablas con el dueño, siempre",
+  },
+  {
+    en: "Upfront pricing, no surprises",
+    es: "Precios claros, sin sorpresas",
+  },
+  {
+    en: "Licensed & insured",
+    es: "Licenciado y asegurado",
+  },
+  {
+    en: "We show up when we say we will",
+    es: "Llegamos cuando decimos que llegaremos",
+  },
+];
+---
+
+<section id="about" class="section section-about scroll-mt-20">
+  <div class="container">
+    <div class="reveal-group grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+      <div class="reveal-left order-2 md:order-1">
+        <Image
+          src={`${BASE}img/real/hero/owner.png`}
+          alt=""
+          width="700"
+          height="560"
+          format="webp"
+          quality={55}
+          class="hover-lift w-full h-auto rounded-2xl shadow-lg object-cover aspect-[5/4]"
+        />
+      </div>
+      <div class="reveal-right order-1 md:order-2">
+        <p class="font-label uppercase tracking-wide text-xs sm:text-sm font-semibold text-accent mb-2">
+          <span data-i18n="en">Who We Are</span>
+          <span data-i18n="es" style="display:none">Quiénes Somos</span>
+        </p>
+        <h2>
+          <span data-i18n="en">A Local Business You Can Trust</span>
+          <span data-i18n="es" style="display:none">Un Negocio Local en el Que Puedes Confiar</span>
+        </h2>
+        <p class="mb-3">
+          <span data-i18n="en">Hi, I'm Yasmani, the owner of Professional Drain Cleaning. I started this business because getting your drain or plumbing fixed shouldn't mean waiting days for a callback or getting talked into work you don't need.</span>
+          <span data-i18n="es" style="display:none">Hola, soy Yasmani, el dueño de Professional Drain Cleaning. Empecé este negocio porque arreglar tu drenaje o plomería no debería significar esperar días para que te devuelvan la llamada, o que te convenzan de un trabajo que no necesitas.</span>
+        </p>
+        <p class="mb-6">
+          <span data-i18n="en">When you call, you talk directly to us — no call center, no subcontractors. We show up, listen to what's actually going on, and give you an honest fix.</span>
+          <span data-i18n="es" style="display:none">Cuando llamas, hablas directamente con nosotros — sin call center, sin subcontratistas. Llegamos, escuchamos lo que realmente está pasando, y te damos una solución honesta.</span>
+        </p>
+
+        <ul class="reveal-group grid grid-cols-1 sm:grid-cols-2 gap-3 mb-8">
+          {points.map((point) => (
+            <li class="reveal flex items-center gap-3 bg-cream rounded-lg p-3">
+              <div class="bg-main text-white rounded-full flex items-center justify-center w-6 h-6 shrink-0">
+                <Icon name="lucide:check" size={14} />
+              </div>
+              <span class="font-semibold text-sm text-dark">
+                <span data-i18n="en">{point.en}</span>
+                <span data-i18n="es" style="display:none">{point.es}</span>
+              </span>
+            </li>
+          ))}
+        </ul>
+
+        <div class="flex flex-wrap gap-4">
+          <a href={PHONE_TEL} class="btn bg-main border-main text-white rounded-lg hover:bg-dark hover:-translate-y-0.5 transition h-auto py-3 px-6">
+            <Icon name="lucide:phone-call" size={18} />
+            <span data-i18n="en">Call Yasmani Now</span>
+            <span data-i18n="es" style="display:none">Llamar a Yasmani</span>
+          </a>
+          <a href="#reviews" class="btn btn-outline border-dark/20 text-dark rounded-lg hover:bg-cream hover:-translate-y-0.5 transition h-auto py-3 px-6">
+            <span data-i18n="en">See Our Reviews</span>
+            <span data-i18n="es" style="display:none">Ver Nuestras Reseñas</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

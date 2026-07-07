@@ -1,0 +1,21 @@
+---
+import type { HTMLAttributes } from "astro/types";
+
+type Props = HTMLAttributes<"a">;
+
+const { href, class: className, ...props } = Astro.props;
+// Compare against the full pathname (hrefs from NAV_MENU already include the base path).
+const normalize = (p: string) => p.replace(/\/+$/, "") || "/";
+const current = normalize(Astro.url.pathname);
+const target = typeof href === "string" ? href : String(href ?? "");
+const isActive = !target.includes("#") && normalize(target) === current;
+---
+
+<a href={href} class:list={[className, { active: isActive }]} {...props}>
+  <slot />
+</a>
+<style>
+  a.active {
+    color: var(--color-main);
+  }
+</style>

@@ -1,0 +1,273 @@
+---
+import { Icon } from "astro-icon/components";
+import Swiper from "../Swiper.astro";
+import { GOOGLE_REVIEWS_URL } from "../../consts";
+
+const reviews = [
+  {
+    name: "SmarTax & Accounting Services",
+    reviewCount: 1,
+    initial: "S",
+    color: "bg-main",
+    en: { time: "a year ago", text: "If I could I would give 11 stars 🤩... I'm very happy with Professional Drain Cleaning.. the owner Yasmani listens to the client and always gives the best solution from his experience. I totally recommend this company 💯" },
+    es: { time: "hace un año", text: "Si pudiera daría 11 estrellas 🤩... Estoy muy feliz con Professional Drain Cleaning.. el dueño Yasmani escucha al cliente y siempre da la mejor solución basada en su experiencia. Recomiendo totalmente esta empresa 💯" },
+  },
+  {
+    name: "Bryan Alvarez",
+    reviewCount: 7,
+    initial: "B",
+    color: "bg-accent",
+    en: { time: "a year ago", text: "Very responsive. Came when I had an emergency when no one else would. Amazing service and price. Highly recommend Yasmani and his team." },
+    es: { time: "hace un año", text: "Muy atento. Vino cuando tuve una emergencia y nadie más quiso venir. Servicio y precio increíbles. Recomiendo mucho a Yasmani y su equipo." },
+  },
+  {
+    name: "Akuna",
+    reviewCount: 5,
+    initial: "A",
+    color: "bg-emerald-600",
+    en: { time: "a year ago", text: "I don't usually write reviews, but I felt like you need this contact in your life. This is a father-and-son business — reliable, affordable, fast, and incredibly professional. These are the guys you want to hire!" },
+    es: { time: "hace un año", text: "No suelo escribir reseñas, pero sentí que necesitabas este contacto en tu vida. Es un negocio de padre e hijo: confiables, accesibles, rápidos e increíblemente profesionales. ¡Son a quienes debes contratar!" },
+  },
+  {
+    name: "Yobal Ojeda",
+    reviewCount: 3,
+    initial: "Y",
+    color: "bg-amber-600",
+    en: { time: "a year ago", text: "Excellent service with quality, the best prices in all of Florida. I recommend them 100%." },
+    es: { time: "hace un año", text: "Excelente servicio con calidad, los mejores precios de toda la Florida. Los recomiendo 100%." },
+  },
+  {
+    name: "Lester Valdes",
+    subtitle: "LVR Transportation LLC",
+    reviewCount: 2,
+    initial: "L",
+    color: "bg-sky-600",
+    en: { time: "a year ago", text: "Great service! Yasmani responded to my emergency call the same day with the best price. Thank you!" },
+    es: { time: "hace un año", text: "¡Excelente servicio! Yasmani respondió a mi llamada de emergencia el mismo día con el mejor precio. ¡Gracias!" },
+  },
+  {
+    name: "John Ramos",
+    reviewCount: 2,
+    initial: "J",
+    color: "bg-violet-600",
+    en: { time: "a year ago", text: "Fast and professional work. Very reliable and knows what he is doing." },
+    es: { time: "hace un año", text: "Trabajo rápido y profesional. Muy confiable y sabe lo que hace." },
+  },
+  {
+    name: "Richard Agosto",
+    reviewCount: 5,
+    initial: "R",
+    color: "bg-rose-600",
+    en: { time: "a year ago", text: "Very professional and quick response. The best and most professional plumber that I've ever dealt with." },
+    es: { time: "hace un año", text: "Muy profesional y respuesta rápida. El mejor y más profesional plomero con el que he trabajado." },
+  },
+  {
+    name: "CMayr's C",
+    subtitle: "Local Guide · 56 reviews",
+    reviewCount: 56,
+    initial: "C",
+    color: "bg-teal-600",
+    en: { time: "a year ago", text: "Excellent service. I had a leak in my kitchen, and they were able to come to my house and assist me as quickly as possible." },
+    es: { time: "hace un año", text: "Excelente servicio. Tuve una fuga en la cocina y pudieron venir a mi casa y ayudarme lo más rápido posible." },
+  },
+  {
+    name: "Uko",
+    reviewCount: 2,
+    initial: "U",
+    color: "bg-main",
+    en: { time: "3 months ago", text: "I highly recommend him, he does excellent work and is very responsible." },
+    es: { time: "hace 3 meses", text: "Lo recomiendo mucho, hace un trabajo excelente y es muy responsable." },
+  },
+  {
+    name: "Yunio Pit",
+    reviewCount: 1,
+    initial: "Y",
+    color: "bg-accent",
+    en: { time: "a year ago", text: "Excellent, very professional service." },
+    es: { time: "hace un año", text: "Excelente, servicio muy profesional." },
+  },
+  {
+    name: "Anairis Tapia",
+    reviewCount: 1,
+    initial: "A",
+    color: "bg-emerald-600",
+    en: { time: "a year ago", text: "He is a very professional, polite, and efficient young man. I would recommend him to anyone." },
+    es: { time: "hace un año", text: "Es un joven muy profesional, educado y eficiente. Lo recomendaría a cualquiera." },
+  },
+  {
+    name: "Livania Torres",
+    reviewCount: 1,
+    initial: "L",
+    color: "bg-amber-600",
+    en: { time: "a year ago", text: "I've used professional drain cleaning services several times, and their work has always been wonderful. Most importantly, they were incredibly efficient, left no mess, and were extremely professional. I highly recommend them." },
+    es: { time: "hace un año", text: "He usado los servicios de limpieza de drenajes varias veces, y su trabajo siempre ha sido excelente. Lo más importante, fueron increíblemente eficientes, no dejaron desorden y fueron sumamente profesionales. Los recomiendo mucho." },
+  },
+  {
+    name: "Victor Rosado",
+    reviewCount: 7,
+    initial: "V",
+    color: "bg-sky-600",
+    en: { time: "a year ago", text: "100% professional, excellent plumber and person, treats clients like family, best equipment at your disposal." },
+    es: { time: "hace un año", text: "100% profesional, excelente plomero y persona, trata a los clientes como familia, el mejor equipo a tu disposición." },
+  },
+];
+
+const trustPoints = [
+  {
+    icon: "simple-icons:google",
+    en: "Google Verified",
+    es: "Verificado en Google",
+  },
+  {
+    icon: "lucide:star",
+    en: "Live Rating",
+    es: "Calificación en Vivo",
+  },
+  {
+    icon: "lucide:message-square-text",
+    en: "Real Feedback",
+    es: "Opiniones Reales",
+  },
+];
+---
+
+<section id="reviews" class="section bg-cream py-14 lg:py-20 scroll-mt-20">
+  <div class="container">
+    <div class="reveal-group max-w-2xl mx-auto text-center">
+      <Icon name="lucide:star" size={36} class="reveal text-main mx-auto mb-4" />
+      <h2 class="reveal">
+        <span data-i18n="en">Google Reviews</span>
+        <span data-i18n="es" style="display:none">Reseñas en Google</span>
+      </h2>
+      <p class="reveal mb-2">
+        <span data-i18n="en">See what customers are saying about Professional Drain Cleaning on Google.</span>
+        <span data-i18n="es" style="display:none">Mira lo que los clientes dicen sobre Professional Drain Cleaning en Google.</span>
+      </p>
+      <p class="reveal mb-8">
+        <span data-i18n="en">Read real customer reviews directly on our Google Business Profile.</span>
+        <span data-i18n="es" style="display:none">Lee reseñas reales directamente en nuestro perfil de Google Business.</span>
+      </p>
+
+      <a
+        href={GOOGLE_REVIEWS_URL}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="reveal hover-lift inline-flex flex-col items-center gap-2 bg-white rounded-2xl border border-gray-200 shadow-sm hover:shadow-md transition px-8 py-6 mb-10"
+      >
+        <div class="flex items-center gap-2">
+          <Icon name="simple-icons:google" size={22} />
+          <span class="text-sm font-semibold text-gray-500 uppercase tracking-wide">Google Rating</span>
+        </div>
+        <p class="text-5xl font-bold text-dark leading-none">5.0</p>
+        <div class="flex items-center gap-1">
+          {Array.from({ length: 5 }).map(() => (
+            <Icon name="heroicons:star-solid" size={22} class="text-gold" />
+          ))}
+        </div>
+        <p class="text-sm text-gray-500 mt-1">
+          <span data-i18n="en">5 out of 5 stars on Google</span>
+          <span data-i18n="es" style="display:none">5 de 5 estrellas en Google</span>
+        </p>
+      </a>
+    </div>
+
+    <div class="reveal-scale relative mb-10 px-2 sm:px-10">
+      <Swiper
+        id="reviewsSwiper"
+        pagination={true}
+        navigation={true}
+        prev="reviews-swiper-prev"
+        next="reviews-swiper-next"
+      >
+        {reviews.map((r) => (
+          <div class="swiper-slide h-auto py-2">
+            <div class="hover-lift bg-white rounded-2xl border border-gray-200 shadow-sm p-6 flex flex-col h-full">
+              <div class="flex items-center gap-3 mb-3">
+                <div class:list={["w-11 h-11 rounded-full flex items-center justify-center text-white font-semibold shrink-0", r.color]}>
+                  {r.initial}
+                </div>
+                <div class="min-w-0">
+                  <p class="font-semibold text-dark truncate">{r.name}</p>
+                  <p class="text-xs text-gray-500 truncate">
+                    {r.subtitle ?? `${r.reviewCount} review${r.reviewCount > 1 ? "s" : ""}`}
+                  </p>
+                </div>
+                <Icon name="simple-icons:google" size={16} class="ml-auto text-gray-400 shrink-0" />
+              </div>
+              <div class="flex items-center gap-1 mb-3">
+                {Array.from({ length: 5 }).map(() => (
+                  <Icon name="heroicons:star-solid" size={16} class="text-gold" />
+                ))}
+                <span class="text-xs text-gray-400 ml-2">
+                  <span data-i18n="en">{r.en.time}</span>
+                  <span data-i18n="es" style="display:none">{r.es.time}</span>
+                </span>
+              </div>
+              <p class="text-sm text-gray-600 leading-relaxed">
+                <span data-i18n="en">{r.en.text}</span>
+                <span data-i18n="es" style="display:none">{r.es.text}</span>
+              </p>
+            </div>
+          </div>
+        ))}
+      </Swiper>
+    </div>
+
+    <div class="reveal-group flex flex-wrap items-center justify-center gap-x-8 gap-y-3 mb-10 text-sm font-medium text-gray-600">
+      {trustPoints.map((t) => (
+        <div class="reveal flex items-center gap-2">
+          <Icon name={t.icon} size={18} class="text-main shrink-0" />
+          <span data-i18n="en">{t.en}</span>
+          <span data-i18n="es" style="display:none">{t.es}</span>
+        </div>
+      ))}
+    </div>
+
+    <div class="reveal flex justify-center">
+      <a href={GOOGLE_REVIEWS_URL} target="_blank" rel="noopener noreferrer" class="btn bg-main border-main text-white rounded-lg hover:bg-dark hover:-translate-y-0.5 transition h-auto py-3">
+        <Icon name="lucide:star" size={16} />
+        <span data-i18n="en">Read Our Google Reviews</span>
+        <span data-i18n="es" style="display:none">Ver Reseñas en Google</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<script>
+  import Swiper from "swiper";
+  import { Navigation, Pagination, Autoplay } from "swiper/modules";
+
+  new Swiper("#reviewsSwiper", {
+    modules: [Navigation, Pagination, Autoplay],
+    slidesPerView: 1,
+    spaceBetween: 20,
+    loop: true,
+    autoplay: {
+      delay: 5000,
+      disableOnInteraction: true,
+      pauseOnMouseEnter: true,
+    },
+    navigation: {
+      nextEl: ".reviews-swiper-next",
+      prevEl: ".reviews-swiper-prev",
+    },
+    pagination: {
+      el: "#reviewsSwiper .swiper-pagination",
+      clickable: true,
+    },
+    breakpoints: {
+      640: { slidesPerView: 2 },
+      1024: { slidesPerView: 3 },
+    },
+  });
+</script>
+
+<style>
+  #reviewsSwiper {
+    padding-bottom: 2.25rem;
+  }
+
+  #reviewsSwiper .swiper-pagination-bullet-active {
+    background: var(--color-main);
+  }
+</style>

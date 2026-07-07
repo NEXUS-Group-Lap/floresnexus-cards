@@ -1,0 +1,79 @@
+---
+import { Image } from "astro:assets";
+import { Icon } from "astro-icon/components";
+import { PHONE_TEL, WHATSAPP_URL, BASE } from "../../consts";
+---
+
+<section class="relative overflow-hidden text-white py-14 lg:py-24">
+  <Image
+    src={`${BASE}img/stock/hero-tech.jpg`}
+    alt=""
+    width="1600"
+    height="1200"
+    format="webp"
+    quality={50}
+    class="hero-bg-anim absolute inset-0 w-full h-full object-cover"
+  />
+  <div class="absolute inset-0 bg-gradient-to-br from-dark/95 to-main/90"></div>
+  <div class="hero-stagger container text-center relative z-10">
+    <p class="font-label uppercase tracking-wide text-xs sm:text-sm font-semibold text-accent mb-3">
+      <span data-i18n="en">Serving Southwest Florida from Cape Coral</span>
+      <span data-i18n="es" style="display:none">Sirviendo el Suroeste de Florida desde Cape Coral</span>
+    </p>
+
+    <h1 class="text-white">Professional Drain Cleaning</h1>
+
+    <p class="text-lg sm:text-xl font-semibold text-white/90 mb-4">
+      <span data-i18n="en">24/7 Drain Cleaning &amp; Plumbing Services in Southwest Florida</span>
+      <span data-i18n="es" style="display:none">Servicios de plomería y limpieza de drenajes 24/7 en Southwest Florida</span>
+    </p>
+
+    <p class="max-w-2xl mx-auto text-white/80 mb-2">
+      <span data-i18n="en">Drain cleaning, camera inspections, water heaters, bathroom remodels, well water systems, and underground plumbing for homes and businesses.</span>
+      <span data-i18n="es" style="display:none">Limpieza de drenajes, inspección con cámara, calentadores de agua, remodelación de baños, sistemas de agua de pozo y plomería subterránea para casas y negocios.</span>
+    </p>
+
+    <p class="max-w-2xl mx-auto text-white/80 mb-8">
+      <span data-i18n="en">Licensed &amp; insured. Based in Cape Coral. We come to your location.</span>
+      <span data-i18n="es" style="display:none">Licenciado y asegurado. Basado en Cape Coral. Vamos directamente a tu ubicación.</span>
+    </p>
+
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 max-w-2xl mx-auto">
+      <a href={PHONE_TEL} class="btn bg-accent border-accent text-white rounded-lg hover:bg-accent-dark hover:-translate-y-0.5 transition h-auto py-3">
+        <Icon name="lucide:phone-call" size={18} />
+        <span data-i18n="en">Call Now</span>
+        <span data-i18n="es" style="display:none">Llamar Ahora</span>
+      </a>
+      <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" class="hidden sm:inline-flex btn bg-white text-dark rounded-lg hover:bg-gray-100 hover:-translate-y-0.5 transition h-auto py-3">
+        <Icon name="lucide:message-circle" size={18} />
+        <span data-i18n="en">Text / WhatsApp</span>
+        <span data-i18n="es" style="display:none">Mensaje / WhatsApp</span>
+      </a>
+      <a href={PHONE_TEL} class="btn btn-outline border-white text-white rounded-lg hover:bg-white/10 hover:-translate-y-0.5 transition h-auto py-3">
+        <Icon name="lucide:triangle-alert" size={18} />
+        <span data-i18n="en">Request Emergency Service</span>
+        <span data-i18n="es" style="display:none">Servicio de Emergencia</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="reveal bg-cream border-b border-gray-200">
+  <div class="container py-4 flex flex-wrap items-center justify-center gap-x-8 gap-y-2 text-sm font-semibold text-dark">
+    <span class="inline-flex items-center gap-2">
+      <Icon name="lucide:shield-check" size={20} class="text-main" />
+      <span data-i18n="en">Licensed &amp; Insured</span>
+      <span data-i18n="es" style="display:none">Licenciado y Asegurado</span>
+    </span>
+    <span class="inline-flex items-center gap-2">
+      <Icon name="lucide:clock" size={20} class="text-main" />
+      <span data-i18n="en">24/7 Emergency Service</span>
+      <span data-i18n="es" style="display:none">Servicio de Emergencia 24/7</span>
+    </span>
+    <span class="inline-flex items-center gap-2">
+      <Icon name="lucide:truck" size={20} class="text-main" />
+      <span data-i18n="en">Mobile Service — We Come to You</span>
+      <span data-i18n="es" style="display:none">Servicio Móvil — Vamos a Tu Ubicación</span>
+    </span>
+  </div>
+</section>

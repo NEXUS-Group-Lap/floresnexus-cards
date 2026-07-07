@@ -1,0 +1,46 @@
+---
+import { NAV_MENU, PHONE_DISPLAY, PHONE_TEL, WHATSAPP_URL } from "../consts";
+import HeaderLink from "./HeaderLink.astro";
+import Logo from "./Logo.astro";
+import { Icon } from "astro-icon/components";
+---
+
+<div class="drawer-side">
+  <label for="my-drawer-2" aria-label="close sidebar" class="drawer-overlay"
+    ><span class="sr-only">Open menu</span>
+  </label>
+  <div class="menu bg-dark text-white min-h-full w-80 p-4">
+    <Logo mode="dark" />
+    <ul class="mt-4">
+      {
+        NAV_MENU.map((item) => (
+          <li>
+            <HeaderLink href={item.url} class="hover:bg-black">
+              <span data-i18n="en">{item.title}</span>
+              <span data-i18n="es" style="display:none">{item.es}</span>
+            </HeaderLink>
+          </li>
+        ))
+      }
+    </ul>
+    <div class="flex flex-col gap-2 items-center w-full mt-auto">
+      <a
+        href={PHONE_TEL}
+        class="btn bg-main border-main text-white rounded-lg hover:bg-white hover:text-dark! w-full"
+      >
+        <Icon name="lucide:phone-call" size={16} />
+        {PHONE_DISPLAY}
+      </a>
+      <a
+        href={WHATSAPP_URL}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="btn btn-outline border-white text-white rounded-lg hover:bg-white hover:text-dark! w-full"
+      >
+        <Icon name="lucide:message-circle" size={16} />
+        <span data-i18n="en">Text / WhatsApp</span>
+        <span data-i18n="es" style="display:none">Mensaje / WhatsApp</span>
+      </a>
+    </div>
+  </div>
+</div>

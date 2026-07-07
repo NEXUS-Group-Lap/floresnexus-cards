@@ -1,0 +1,52 @@
+---
+import { Image } from "astro:assets";
+import { Icon } from "astro-icon/components";
+import { SERVICE_AREAS, BASE } from "../../consts";
+---
+
+<section id="service-area" class="section scroll-mt-20">
+  <div class="container grid md:grid-cols-2 gap-10 items-center">
+    <div class="reveal-left order-2 md:order-1 text-center md:text-left">
+      <div class="w-16 h-16 rounded-full bg-main/10 flex items-center justify-center mx-auto md:mx-0 mb-4">
+        <Icon name="lucide:map-pin" size={32} class="text-main" />
+      </div>
+      <h2>
+        <span data-i18n="en">Serving All of Southwest Florida</span>
+        <span data-i18n="es" style="display:none">Servicio en Todo el Suroeste de Florida</span>
+      </h2>
+      <p class="mb-3">
+        <span data-i18n="en">Based in Cape Coral, Professional Drain Cleaning serves homes and businesses throughout Southwest Florida — no storefront visit required.</span>
+        <span data-i18n="es" style="display:none">Con base en Cape Coral, Professional Drain Cleaning atiende casas y negocios en todo el Suroeste de Florida — no es necesario visitar una oficina o tienda física.</span>
+      </p>
+
+      <ul class="flex flex-wrap justify-center md:justify-start gap-2 mb-4">
+        {SERVICE_AREAS.map((area) => (
+          <li class="inline-flex items-center gap-1.5 bg-main/10 text-dark text-sm font-semibold rounded-full px-3 py-1.5">
+            <Icon name="lucide:map-pin" size={14} class="text-main" />
+            {area}
+          </li>
+        ))}
+      </ul>
+      <p class="text-sm text-gray-500 mb-3">
+        <span data-i18n="en">Not sure if you're in range? Call us — we cover most of the surrounding area too.</span>
+        <span data-i18n="es" style="display:none">¿No sabes si tu zona está cubierta? Llámanos — también cubrimos la mayoría de las áreas cercanas.</span>
+      </p>
+
+      <p>
+        <span data-i18n="en">Call or text us, send your service address, and we will confirm availability based on your location and the type of job.</span>
+        <span data-i18n="es" style="display:none">Llama o manda mensaje, envía la dirección del servicio y confirmaremos disponibilidad según tu ubicación y el tipo de trabajo.</span>
+      </p>
+    </div>
+    <div class="reveal-right order-1 md:order-2">
+      <Image
+        src={`${BASE}img/real/mobile-service/service-area-map.png`}
+        alt=""
+        width="800"
+        height="533"
+        format="webp"
+        quality={55}
+        class="hover-lift w-full h-auto rounded-2xl shadow-lg object-contain bg-white p-4 aspect-[4/3]"
+      />
+    </div>
+  </div>
+</section>

@@ -55,6 +55,23 @@ jobs:
           mkdir -p dist/lamorenita
           cp -r pulperia-la-morenita/dist/. dist/lamorenita/
 
+      - name: Install Professional Drain Cleaning dependencies
+        run: npm ci
+        working-directory: professional-drain-cleaning
+
+      - name: Build Professional Drain Cleaning site
+        run: npm run build
+        working-directory: professional-drain-cleaning
+        env:
+          SITE_URL: https://floresnexus.cards
+          BASE_PATH: /professionaldraincleaning/
+
+      - name: Merge Professional Drain Cleaning into dist
+        run: |
+          rm -rf dist/professionaldraincleaning
+          mkdir -p dist/professionaldraincleaning
+          cp -r professional-drain-cleaning/dist/. dist/professionaldraincleaning/
+
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:

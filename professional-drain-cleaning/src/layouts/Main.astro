@@ -1,0 +1,133 @@
+---
+import BaseHead from "../components/BaseHead.astro";
+import Footer from "../components/Footer.astro";
+import Header from "../components/Header.astro";
+import Drawer from "../components/Drawer.astro";
+import { Icon } from "astro-icon/components";
+import { PHONE_TEL, WHATSAPP_URL } from "../consts";
+const { title, description, image } = Astro.props;
+
+import { ClientRouter } from "astro:transitions";
+
+const anim = {
+  old: {
+    name: "FadeIn",
+    duration: "0.5s",
+    easing: "ease-in",
+    direction: "reverse",
+  },
+  new: {
+    name: "FadeIn",
+    duration: "0.5s",
+    easing: "ease-in-out",
+  },
+};
+
+const customTransition = {
+  forwards: anim,
+  backwards: anim,
+};
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <BaseHead title={title} description={description} image={image} />
+  </head>
+  <body class="pb-16 md:pb-0">
+    <div class="drawer min-h-screen">
+      <input
+        id="my-drawer-2"
+        type="checkbox"
+        class="drawer-toggle"
+        title="Toggle navigation menu"
+      />
+      <label for="my-drawer-2" class="sr-only"> Toggle navigation menu </label>
+      <div class="drawer-content flex flex-col min-h-screen">
+        <main class="min-h-screen flex flex-col">
+          <Header />
+          <slot />
+        </main>
+        <Footer />
+      </div>
+      <Drawer />
+    </div>
+
+    <div class="md:hidden fixed bottom-0 inset-x-0 z-50 grid grid-cols-2 shadow-[0_-2px_10px_rgba(0,0,0,0.15)]">
+      <a href={PHONE_TEL} class="flex items-center justify-center gap-2 font-bold py-3.5 bg-accent text-white">
+        <Icon name="lucide:phone-call" class="w-5 h-5" aria-hidden="true" />
+        <span data-i18n="en">Call Now</span>
+        <span data-i18n="es" style="display:none">Llamar Ahora</span>
+      </a>
+      <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" class="flex items-center justify-center gap-2 font-bold py-3.5 bg-main text-white">
+        <Icon name="lucide:message-circle" class="w-5 h-5" aria-hidden="true" />
+        <span data-i18n="en">WhatsApp</span>
+        <span data-i18n="es" style="display:none">WhatsApp</span>
+      </a>
+    </div>
+
+    <script>
+      function setLang(lang: string) {
+        document.querySelectorAll<HTMLElement>("[data-i18n]").forEach((el) => {
+          el.style.display = el.getAttribute("data-i18n") === lang ? "" : "none";
+        });
+        document
+          .querySelectorAll<HTMLInputElement | HTMLTextAreaElement>("[data-i18n-placeholder-en]")
+          .forEach((el) => {
+            const value = el.getAttribute(lang === "es" ? "data-i18n-placeholder-es" : "data-i18n-placeholder-en");
+            if (value) el.placeholder = value;
+          });
+        document.querySelectorAll<HTMLElement>("[data-lang-btn]").forEach((btn) => {
+          const isActive = btn.getAttribute("data-lang-btn") === lang;
+          btn.setAttribute("aria-pressed", String(isActive));
+          btn.classList.toggle("bg-main", isActive);
+          btn.classList.toggle("text-white", isActive);
+          btn.classList.toggle("text-dark", !isActive);
+        });
+        document.documentElement.setAttribute("lang", lang);
+        document.documentElement.setAttribute("data-lang", lang);
+        try {
+          localStorage.setItem("pdc-lang", lang);
+        } catch (e) {}
+      }
+
+      document.querySelectorAll<HTMLElement>("[data-lang-btn]").forEach((btn) => {
+        btn.addEventListener("click", () => setLang(btn.getAttribute("data-lang-btn")!));
+      });
+
+      try {
+        const saved = localStorage.getItem("pdc-lang");
+        if (saved === "es") setLang("es");
+      } catch (e) {}
+
+      function initReveal() {
+        const items = document.querySelectorAll<HTMLElement>(
+          ".reveal, .reveal-left, .reveal-right, .reveal-scale"
+        );
+        if (!items.length) return;
+
+        const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+        if (reduceMotion || !("IntersectionObserver" in window)) {
+          items.forEach((el) => el.classList.add("is-visible"));
+          return;
+        }
+
+        const io = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add("is-visible");
+                io.unobserve(entry.target);
+              }
+            });
+          },
+          { threshold: 0.15, rootMargin: "0px 0px -8% 0px" }
+        );
+
+        items.forEach((el) => io.observe(el));
+      }
+
+      initReveal();
+    </script>
+  </body>
+</html>

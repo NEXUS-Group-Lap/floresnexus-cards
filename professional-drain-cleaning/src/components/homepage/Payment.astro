@@ -1,0 +1,39 @@
+---
+import { Icon } from "astro-icon/components";
+---
+
+<section class="section">
+  <div class="container max-w-3xl text-center">
+    <h2 class="reveal">
+      <span data-i18n="en">Payment Methods</span>
+      <span data-i18n="es" style="display:none">Métodos de Pago</span>
+    </h2>
+    <p class="reveal mb-8">
+      <span data-i18n="en">We accept Cash, Check, and Zelle.</span>
+      <span data-i18n="es" style="display:none">Aceptamos Cash, Cheque y Zelle.</span>
+    </p>
+    <div class="reveal-group flex flex-wrap justify-center gap-6">
+      <div class="reveal hover-lift flex flex-col items-center gap-2">
+        <div class="w-14 h-14 rounded-full bg-main/10 flex items-center justify-center">
+          <Icon name="lucide:banknote" size={28} class="text-main" />
+        </div>
+        <span class="text-sm font-semibold text-gray-700">Cash</span>
+      </div>
+      <div class="reveal hover-lift flex flex-col items-center gap-2">
+        <div class="w-14 h-14 rounded-full bg-main/10 flex items-center justify-center">
+          <Icon name="lucide:landmark" size={28} class="text-main" />
+        </div>
+        <span class="text-sm font-semibold text-gray-700">
+          <span data-i18n="en">Check</span>
+          <span data-i18n="es" style="display:none">Cheque</span>
+        </span>
+      </div>
+      <div class="reveal hover-lift flex flex-col items-center gap-2">
+        <div class="w-14 h-14 rounded-full bg-main/10 flex items-center justify-center">
+          <Icon name="simple-icons:zelle" size={28} class="text-main" />
+        </div>
+        <span class="text-sm font-semibold text-gray-700">Zelle</span>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,117 @@
+---
+import { Icon } from "astro-icon/components";
+
+const services = [
+  {
+    icon: "lucide:droplets",
+    en: { title: "Drain Cleaning & Clog Removal", desc: "Clogged drains, slow drains, and clogged tubs or showers — cleared with snake and cable equipment." },
+    es: { title: "Limpieza de Drenajes y Destape de Tuberías", desc: "Drenajes tapados, lentos, y tinas o duchas obstruidas — destapados con snake y cable." },
+  },
+  {
+    icon: "lucide:camera",
+    en: { title: "Camera Drain Inspection", desc: "Camera inspections to identify blockages, damaged pipes, root intrusion, and drainage issues before repairs or excavation." },
+    es: { title: "Inspección de Drenajes con Cámara", desc: "Inspección con cámara para identificar obstrucciones, tuberías dañadas, raíces y problemas de drenaje antes de reparar o excavar." },
+  },
+  {
+    icon: "lucide:waves",
+    en: { title: "Main Drain & Sewer Line Cleaning", desc: "Exterior cleanouts, main line blockages, sewer backups, and obstructions affecting multiple fixtures." },
+    es: { title: "Limpieza de Línea Principal y Sewer", desc: "Cleanouts exteriores, obstrucciones en la línea principal, backups de sewer y bloqueos que afectan varios fixtures." },
+  },
+  {
+    icon: "lucide:toilet",
+    en: { title: "Toilet Installation & Repair", desc: "New toilet installation, replacement, wax ring service, base leaks, supply valves, and flushing issues." },
+    es: { title: "Instalación y Reparación de Inodoros", desc: "Instalación de toilet nuevo, reemplazo, wax ring, fugas en la base, válvulas de suministro y problemas de descarga." },
+  },
+  {
+    icon: "lucide:flame",
+    en: { title: "Water Heater Installation & Replacement", desc: "Electric tank water heater installation and replacement, including connections, valves, and drain pan setup." },
+    es: { title: "Instalación y Reemplazo de Calentadores de Agua", desc: "Instalación y reemplazo de calentadores eléctricos, incluyendo conexiones, válvulas y drain pan." },
+  },
+  {
+    icon: "lucide:shower-head",
+    en: { title: "Bathroom Plumbing & Shower Installation", desc: "Shower valves, panels, shower heads, handheld showers, faucets, and other bathroom fixtures." },
+    es: { title: "Plomería de Baño e Instalación de Duchas", desc: "Válvulas de ducha, paneles, regaderas, duchas de mano, llaves y otros fixtures de baño." },
+  },
+  {
+    icon: "lucide:bath",
+    en: { title: "Bathroom Remodel Plumbing", desc: "Rough-in plumbing, drain relocation, and prep for showers, vanities, and toilets during a remodel." },
+    es: { title: "Plomería para Remodelación de Baños", desc: "Rough-in de plomería, reubicación de drenajes y preparación para ducha, vanity y toilet en remodelaciones." },
+  },
+  {
+    icon: "lucide:layers",
+    en: { title: "Shower Drain & Linear Drain Installation", desc: "Linear shower drains, shower drain replacement, shower pan setup, and custom shower plumbing." },
+    es: { title: "Instalación de Drenajes de Ducha y Drenajes Lineales", desc: "Drenajes lineales, reemplazo de drenaje de ducha, shower pan y plomería personalizada para duchas." },
+  },
+  {
+    icon: "lucide:drill",
+    en: { title: "Under-Slab Plumbing & Drain Relocation", desc: "Concrete cutting, interior excavation, and drain line repair or relocation under the slab." },
+    es: { title: "Plomería Bajo Losa y Reubicación de Drenajes", desc: "Corte de concreto, excavación interior y reparación o reubicación de tuberías bajo la losa." },
+  },
+  {
+    icon: "lucide:ruler",
+    en: { title: "Rough-In Plumbing for Remodels", desc: "Drain, waste, and vent lines for kitchens, bathrooms, and laundry before drywall goes up." },
+    es: { title: "Rough-In de Plomería para Remodelaciones", desc: "Líneas de drenaje, desagüe y ventilación para cocina, baño y lavandería antes de cerrar paredes." },
+  },
+  {
+    icon: "lucide:shovel",
+    en: { title: "Underground Plumbing & Excavation", desc: "Machine excavation for buried sewer, drain, and water lines, including exterior pipe replacement." },
+    es: { title: "Plomería Subterránea y Excavación", desc: "Excavación con maquinaria para líneas enterradas de sewer, drenaje y agua, incluyendo reemplazo de tubería exterior." },
+  },
+  {
+    icon: "lucide:filter",
+    en: { title: "Water Filtration & Well Water Systems", desc: "Water softeners, whole-house filtration, pressure tanks, and treatment for sediment, iron, or sulfur." },
+    es: { title: "Sistemas de Filtración y Agua de Pozo", desc: "Suavizadores de agua, filtración para toda la casa, tanques de presión y tratamiento de sedimento, hierro o azufre." },
+  },
+  {
+    icon: "lucide:gauge",
+    en: { title: "Well Pump & Pressure Services", desc: "Pressure switch diagnostics, pump controls, pressure tank connections, and low-pressure issues." },
+    es: { title: "Servicio de Bombas de Pozo y Presión", desc: "Diagnóstico de pressure switch, controles de bomba, conexiones de tanque de presión y problemas de baja presión." },
+  },
+  {
+    icon: "lucide:wrench",
+    en: { title: "Outdoor Plumbing & Valve Repairs", desc: "Hose bibs, exterior valves, shut-off valves, and outdoor water line leaks." },
+    es: { title: "Plomería Exterior y Reparación de Válvulas", desc: "Hose bibs, válvulas exteriores, shut-off valves y fugas en líneas de agua exteriores." },
+  },
+  {
+    icon: "lucide:container",
+    en: { title: "Septic-Related Underground Drainage", desc: "Drain field piping, septic-related drain lines, excavation, and underground pipe connections." },
+    es: { title: "Drenaje Subterráneo Relacionado con Sistemas Sépticos", desc: "Tubería de drain field, líneas de drenaje sépticas, excavación y conexiones de tubería subterránea." },
+  },
+];
+---
+
+<section id="services" class="section section-services scroll-mt-20">
+  <div class="container">
+    <h2 class="reveal text-center capitalize">
+      <span data-i18n="en">Our Services</span>
+      <span data-i18n="es" style="display:none">Nuestros Servicios</span>
+    </h2>
+    <p class="reveal text-center text-gray-500 max-w-xl mx-auto mb-2">
+      <span data-i18n="en">Whatever's going on with your pipes, we've probably fixed it before. Tap a service to see what's included — or just call and describe the problem, we'll take it from there.</span>
+      <span data-i18n="es" style="display:none">Sea lo que sea que esté pasando con tus tuberías, probablemente ya lo hemos arreglado antes. Toca un servicio para ver qué incluye — o simplemente llama y cuéntanos el problema, nosotros nos encargamos del resto.</span>
+    </p>
+
+    <div class="reveal-group grid md:grid-cols-2 gap-3 mt-10">
+      {services.map((s) => (
+        <details class="reveal group rounded-xl border border-gray-200 bg-white open:border-main/40 open:shadow-sm transition">
+          <summary class="flex items-center gap-3 p-4 cursor-pointer list-none select-none">
+            <div class="w-10 h-10 rounded-lg bg-main/10 flex items-center justify-center shrink-0">
+              <Icon name={s.icon} size={20} class="text-main" />
+            </div>
+            <h3 class="text-base font-bold text-dark flex-1">
+              <span data-i18n="en">{s.en.title}</span>
+              <span data-i18n="es" style="display:none">{s.es.title}</span>
+            </h3>
+            <Icon name="lucide:chevron-down" size={18} class="text-gray-400 shrink-0 transition-transform duration-200 group-open:rotate-180" />
+          </summary>
+          <div class="px-4 pb-4 pl-[4.25rem] -mt-1">
+            <p class="text-sm text-gray-600">
+              <span data-i18n="en">{s.en.desc}</span>
+              <span data-i18n="es" style="display:none">{s.es.desc}</span>
+            </p>
+          </div>
+        </details>
+      ))}
+    </div>
+  </div>
+</section>

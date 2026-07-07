@@ -1,0 +1,214 @@
+---
+import { Icon } from "astro-icon/components";
+
+import { Image } from "astro:assets";
+import { BASE } from "../../consts";
+
+const features = [
+  {
+    icon: "lucide:droplets",
+    img: `${BASE}img/real/gallery/drain-cleaning.jpg`,
+    en: { label: "Drain Cleaning" },
+    es: { label: "Limpieza de Drenajes" },
+  },
+  {
+    icon: "lucide:camera",
+    img: `${BASE}img/real/gallery/camera-inspection.png`,
+    en: { label: "Camera Inspections" },
+    es: { label: "Inspecciones con Cámara" },
+  },
+  {
+    icon: "lucide:flame",
+    img: `${BASE}img/real/gallery/water-heater.png`,
+    en: { label: "Water Heaters" },
+    es: { label: "Calentadores de Agua" },
+  },
+  {
+    icon: "lucide:bath",
+    img: `${BASE}img/real/gallery/bathroom-remodel.png`,
+    en: { label: "Bathroom Remodel Plumbing" },
+    es: { label: "Plomería para Remodelación de Baños" },
+  },
+  {
+    icon: "lucide:filter",
+    img: `${BASE}img/real/gallery/well-water.jpg`,
+    en: { label: "Well Water & Filtration" },
+    es: { label: "Agua de Pozo y Filtración" },
+  },
+];
+---
+
+<section id="gallery" class="section bg-cream py-14 lg:py-20 scroll-mt-20">
+  <div class="container">
+    <h2 class="reveal text-center mb-2">
+      <span data-i18n="en">The Kind of Work We Do</span>
+      <span data-i18n="es" style="display:none">El Tipo de Trabajo Que Realizamos</span>
+    </h2>
+    <p class="reveal text-center text-gray-500 text-sm mb-10">
+      <span data-i18n="en">Here's what we handle every day.</span>
+      <span data-i18n="es" style="display:none">Esto es lo que hacemos cada día.</span>
+    </p>
+
+    <div
+      data-feature-carousel
+      class="reveal-scale relative overflow-hidden rounded-[2.5rem] lg:rounded-[3rem] flex flex-col lg:flex-row min-h-[560px] lg:aspect-video border border-gray-200 bg-white"
+    >
+      <div class="w-full lg:w-[38%] h-[260px] lg:h-auto relative z-30 flex items-center overflow-hidden px-6 md:px-10 lg:pl-12 bg-main">
+        <div class="absolute inset-x-0 top-0 h-10 lg:h-16 bg-gradient-to-b from-main via-main/80 to-transparent z-10 pointer-events-none"></div>
+        <div class="absolute inset-x-0 bottom-0 h-10 lg:h-16 bg-gradient-to-t from-main via-main/80 to-transparent z-10 pointer-events-none"></div>
+
+        <div data-chip-track class="relative w-full h-full">
+          {features.map((f, i) => (
+            <button
+              type="button"
+              data-chip
+              data-index={i}
+              class="feature-chip absolute top-1/2 left-0 flex items-center gap-3 px-5 md:px-7 py-3.5 rounded-full border text-left whitespace-nowrap bg-transparent text-white/70 border-white/20"
+            >
+              <Icon name={f.icon} size={18} class="shrink-0" />
+              <span class="text-xs md:text-sm font-medium uppercase tracking-tight">
+                <span data-i18n="en">{f.en.label}</span>
+                <span data-i18n="es" style="display:none">{f.es.label}</span>
+              </span>
+            </button>
+          ))}
+        </div>
+      </div>
+
+      <div class="flex-1 min-h-[340px] relative bg-gray-50 flex items-center justify-center py-10 px-6 md:px-10 border-t lg:border-t-0 lg:border-l border-gray-200 overflow-hidden">
+        <div data-card-track class="relative w-full max-w-[420px] aspect-[4/5]">
+          {features.map((f, i) => (
+            <div
+              data-card
+              data-index={i}
+              class="feature-card absolute inset-0 rounded-[2rem] overflow-hidden border-4 border-white shadow-xl flex flex-col items-center justify-center text-white p-8 text-center"
+            >
+              <Image
+                src={f.img}
+                alt=""
+                width="700"
+                height="875"
+                format="webp"
+                quality={50}
+                class="absolute inset-0 w-full h-full object-cover"
+              />
+              <div class="absolute inset-0 bg-gradient-to-br from-dark/35 to-main/25"></div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .feature-chip {
+    transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.4s ease,
+      background-color 0.4s ease, color 0.4s ease, border-color 0.4s ease;
+  }
+  .feature-chip[data-active="true"] {
+    background-color: #fff;
+    color: var(--color-main);
+    border-color: #fff;
+  }
+  .feature-card {
+    transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.5s ease;
+  }
+</style>
+
+<script>
+  function initFeatureCarousel(root: HTMLElement) {
+    const chips = Array.from(root.querySelectorAll<HTMLElement>("[data-chip]"));
+    const cards = Array.from(root.querySelectorAll<HTMLElement>("[data-card]"));
+    const total = chips.length;
+    if (!total) return;
+
+    let current = 0;
+    let paused = false;
+    let timer: number | undefined;
+
+    const wrap = (min: number, max: number, v: number) => {
+      const range = max - min;
+      return (((v - min) % range) + range) % range + min;
+    };
+
+    const itemHeight = () => chips[0].getBoundingClientRect().height + 14;
+
+    function render() {
+      const step = itemHeight();
+      chips.forEach((chip, i) => {
+        const distance = wrap(-total / 2, total / 2, i - current);
+        chip.style.transform = `translateY(calc(-50% + ${distance * step}px))`;
+        chip.style.opacity = String(Math.max(0, 1 - Math.abs(distance) * 0.25));
+        chip.dataset.active = String(i === current);
+        chip.setAttribute("aria-current", String(i === current));
+      });
+
+      cards.forEach((card, i) => {
+        const diff = wrap(-total / 2, total / 2, i - current);
+        let transform = "translateX(0) scale(0.7)";
+        let opacity = "0";
+        let zIndex = "0";
+        let pointerEvents = "none";
+
+        if (diff === 0) {
+          transform = "translateX(0) scale(1) rotate(0deg)";
+          opacity = "1";
+          zIndex = "20";
+          pointerEvents = "auto";
+        } else if (diff === -1) {
+          transform = "translateX(-60px) scale(0.85) rotate(-3deg)";
+          opacity = "0.35";
+          zIndex = "10";
+        } else if (diff === 1) {
+          transform = "translateX(60px) scale(0.85) rotate(3deg)";
+          opacity = "0.35";
+          zIndex = "10";
+        }
+
+        card.style.transform = transform;
+        card.style.opacity = opacity;
+        card.style.zIndex = zIndex;
+        card.style.pointerEvents = pointerEvents;
+      });
+    }
+
+    function goTo(index: number) {
+      current = wrap(0, total, index);
+      render();
+    }
+
+    function start() {
+      window.clearInterval(timer);
+      timer = window.setInterval(() => {
+        if (!paused) goTo(current + 1);
+      }, 3200);
+    }
+
+    chips.forEach((chip) => {
+      chip.addEventListener("click", () => goTo(Number(chip.dataset.index)));
+      chip.addEventListener("mouseenter", () => (paused = true));
+      chip.addEventListener("mouseleave", () => (paused = false));
+      chip.addEventListener("focus", () => (paused = true));
+      chip.addEventListener("blur", () => (paused = false));
+    });
+
+    window.addEventListener("resize", render);
+
+    render();
+
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+    if (!reduceMotion.matches) start();
+    reduceMotion.addEventListener("change", (e) => {
+      if (e.matches) {
+        window.clearInterval(timer);
+      } else {
+        start();
+      }
+    });
+  }
+
+  document
+    .querySelectorAll<HTMLElement>("[data-feature-carousel]")
+    .forEach(initFeatureCarousel);
+</script>

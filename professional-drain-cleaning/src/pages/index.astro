@@ -1,0 +1,31 @@
+---
+import Layout from "../layouts/Main.astro";
+import Hero from "../components/homepage/Hero.astro";
+import Services from "../components/homepage/Services.astro";
+import Emergency from "../components/homepage/Emergency.astro";
+import About from "../components/homepage/About.astro";
+import MobileService from "../components/homepage/MobileService.astro";
+import WhatToSend from "../components/homepage/WhatToSend.astro";
+import ResidentialCommercial from "../components/homepage/ResidentialCommercial.astro";
+import Gallery from "../components/homepage/Gallery.astro";
+import Payment from "../components/homepage/Payment.astro";
+import GoogleReviews from "../components/homepage/GoogleReviews.astro";
+import FinalCTA from "../components/homepage/FinalCTA.astro";
+import { SEO_TITLE_HOME, SITE_DESCRIPTION } from "../consts";
+---
+
+<Layout title={SEO_TITLE_HOME} description={SITE_DESCRIPTION}>
+  <div>
+    <Hero />
+    <Emergency />
+    <MobileService />
+    <About />
+    <Services />
+    <ResidentialCommercial />
+    <Gallery />
+    <GoogleReviews />
+    <WhatToSend />
+    <Payment />
+    <FinalCTA />
+  </div>
+</Layout>

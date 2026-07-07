@@ -1,0 +1,47 @@
+---
+import { Icon } from "astro-icon/components";
+import { PHONE_DISPLAY, PHONE_TEL, SOCIAL_LINKS } from "../../consts";
+---
+
+<section class="bg-gradient-to-br from-dark to-main text-white">
+  <div class="reveal-group container max-w-2xl py-14 lg:py-20 text-center">
+    <h2 class="reveal text-white">
+      <span data-i18n="en">Need Drain or Plumbing Service Now?</span>
+      <span data-i18n="es" style="display:none">¿Necesitas Servicio de Drenaje o Plomería?</span>
+    </h2>
+    <p class="reveal text-white/85 mb-8">
+      <span data-i18n="en">Call Professional Drain Cleaning today.</span>
+      <span data-i18n="es" style="display:none">Llama a Professional Drain Cleaning hoy.</span>
+    </p>
+    <a href={PHONE_TEL} class="reveal btn bg-accent border-accent text-white rounded-lg hover:bg-accent-dark hover:-translate-y-0.5 transition h-auto py-4 px-8 text-lg">
+      <Icon name="lucide:phone-call" size={20} />
+      <span data-i18n="en">Phone:</span>
+      <span data-i18n="es" style="display:none">Teléfono:</span>
+      {PHONE_DISPLAY}
+    </a>
+
+    <div class="reveal mt-12 pt-10 border-t border-white/15">
+      <p class="font-semibold mb-1">
+        <span data-i18n="en">Want to see more of our work?</span>
+        <span data-i18n="es" style="display:none">¿Quieres ver más de nuestro trabajo?</span>
+      </p>
+      <p class="text-white/75 text-sm mb-5">
+        <span data-i18n="en">Follow us for real jobs, before-and-afters, and tips.</span>
+        <span data-i18n="es" style="display:none">Síguenos para ver trabajos reales, antes y después, y consejos.</span>
+      </p>
+      <div class="flex justify-center gap-3">
+        {SOCIAL_LINKS.map((social) => (
+          <a
+            href={social.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={social.name}
+            class="w-11 h-11 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 hover:-translate-y-0.5 transition"
+          >
+            <Icon name={social.icon} size={20} />
+          </a>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>

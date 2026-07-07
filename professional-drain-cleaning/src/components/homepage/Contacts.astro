@@ -1,0 +1,210 @@
+---
+import { Icon } from "astro-icon/components";
+import { PHONE_DISPLAY, PHONE_TEL, WHATSAPP_URL, EMAIL_ADDRESS, EMAIL_MAILTO } from "../../consts";
+---
+
+<section class="section section-contacts">
+  <div class="container max-w-5xl">
+    <div class="reveal text-center max-w-xl mx-auto mb-10">
+      <h1 class="text-3xl sm:text-4xl">
+        <span data-i18n="en">Request Service</span>
+        <span data-i18n="es" style="display:none">Solicitar Servicio</span>
+      </h1>
+      <p class="text-gray-600">
+        <span data-i18n="en">Tell us what you need. We'll get back to you fast by WhatsApp or phone.</span>
+        <span data-i18n="es" style="display:none">Cuéntanos qué necesitas. Te responderemos rápido por WhatsApp o teléfono.</span>
+      </p>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-8 items-start">
+      <div class="reveal-left grid gap-4 order-2 md:order-1">
+        <a
+          href={PHONE_TEL}
+          class="flex items-center gap-4 bg-cream border border-gray-200 rounded-lg p-4 hover:border-main/40 hover:-translate-y-0.5 transition"
+        >
+          <div class="bg-main text-white flex items-center justify-center rounded-full w-12 h-12 shrink-0">
+            <Icon name="lucide:phone-call" size={22} aria-hidden="true" />
+          </div>
+          <div>
+            <p class="font-semibold mb-0">
+              <span data-i18n="en">Call Us</span>
+              <span data-i18n="es" style="display:none">Llámanos</span>
+            </p>
+            <span class="text-main font-semibold">{PHONE_DISPLAY}</span>
+          </div>
+        </a>
+
+        <a
+          href={WHATSAPP_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="flex items-center gap-4 bg-cream border border-gray-200 rounded-lg p-4 hover:border-main/40 hover:-translate-y-0.5 transition"
+        >
+          <div class="bg-main text-white flex items-center justify-center rounded-full w-12 h-12 shrink-0">
+            <Icon name="lucide:message-circle" size={22} aria-hidden="true" />
+          </div>
+          <div>
+            <p class="font-semibold mb-0">
+              <span data-i18n="en">Text / WhatsApp</span>
+              <span data-i18n="es" style="display:none">Mensaje / WhatsApp</span>
+            </p>
+            <p class="text-sm text-gray-500 mb-0">
+              <span data-i18n="en">Fastest way to reach us</span>
+              <span data-i18n="es" style="display:none">La forma más rápida de contactarnos</span>
+            </p>
+          </div>
+        </a>
+
+        <a
+          href={EMAIL_MAILTO}
+          class="flex items-center gap-4 bg-cream border border-gray-200 rounded-lg p-4 hover:border-main/40 hover:-translate-y-0.5 transition"
+        >
+          <div class="bg-main text-white flex items-center justify-center rounded-full w-12 h-12 shrink-0">
+            <Icon name="lucide:mail" size={22} aria-hidden="true" />
+          </div>
+          <div class="min-w-0">
+            <p class="font-semibold mb-0">
+              <span data-i18n="en">Email Us</span>
+              <span data-i18n="es" style="display:none">Escríbenos</span>
+            </p>
+            <span class="text-main font-semibold break-all">{EMAIL_ADDRESS}</span>
+          </div>
+        </a>
+
+        <div class="flex items-center gap-4 bg-cream border border-gray-200 rounded-lg p-4">
+          <div class="bg-main text-white flex items-center justify-center rounded-full w-12 h-12 shrink-0">
+            <Icon name="lucide:clock" size={22} aria-hidden="true" />
+          </div>
+          <div>
+            <p class="font-semibold mb-0">
+              <span data-i18n="en">Available 24/7</span>
+              <span data-i18n="es" style="display:none">Disponibles 24/7</span>
+            </p>
+            <p class="text-sm text-gray-500 mb-0">
+              <span data-i18n="en">Cape Coral &amp; Southwest Florida — we come to you</span>
+              <span data-i18n="es" style="display:none">Cape Coral y el Suroeste de Florida — vamos a tu ubicación</span>
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="reveal-right order-1 md:order-2">
+        <form data-quote-form class="grid gap-4 bg-white border border-gray-200 rounded-xl p-6">
+          <div class="grid gap-1.5">
+            <label for="q-name" class="text-sm font-semibold text-dark">
+              <span data-i18n="en">Name</span>
+              <span data-i18n="es" style="display:none">Nombre</span>
+              <span class="text-accent">*</span>
+            </label>
+            <input
+              type="text"
+              id="q-name"
+              name="name"
+              required
+              class="input input-bordered w-full rounded-lg"
+            />
+          </div>
+
+          <div class="grid gap-1.5">
+            <label for="q-phone" class="text-sm font-semibold text-dark">
+              <span data-i18n="en">Phone</span>
+              <span data-i18n="es" style="display:none">Teléfono</span>
+              <span class="text-accent">*</span>
+            </label>
+            <input
+              type="tel"
+              id="q-phone"
+              name="phone"
+              autocomplete="tel"
+              required
+              class="input input-bordered w-full rounded-lg"
+              placeholder="(239) 555-0123"
+            />
+          </div>
+
+          <div class="grid gap-1.5">
+            <label for="q-address" class="text-sm font-semibold text-dark">
+              <span data-i18n="en">Service Address</span>
+              <span data-i18n="es" style="display:none">Dirección del Servicio</span>
+              <span class="text-accent">*</span>
+            </label>
+            <input
+              type="text"
+              id="q-address"
+              name="address"
+              required
+              class="input input-bordered w-full rounded-lg"
+            />
+          </div>
+
+          <div class="grid gap-1.5">
+            <label for="q-message" class="text-sm font-semibold text-dark">
+              <span data-i18n="en">What's the problem?</span>
+              <span data-i18n="es" style="display:none">¿Cuál es el problema?</span>
+              <span class="text-accent">*</span>
+            </label>
+            <textarea
+              id="q-message"
+              name="message"
+              required
+              rows="3"
+              class="textarea textarea-bordered w-full rounded-lg"
+            ></textarea>
+            <p class="text-xs text-gray-500 mb-0">
+              <span data-i18n="en">You can send photos or videos after in WhatsApp.</span>
+              <span data-i18n="es" style="display:none">Puedes enviarnos fotos o videos después por WhatsApp.</span>
+            </p>
+          </div>
+
+          <p class="text-xs text-gray-500 mb-0" data-form-error hidden>
+            <span data-i18n="en">Please fill in all fields.</span>
+            <span data-i18n="es" style="display:none">Por favor completa todos los campos.</span>
+          </p>
+
+          <button
+            type="submit"
+            class="btn bg-main border-main text-white rounded-lg hover:bg-dark shadow-none w-full h-auto py-3"
+          >
+            <Icon name="lucide:message-circle" size={18} aria-hidden="true" />
+            <span data-i18n="en">Send via WhatsApp</span>
+            <span data-i18n="es" style="display:none">Enviar por WhatsApp</span>
+          </button>
+
+          <p class="text-xs text-gray-500 text-center mb-0">
+            <span data-i18n="en">This opens WhatsApp with your info filled in — just hit send.</span>
+            <span data-i18n="es" style="display:none">Esto abre WhatsApp con tu información — solo debes enviarlo.</span>
+          </p>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script define:vars={{ whatsappUrl: WHATSAPP_URL }} is:inline>
+  const form = document.querySelector("[data-quote-form]");
+  if (form) {
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+
+      const name = form.querySelector("#q-name").value.trim();
+      const phone = form.querySelector("#q-phone").value.trim();
+      const address = form.querySelector("#q-address").value.trim();
+      const message = form.querySelector("#q-message").value.trim();
+      const errorEl = form.querySelector("[data-form-error]");
+
+      if (!name || !phone || !address || !message) {
+        errorEl.hidden = false;
+        return;
+      }
+      errorEl.hidden = true;
+
+      const isEs = document.documentElement.lang === "es";
+      const text = isEs
+        ? `Hola, soy ${name}.\nTeléfono: ${phone}\nDirección: ${address}\nProblema: ${message}`
+        : `Hi, I'm ${name}.\nPhone: ${phone}\nAddress: ${address}\nIssue: ${message}`;
+
+      const base = whatsappUrl.split("?")[0];
+      window.open(`${base}?text=${encodeURIComponent(text)}`, "_blank", "noopener,noreferrer");
+    });
+  }
+</script>

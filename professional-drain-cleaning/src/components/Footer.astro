@@ -1,0 +1,69 @@
+---
+import Logo from "./Logo.astro";
+import { Icon } from "astro-icon/components";
+import { PHONE_DISPLAY, PHONE_TEL, WHATSAPP_URL, EMAIL_ADDRESS, EMAIL_MAILTO, SOCIAL_LINKS } from "../consts";
+const today = new Date();
+---
+
+<footer id="contact" class="footer bg-dark text-white gap-0 block">
+  <div class="footer-top w-full py-20">
+    <div class="container">
+      <div class="grid grid-cols-1 sm:grid-cols-1 lg:grid-cols-3 gap-10">
+        <div>
+          <Logo mode="dark" />
+          <p class="mt-4">
+            <span data-i18n="en">Serving Southwest Florida from Cape Coral.</span>
+            <span data-i18n="es" style="display:none">Sirviendo el Suroeste de Florida desde Cape Coral.</span>
+          </p>
+          <div class="flex gap-3 mt-5">
+            {SOCIAL_LINKS.map((social) => (
+              <a
+                href={social.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={social.name}
+                class="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center hover:bg-main transition"
+              >
+                <Icon name={social.icon} size={18} />
+              </a>
+            ))}
+          </div>
+        </div>
+
+        <div>
+          <h3 class="text-xl font-semibold mb-3">
+            <span data-i18n="en">Contact</span>
+            <span data-i18n="es" style="display:none">Contacto</span>
+          </h3>
+          <nav class="grid gap-3">
+            <a href={PHONE_TEL} class="hover:underline hover:text-main">{PHONE_DISPLAY}</a>
+            <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" class="hover:underline hover:text-main">WhatsApp</a>
+            <a href={EMAIL_MAILTO} class="hover:underline hover:text-main break-all">{EMAIL_ADDRESS}</a>
+          </nav>
+        </div>
+
+        <div>
+          <h3 class="text-xl font-semibold mb-3">
+            <span data-i18n="en">Credentials &amp; Payments</span>
+            <span data-i18n="es" style="display:none">Credenciales y Pagos</span>
+          </h3>
+          <p class="mb-1">
+            <span data-i18n="en">Licensed &amp; Insured</span>
+            <span data-i18n="es" style="display:none">Licenciado y Asegurado</span>
+          </p>
+          <p>
+            <span data-i18n="en">Cash, Check, and Zelle accepted</span>
+            <span data-i18n="es" style="display:none">Aceptamos Cash, Cheque y Zelle</span>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer-btm w-full">
+    <div class="container text-center border-t border-white/20 py-6 text-sm text-white/70">
+      &copy; {today.getFullYear()} Professional Drain Cleaning.
+      <span data-i18n="en">All rights reserved.</span>
+      <span data-i18n="es" style="display:none">Todos los derechos reservados.</span>
+    </div>
+  </div>
+</footer>

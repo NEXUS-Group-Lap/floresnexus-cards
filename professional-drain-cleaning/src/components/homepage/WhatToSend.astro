@@ -1,0 +1,165 @@
+---
+import { Icon } from "astro-icon/components";
+import { WHATSAPP_URL } from "../../consts";
+---
+
+<section id="request-service" class="section bg-cream py-14 lg:py-20 scroll-mt-20">
+  <div class="container max-w-3xl">
+    <h2 class="reveal text-center">
+      <span data-i18n="en">Request Service</span>
+      <span data-i18n="es" style="display:none">Solicitar Servicio</span>
+    </h2>
+    <p class="reveal text-center mb-10">
+      <span data-i18n="en">Tell us what's going on and we'll get back to you fast.</span>
+      <span data-i18n="es" style="display:none">Cuéntanos qué está pasando y te responderemos rápido.</span>
+    </p>
+
+    <div class="reveal-scale bg-white rounded-xl border border-gray-200 p-6 sm:p-8 max-w-xl mx-auto">
+      <h3 class="text-lg sm:text-xl mb-1">
+        <span data-i18n="en">Send Us Your Info</span>
+        <span data-i18n="es" style="display:none">Envíanos Tu Información</span>
+      </h3>
+      <p class="text-sm text-gray-600 mb-6">
+        <span data-i18n="en">Fill out the form and it will open WhatsApp with your details ready to send. You can attach photos or videos once the chat opens.</span>
+        <span data-i18n="es" style="display:none">Llena el formulario y se abrirá WhatsApp con tus datos listos para enviar. Puedes adjuntar fotos o videos una vez que abra el chat.</span>
+      </p>
+
+      <form id="quote-form" data-whatsapp={WHATSAPP_URL} class="grid gap-3">
+        <fieldset class="fieldset">
+          <label for="quote-name" class="fieldset-legend text-sm font-semibold text-dark">
+            <span data-i18n="en">Your name</span>
+            <span data-i18n="es" style="display:none">Tu nombre</span>
+            <span class="text-accent">*</span>
+          </label>
+          <input
+            type="text"
+            id="quote-name"
+            name="name"
+            class="input w-full validator"
+            placeholder="Your name"
+            data-i18n-placeholder-en="Your name"
+            data-i18n-placeholder-es="Tu nombre"
+            required
+          />
+          <p class="validator-hint hidden">
+            <span data-i18n="en">Required</span>
+            <span data-i18n="es" style="display:none">Requerido</span>
+          </p>
+        </fieldset>
+
+        <fieldset class="fieldset">
+          <label for="quote-phone" class="fieldset-legend text-sm font-semibold text-dark">
+            <span data-i18n="en">Phone number</span>
+            <span data-i18n="es" style="display:none">Número de teléfono</span>
+            <span class="text-accent">*</span>
+          </label>
+          <input
+            type="tel"
+            id="quote-phone"
+            name="phone"
+            autocomplete="tel"
+            class="input w-full validator"
+            placeholder="Phone number"
+            data-i18n-placeholder-en="Phone number"
+            data-i18n-placeholder-es="Número de teléfono"
+            required
+          />
+          <p class="validator-hint hidden">
+            <span data-i18n="en">Required</span>
+            <span data-i18n="es" style="display:none">Requerido</span>
+          </p>
+        </fieldset>
+
+        <fieldset class="fieldset">
+          <label for="quote-address" class="fieldset-legend text-sm font-semibold text-dark">
+            <span data-i18n="en">Service address</span>
+            <span data-i18n="es" style="display:none">Dirección del servicio</span>
+            <span class="text-accent">*</span>
+          </label>
+          <input
+            type="text"
+            id="quote-address"
+            name="address"
+            class="input w-full validator"
+            placeholder="Service address"
+            data-i18n-placeholder-en="Service address"
+            data-i18n-placeholder-es="Dirección del servicio"
+            required
+          />
+          <p class="validator-hint hidden">
+            <span data-i18n="en">Required</span>
+            <span data-i18n="es" style="display:none">Requerido</span>
+          </p>
+        </fieldset>
+
+        <fieldset class="fieldset">
+          <label for="quote-issue" class="fieldset-legend text-sm font-semibold text-dark">
+            <span data-i18n="en">Describe the issue</span>
+            <span data-i18n="es" style="display:none">Describe el problema</span>
+            <span class="text-accent">*</span>
+          </label>
+          <textarea
+            id="quote-issue"
+            name="issue"
+            class="textarea w-full validator"
+            placeholder="Describe the issue"
+            data-i18n-placeholder-en="Describe the issue"
+            data-i18n-placeholder-es="Describe el problema"
+            required></textarea>
+          <p class="validator-hint hidden">
+            <span data-i18n="en">Required</span>
+            <span data-i18n="es" style="display:none">Requerido</span>
+          </p>
+        </fieldset>
+
+        <button
+          type="submit"
+          class="btn bg-[#25D366] border-[#25D366] text-white rounded-lg hover:bg-[#1DA851] hover:border-[#1DA851] shadow-none h-auto py-3"
+        >
+          <Icon name="simple-icons:whatsapp" size={20} />
+          <span data-i18n="en">Send via WhatsApp</span>
+          <span data-i18n="es" style="display:none">Enviar por WhatsApp</span>
+        </button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<script>
+  const form = document.getElementById("quote-form") as HTMLFormElement | null;
+
+  form?.addEventListener("submit", (e) => {
+    e.preventDefault();
+
+    const whatsappUrl = form.dataset.whatsapp;
+    if (!whatsappUrl) return;
+
+    const name = (document.getElementById("quote-name") as HTMLInputElement).value.trim();
+    const phone = (document.getElementById("quote-phone") as HTMLInputElement).value.trim();
+    const address = (document.getElementById("quote-address") as HTMLInputElement).value.trim();
+    const issue = (document.getElementById("quote-issue") as HTMLTextAreaElement).value.trim();
+
+    const lang = document.documentElement.getAttribute("data-lang") === "es" ? "es" : "en";
+
+    const lines =
+      lang === "es"
+        ? [
+            "Hola, quiero solicitar un servicio:",
+            `Nombre: ${name}`,
+            `Teléfono: ${phone}`,
+            `Dirección del servicio: ${address}`,
+            `Descripción del problema: ${issue}`,
+          ]
+        : [
+            "Hi, I would like to request service:",
+            `Name: ${name}`,
+            `Phone: ${phone}`,
+            `Service address: ${address}`,
+            `Issue description: ${issue}`,
+          ];
+
+    const message = encodeURIComponent(lines.join("\n"));
+    window.open(`${whatsappUrl}?text=${message}`, "_blank", "noopener,noreferrer");
+    form.reset();
+  });
+</script>
