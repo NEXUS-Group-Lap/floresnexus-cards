@@ -1,7 +1,7 @@
 ---
 import { Image } from "astro:assets";
 import { Icon } from "astro-icon/components";
-import { PHONE_TEL, WHATSAPP_URL, BASE } from "../../consts";
+import { PHONE_TEL, WHATSAPP_URL, EMAIL_MAILTO, BASE } from "../../consts";
 ---
 
 <section class="relative overflow-hidden text-white py-14 lg:py-24">
@@ -49,10 +49,10 @@ import { PHONE_TEL, WHATSAPP_URL, BASE } from "../../consts";
         <span data-i18n="en">Text / WhatsApp</span>
         <span data-i18n="es" style="display:none">Mensaje / WhatsApp</span>
       </a>
-      <a href={PHONE_TEL} class="btn btn-outline border-white text-white rounded-lg hover:bg-white/10 hover:-translate-y-0.5 transition h-auto py-3">
-        <Icon name="lucide:triangle-alert" size={18} />
-        <span data-i18n="en">Request Emergency Service</span>
-        <span data-i18n="es" style="display:none">Servicio de Emergencia</span>
+      <a href={EMAIL_MAILTO} class="btn btn-outline border-white text-white rounded-lg hover:bg-white/10 hover:-translate-y-0.5 transition h-auto py-3">
+        <Icon name="lucide:mail" size={18} />
+        <span data-i18n="en">Request Service by Email</span>
+        <span data-i18n="es" style="display:none">Solicitar por Correo</span>
       </a>
     </div>
   </div>

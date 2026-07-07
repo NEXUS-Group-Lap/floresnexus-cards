@@ -4,7 +4,7 @@ import Footer from "../components/Footer.astro";
 import Header from "../components/Header.astro";
 import Drawer from "../components/Drawer.astro";
 import { Icon } from "astro-icon/components";
-import { PHONE_TEL, WHATSAPP_URL } from "../consts";
+import { PHONE_TEL, WHATSAPP_URL, EMAIL_MAILTO } from "../consts";
 const { title, description, image } = Astro.props;
 
 import { ClientRouter } from "astro:transitions";
@@ -53,16 +53,21 @@ const customTransition = {
       <Drawer />
     </div>
 
-    <div class="md:hidden fixed bottom-0 inset-x-0 z-50 grid grid-cols-2 shadow-[0_-2px_10px_rgba(0,0,0,0.15)]">
-      <a href={PHONE_TEL} class="flex items-center justify-center gap-2 font-bold py-3.5 bg-accent text-white">
+    <div class="md:hidden fixed bottom-0 inset-x-0 z-50 grid grid-cols-3 shadow-[0_-2px_10px_rgba(0,0,0,0.15)]">
+      <a href={PHONE_TEL} class="flex items-center justify-center gap-1.5 font-bold text-sm py-3.5 bg-accent text-white">
         <Icon name="lucide:phone-call" class="w-5 h-5" aria-hidden="true" />
         <span data-i18n="en">Call Now</span>
         <span data-i18n="es" style="display:none">Llamar Ahora</span>
       </a>
-      <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" class="flex items-center justify-center gap-2 font-bold py-3.5 bg-main text-white">
+      <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" class="flex items-center justify-center gap-1.5 font-bold text-sm py-3.5 bg-main text-white">
         <Icon name="lucide:message-circle" class="w-5 h-5" aria-hidden="true" />
         <span data-i18n="en">WhatsApp</span>
         <span data-i18n="es" style="display:none">WhatsApp</span>
+      </a>
+      <a href={EMAIL_MAILTO} class="flex items-center justify-center gap-1.5 font-bold text-sm py-3.5 bg-dark text-white">
+        <Icon name="lucide:mail" class="w-5 h-5" aria-hidden="true" />
+        <span data-i18n="en">Email</span>
+        <span data-i18n="es" style="display:none">Email</span>
       </a>
     </div>
 
