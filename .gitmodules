@@ -1,3 +1,6 @@
 [submodule "pulperia-la-morenita"]
 	path = pulperia-la-morenita
 	url = https://github.com/NEXUS-Group-Lap/lamorenitawebsite.git
+[submodule "las-delicias"]
+	path = las-delicias
+	url = https://github.com/NEXUS-Group-Lap/las-delicias.git

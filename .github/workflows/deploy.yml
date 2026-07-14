@@ -72,6 +72,23 @@ jobs:
           mkdir -p dist/professionaldraincleaning
           cp -r professional-drain-cleaning/dist/. dist/professionaldraincleaning/
 
+      - name: Install Las Delicias dependencies
+        run: npm ci
+        working-directory: las-delicias
+
+      - name: Build Las Delicias site
+        run: npm run build
+        working-directory: las-delicias
+        env:
+          SITE_URL: https://floresnexus.cards
+          BASE_PATH: /las-delicias/
+
+      - name: Merge Las Delicias into dist
+        run: |
+          rm -rf dist/las-delicias
+          mkdir -p dist/las-delicias
+          cp -r las-delicias/dist/. dist/las-delicias/
+
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
