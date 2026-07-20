@@ -81,13 +81,13 @@ jobs:
         working-directory: las-delicias
         env:
           SITE_URL: https://floresnexus.cards
-          BASE_PATH: /las-delicias/
+          BASE_PATH: /lasdelicias/
 
       - name: Merge Las Delicias into dist
         run: |
-          rm -rf dist/las-delicias
-          mkdir -p dist/las-delicias
-          cp -r las-delicias/dist/. dist/las-delicias/
+          rm -rf dist/lasdelicias
+          mkdir -p dist/lasdelicias
+          cp -r las-delicias/dist/. dist/lasdelicias/
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
