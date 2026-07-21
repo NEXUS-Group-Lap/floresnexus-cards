@@ -1,7 +1,7 @@
 ---
 import { Icon } from "astro-icon/components";
 import Swiper from "../Swiper.astro";
-import { GOOGLE_REVIEWS_URL } from "../../consts";
+import { GOOGLE_REVIEWS_URL, SITE_TITLE } from "../../consts";
 
 const reviews = [
   {
@@ -9,8 +9,8 @@ const reviews = [
     reviewCount: 1,
     initial: "S",
     color: "bg-main",
-    en: { time: "a year ago", text: "If I could I would give 11 stars 🤩... I'm very happy with Professional Drain Cleaning.. the owner Yasmani listens to the client and always gives the best solution from his experience. I totally recommend this company 💯" },
-    es: { time: "hace un año", text: "Si pudiera daría 11 estrellas 🤩... Estoy muy feliz con Professional Drain Cleaning.. el dueño Yasmani escucha al cliente y siempre da la mejor solución basada en su experiencia. Recomiendo totalmente esta empresa 💯" },
+    en: { time: "a year ago", text: "If I could I would give 11 stars 🤩... I'm very happy with Professional Drain Cleaner.. the owner Yasmani listens to the client and always gives the best solution from his experience. I totally recommend this company 💯" },
+    es: { time: "hace un año", text: "Si pudiera daría 11 estrellas 🤩... Estoy muy feliz con Professional Drain Cleaner.. el dueño Yasmani escucha al cliente y siempre da la mejor solución basada en su experiencia. Recomiendo totalmente esta empresa 💯" },
   },
   {
     name: "Bryan Alvarez",
@@ -140,8 +140,8 @@ const trustPoints = [
         <span data-i18n="es" style="display:none">Reseñas en Google</span>
       </h2>
       <p class="reveal mb-2">
-        <span data-i18n="en">See what customers are saying about Professional Drain Cleaning on Google.</span>
-        <span data-i18n="es" style="display:none">Mira lo que los clientes dicen sobre Professional Drain Cleaning en Google.</span>
+        <span data-i18n="en">See what customers are saying about {SITE_TITLE} on Google.</span>
+        <span data-i18n="es" style="display:none">Mira lo que los clientes dicen sobre {SITE_TITLE} en Google.</span>
       </p>
       <p class="reveal mb-8">
         <span data-i18n="en">Read real customer reviews directly on our Google Business Profile.</span>

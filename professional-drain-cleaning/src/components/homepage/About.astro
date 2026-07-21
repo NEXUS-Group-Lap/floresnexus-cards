@@ -1,7 +1,7 @@
 ---
 import { Image } from "astro:assets";
 import { Icon } from "astro-icon/components";
-import { PHONE_TEL, BASE } from "../../consts";
+import { PHONE_TEL, BASE, SITE_TITLE } from "../../consts";
 
 const points = [
   {
@@ -47,8 +47,8 @@ const points = [
           <span data-i18n="es" style="display:none">Un Negocio Local en el Que Puedes Confiar</span>
         </h2>
         <p class="mb-3">
-          <span data-i18n="en">Hi, I'm Yasmani, the owner of Professional Drain Cleaning. I started this business because getting your drain or plumbing fixed shouldn't mean waiting days for a callback or getting talked into work you don't need.</span>
-          <span data-i18n="es" style="display:none">Hola, soy Yasmani, el dueño de Professional Drain Cleaning. Empecé este negocio porque arreglar tu drenaje o plomería no debería significar esperar días para que te devuelvan la llamada, o que te convenzan de un trabajo que no necesitas.</span>
+          <span data-i18n="en">Hi, I'm Yasmani, the owner of {SITE_TITLE}. I started this business because getting your drain or plumbing fixed shouldn't mean waiting days for a callback or getting talked into work you don't need.</span>
+          <span data-i18n="es" style="display:none">Hola, soy Yasmani, el dueño de {SITE_TITLE}. Empecé este negocio porque arreglar tu drenaje o plomería no debería significar esperar días para que te devuelvan la llamada, o que te convenzan de un trabajo que no necesitas.</span>
         </p>
         <p class="mb-6">
           <span data-i18n="en">When you call, you talk directly to us — no call center, no subcontractors. We show up, listen to what's actually going on, and give you an honest fix.</span>

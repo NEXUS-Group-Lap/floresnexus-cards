@@ -1,0 +1,192 @@
+---
+import Layout from "../layouts/Main.astro";
+import { Icon } from "astro-icon/components";
+import { CITY_PAGES, type CityPage } from "../data/cityPages";
+import { SERVICES } from "../data/services";
+import { PHONE_DISPLAY, PHONE_TEL, WHATSAPP_URL, BASE, SITE_TITLE } from "../consts";
+
+export function getStaticPaths() {
+  return CITY_PAGES.map((cityData) => ({
+    params: { city: cityData.slug },
+    props: { cityData },
+  }));
+}
+
+const { cityData } = Astro.props as { cityData: CityPage };
+
+const title = `Plumber in ${cityData.city}, FL | ${SITE_TITLE}`;
+const description = `${SITE_TITLE} provides drain cleaning, camera inspections, and plumbing services in ${cityData.city}, FL. Licensed & insured. Call 24/7: ${PHONE_DISPLAY}.`;
+
+const otherCities = CITY_PAGES.filter((c) => c.slug !== cityData.slug);
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: cityData.en.faq.map((item) => ({
+    "@type": "Question",
+    name: item.q,
+    acceptedAnswer: { "@type": "Answer", text: item.a },
+  })),
+};
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Home", item: new URL(BASE, Astro.site).toString() },
+    { "@type": "ListItem", position: 2, name: "Service Areas", item: new URL(`${BASE}service-areas`, Astro.site).toString() },
+    { "@type": "ListItem", position: 3, name: `Plumber in ${cityData.city}, FL`, item: new URL(`${BASE}plumber-${cityData.slug}`, Astro.site).toString() },
+  ],
+};
+---
+
+<Layout title={title} description={description}>
+  <script type="application/ld+json" is:inline set:html={JSON.stringify(faqSchema)} />
+  <script type="application/ld+json" is:inline set:html={JSON.stringify(breadcrumbSchema)} />
+
+  <section class="section bg-cream">
+    <div class="container max-w-3xl">
+      <nav class="text-sm text-gray-500 mb-4" aria-label="Breadcrumb">
+        <a href={BASE} class="hover:text-main hover:underline">
+          <span data-i18n="en">Home</span>
+          <span data-i18n="es" style="display:none">Inicio</span>
+        </a>
+        <span class="mx-1.5">/</span>
+        <a href={`${BASE}service-areas`} class="hover:text-main hover:underline">
+          <span data-i18n="en">Service Areas</span>
+          <span data-i18n="es" style="display:none">Áreas de Servicio</span>
+        </a>
+        <span class="mx-1.5">/</span>
+        <span class="text-dark font-semibold">{cityData.city}</span>
+      </nav>
+
+      <p class="font-label uppercase tracking-wide text-xs sm:text-sm font-semibold text-accent mb-2">
+        <span data-i18n="en">Local Drain & Plumbing Service</span>
+        <span data-i18n="es" style="display:none">Servicio Local de Drenaje y Plomería</span>
+      </p>
+      <h1>
+        <span data-i18n="en">Plumber in {cityData.city}, FL</span>
+        <span data-i18n="es" style="display:none">Plomero en {cityData.city}, FL</span>
+      </h1>
+      <p class="mb-6">
+        <span data-i18n="en">{cityData.en.intro}</span>
+        <span data-i18n="es" style="display:none">{cityData.es.intro}</span>
+      </p>
+
+      <div class="flex flex-wrap gap-3">
+        <a href={PHONE_TEL} class="btn bg-main border-main text-white rounded-lg hover:bg-dark">
+          <Icon name="lucide:phone-call" size={18} />
+          {PHONE_DISPLAY}
+        </a>
+        <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" class="btn btn-outline border-dark/20 text-dark rounded-lg hover:bg-gray-100">
+          <Icon name="lucide:message-circle" size={18} />
+          <span data-i18n="en">Text / WhatsApp</span>
+          <span data-i18n="es" style="display:none">Mensaje / WhatsApp</span>
+        </a>
+        <a href={`${BASE}contact`} class="btn btn-outline border-dark/20 text-dark rounded-lg hover:bg-gray-100">
+          <span data-i18n="en">Request Service</span>
+          <span data-i18n="es" style="display:none">Solicitar Servicio</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container max-w-3xl">
+      <h2 class="mb-2">
+        <span data-i18n="en">Services We Provide in {cityData.city}</span>
+        <span data-i18n="es" style="display:none">Servicios que Ofrecemos en {cityData.city}</span>
+      </h2>
+      <p class="text-gray-500 mb-6">
+        <span data-i18n="en">The same full range of drain and plumbing services we offer everywhere, provided to homes and businesses in {cityData.city}.</span>
+        <span data-i18n="es" style="display:none">La misma gama completa de servicios de drenaje y plomería que ofrecemos en todos lados, para casas y negocios en {cityData.city}.</span>
+      </p>
+      <ul class="grid sm:grid-cols-2 gap-3">
+        {SERVICES.map((s) => (
+          <li class="flex items-center gap-3 rounded-xl border border-gray-200 bg-white p-3">
+            <div class="w-9 h-9 rounded-lg bg-main/10 flex items-center justify-center shrink-0">
+              <Icon name={s.icon} size={18} class="text-main" />
+            </div>
+            <span class="text-sm font-semibold text-dark">
+              <span data-i18n="en">{s.en.title}</span>
+              <span data-i18n="es" style="display:none">{s.es.title}</span>
+            </span>
+          </li>
+        ))}
+      </ul>
+      <p class="text-sm text-gray-500 mt-4">
+        <a href={`${BASE}#services`} class="text-main hover:underline font-semibold">
+          <span data-i18n="en">See full service details →</span>
+          <span data-i18n="es" style="display:none">Ver detalles completos de servicios →</span>
+        </a>
+      </p>
+    </div>
+  </section>
+
+  <section class="section bg-cream">
+    <div class="container max-w-3xl">
+      <h2 class="mb-6">
+        <span data-i18n="en">{cityData.city} FAQ</span>
+        <span data-i18n="es" style="display:none">Preguntas Frecuentes — {cityData.city}</span>
+      </h2>
+      <div class="grid gap-3">
+        {cityData.en.faq.map((item, i) => (
+          <details class="group rounded-xl border border-gray-200 bg-white open:border-main/40 open:shadow-sm transition">
+            <summary class="flex items-center gap-3 p-4 cursor-pointer list-none select-none font-bold text-dark">
+              <span class="flex-1">
+                <span data-i18n="en">{item.q}</span>
+                <span data-i18n="es" style="display:none">{cityData.es.faq[i].q}</span>
+              </span>
+              <Icon name="lucide:chevron-down" size={18} class="text-gray-400 shrink-0 transition-transform duration-200 group-open:rotate-180" />
+            </summary>
+            <div class="px-4 pb-4 -mt-1">
+              <p class="text-sm text-gray-600">
+                <span data-i18n="en">{item.a}</span>
+                <span data-i18n="es" style="display:none">{cityData.es.faq[i].a}</span>
+              </p>
+            </div>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container max-w-3xl">
+      <h2 class="mb-4">
+        <span data-i18n="en">Also Serving Nearby</span>
+        <span data-i18n="es" style="display:none">También Servimos Cerca de Aquí</span>
+      </h2>
+      <ul class="flex flex-wrap gap-2">
+        {otherCities.map((c) => (
+          <li>
+            <a
+              href={`${BASE}plumber-${c.slug}`}
+              class="inline-flex items-center gap-1.5 bg-main/10 text-dark text-sm font-semibold rounded-full px-3 py-1.5 hover:bg-main hover:text-white transition"
+            >
+              <Icon name="lucide:map-pin" size={14} />
+              {c.city}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <section class="bg-gradient-to-br from-dark to-main text-white">
+    <div class="container max-w-2xl py-14 text-center">
+      <h2 class="text-white">
+        <span data-i18n="en">Need a Plumber in {cityData.city} Today?</span>
+        <span data-i18n="es" style="display:none">¿Necesitas un Plomero en {cityData.city} Hoy?</span>
+      </h2>
+      <p class="text-white/85 mb-8">
+        <span data-i18n="en">Call, text, or WhatsApp — available 24/7.</span>
+        <span data-i18n="es" style="display:none">Llama, envía mensaje o WhatsApp — disponibles 24/7.</span>
+      </p>
+      <a href={PHONE_TEL} class="btn bg-accent border-accent text-white rounded-lg hover:bg-accent-dark hover:-translate-y-0.5 transition h-auto py-4 px-8 text-lg">
+        <Icon name="lucide:phone-call" size={20} />
+        {PHONE_DISPLAY}
+      </a>
+    </div>
+  </section>
+</Layout>

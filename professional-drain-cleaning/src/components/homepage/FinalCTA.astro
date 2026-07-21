@@ -1,6 +1,6 @@
 ---
 import { Icon } from "astro-icon/components";
-import { PHONE_DISPLAY, PHONE_TEL, SOCIAL_LINKS } from "../../consts";
+import { PHONE_DISPLAY, PHONE_TEL, SOCIAL_LINKS, SITE_TITLE } from "../../consts";
 ---
 
 <section class="bg-gradient-to-br from-dark to-main text-white">
@@ -10,8 +10,8 @@ import { PHONE_DISPLAY, PHONE_TEL, SOCIAL_LINKS } from "../../consts";
       <span data-i18n="es" style="display:none">¿Necesitas Servicio de Drenaje o Plomería?</span>
     </h2>
     <p class="reveal text-white/85 mb-8">
-      <span data-i18n="en">Call Professional Drain Cleaning today.</span>
-      <span data-i18n="es" style="display:none">Llama a Professional Drain Cleaning hoy.</span>
+      <span data-i18n="en">Call {SITE_TITLE} today.</span>
+      <span data-i18n="es" style="display:none">Llama a {SITE_TITLE} hoy.</span>
     </p>
     <a href={PHONE_TEL} class="reveal btn bg-accent border-accent text-white rounded-lg hover:bg-accent-dark hover:-translate-y-0.5 transition h-auto py-4 px-8 text-lg">
       <Icon name="lucide:phone-call" size={20} />

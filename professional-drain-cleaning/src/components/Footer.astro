@@ -1,19 +1,21 @@
 ---
 import Logo from "./Logo.astro";
 import { Icon } from "astro-icon/components";
-import { PHONE_DISPLAY, PHONE_TEL, WHATSAPP_URL, EMAIL_ADDRESS, EMAIL_MAILTO, SOCIAL_LINKS } from "../consts";
+import { PHONE_DISPLAY, PHONE_TEL, WHATSAPP_URL, EMAIL_ADDRESS, EMAIL_MAILTO, SOCIAL_LINKS, LEGAL_NAME, BASE, BUSINESS_STREET, BUSINESS_CITY, BUSINESS_STATE, BUSINESS_ZIP } from "../consts";
+import { CITY_PAGES } from "../data/cityPages";
 const today = new Date();
+const businessAddress = `${BUSINESS_STREET}, ${BUSINESS_CITY}, ${BUSINESS_STATE} ${BUSINESS_ZIP}`;
 ---
 
 <footer id="contact" class="footer bg-dark text-white gap-0 block">
   <div class="footer-top w-full py-20">
     <div class="container">
-      <div class="grid grid-cols-1 sm:grid-cols-1 lg:grid-cols-3 gap-10">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
         <div>
           <Logo mode="dark" />
           <p class="mt-4">
-            <span data-i18n="en">Serving Southwest Florida from Cape Coral.</span>
-            <span data-i18n="es" style="display:none">Sirviendo el Suroeste de Florida desde Cape Coral.</span>
+            <span data-i18n="en">Serving Southwest Florida from North Fort Myers.</span>
+            <span data-i18n="es" style="display:none">Sirviendo el Suroeste de Florida desde North Fort Myers.</span>
           </p>
           <div class="flex gap-3 mt-5">
             {SOCIAL_LINKS.map((social) => (
@@ -39,6 +41,25 @@ const today = new Date();
             <a href={PHONE_TEL} class="hover:underline hover:text-main">{PHONE_DISPLAY}</a>
             <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" class="hover:underline hover:text-main">WhatsApp</a>
             <a href={EMAIL_MAILTO} class="hover:underline hover:text-main break-all">{EMAIL_ADDRESS}</a>
+            <span>{businessAddress}</span>
+          </nav>
+        </div>
+
+        <div>
+          <h3 class="text-xl font-semibold mb-3">
+            <span data-i18n="en">Service Areas</span>
+            <span data-i18n="es" style="display:none">Áreas de Servicio</span>
+          </h3>
+          <nav class="grid gap-2">
+            {CITY_PAGES.map((c) => (
+              <a href={`${BASE}plumber-${c.slug}`} class="hover:underline hover:text-main">
+                {c.city}
+              </a>
+            ))}
+            <a href={`${BASE}service-areas`} class="hover:underline hover:text-main font-semibold">
+              <span data-i18n="en">All Service Areas</span>
+              <span data-i18n="es" style="display:none">Todas las Áreas</span>
+            </a>
           </nav>
         </div>
 
@@ -61,12 +82,18 @@ const today = new Date();
   </div>
   <div class="footer-btm w-full">
     <div class="container text-center border-t border-white/20 py-6 text-sm text-white/70">
-      &copy; {today.getFullYear()} Professional Drain Cleaning.
+      &copy; {today.getFullYear()} {LEGAL_NAME}.
       <span data-i18n="en">All rights reserved.</span>
       <span data-i18n="es" style="display:none">Todos los derechos reservados.</span>
       <span data-i18n="en">Site managed by</span>
       <span data-i18n="es" style="display:none">Sitio administrado por</span>
       <a href="https://www.floresnexus.com" target="_blank" rel="noopener noreferrer" class="hover:underline hover:text-main">Flores Nexus Group LLC</a>.
+      <span class="block sm:inline">
+        <a href={`${BASE}company-info`} class="hover:underline hover:text-main">
+          <span data-i18n="en">Company Info &amp; Florida License</span>
+          <span data-i18n="es" style="display:none">Información de la Empresa y Licencia de Florida</span>
+        </a>
+      </span>
     </div>
   </div>
 </footer>

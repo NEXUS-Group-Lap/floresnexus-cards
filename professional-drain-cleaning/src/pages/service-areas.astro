@@ -1,0 +1,69 @@
+---
+import Layout from "../layouts/Main.astro";
+import { Icon } from "astro-icon/components";
+import { CITY_PAGES } from "../data/cityPages";
+import { PHONE_DISPLAY, PHONE_TEL, BASE, SITE_TITLE, SEO_TITLE_SERVICE_AREAS, SERVICE_AREAS_DESCRIPTION } from "../consts";
+---
+
+<Layout title={SEO_TITLE_SERVICE_AREAS} description={SERVICE_AREAS_DESCRIPTION}>
+  <section class="section bg-cream">
+    <div class="container max-w-3xl text-center">
+      <p class="font-label uppercase tracking-wide text-xs sm:text-sm font-semibold text-accent mb-2">
+        <span data-i18n="en">Where We Work</span>
+        <span data-i18n="es" style="display:none">Dónde Trabajamos</span>
+      </p>
+      <h1>
+        <span data-i18n="en">Drain & Plumbing Service Areas</span>
+        <span data-i18n="es" style="display:none">Áreas de Servicio de Drenaje y Plomería</span>
+      </h1>
+      <p class="max-w-xl mx-auto">
+        <span data-i18n="en">{SITE_TITLE} is based in North Fort Myers and serves homes and businesses throughout Southwest Florida. Pick your city below for local details, or just call — we cover most of the surrounding area too.</span>
+        <span data-i18n="es" style="display:none">{SITE_TITLE} tiene su base en North Fort Myers y atiende casas y negocios en todo el Suroeste de Florida. Elige tu ciudad abajo para ver detalles locales, o simplemente llama — también cubrimos la mayoría de las áreas cercanas.</span>
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+        {CITY_PAGES.map((c) => (
+          <a
+            href={`${BASE}plumber-${c.slug}`}
+            class="hover-lift group flex flex-col rounded-2xl border border-gray-200 bg-white p-6 hover:border-main/40 hover:shadow-md transition"
+          >
+            <div class="w-11 h-11 rounded-full bg-main/10 flex items-center justify-center mb-4">
+              <Icon name="lucide:map-pin" size={22} class="text-main" />
+            </div>
+            <h2 class="text-lg mb-2">{c.city}</h2>
+            <p class="text-sm text-gray-500 mb-4 line-clamp-3">
+              <span data-i18n="en">{c.en.intro}</span>
+              <span data-i18n="es" style="display:none">{c.es.intro}</span>
+            </p>
+            <span class="mt-auto text-main font-semibold text-sm inline-flex items-center gap-1 group-hover:underline">
+              <span data-i18n="en">View services in {c.city}</span>
+              <span data-i18n="es" style="display:none">Ver servicios en {c.city}</span>
+              <Icon name="lucide:arrow-right" size={14} />
+            </span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-gradient-to-br from-dark to-main text-white">
+    <div class="container max-w-2xl py-14 text-center">
+      <h2 class="text-white">
+        <span data-i18n="en">Not Sure If You're in Range?</span>
+        <span data-i18n="es" style="display:none">¿No Sabes Si Tu Zona Está Cubierta?</span>
+      </h2>
+      <p class="text-white/85 mb-8">
+        <span data-i18n="en">Call us — we cover most of the surrounding area too.</span>
+        <span data-i18n="es" style="display:none">Llámanos — también cubrimos la mayoría de las áreas cercanas.</span>
+      </p>
+      <a href={PHONE_TEL} class="btn bg-accent border-accent text-white rounded-lg hover:bg-accent-dark hover:-translate-y-0.5 transition h-auto py-4 px-8 text-lg">
+        <Icon name="lucide:phone-call" size={20} />
+        {PHONE_DISPLAY}
+      </a>
+    </div>
+  </section>
+</Layout>

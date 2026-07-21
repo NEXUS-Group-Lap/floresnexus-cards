@@ -1,7 +1,8 @@
 ---
 import { Image } from "astro:assets";
 import { Icon } from "astro-icon/components";
-import { SERVICE_AREAS, BASE } from "../../consts";
+import { BASE, SITE_TITLE } from "../../consts";
+import { CITY_PAGES } from "../../data/cityPages";
 ---
 
 <section id="service-area" class="section scroll-mt-20">
@@ -15,15 +16,20 @@ import { SERVICE_AREAS, BASE } from "../../consts";
         <span data-i18n="es" style="display:none">Servicio en Todo el Suroeste de Florida</span>
       </h2>
       <p class="mb-3">
-        <span data-i18n="en">Based in Cape Coral, Professional Drain Cleaning serves homes and businesses throughout Southwest Florida — no storefront visit required.</span>
-        <span data-i18n="es" style="display:none">Con base en Cape Coral, Professional Drain Cleaning atiende casas y negocios en todo el Suroeste de Florida — no es necesario visitar una oficina o tienda física.</span>
+        <span data-i18n="en">Based in North Fort Myers, {SITE_TITLE} serves homes and businesses throughout Southwest Florida — no storefront visit required.</span>
+        <span data-i18n="es" style="display:none">Con base en North Fort Myers, {SITE_TITLE} atiende casas y negocios en todo el Suroeste de Florida — no es necesario visitar una oficina o tienda física.</span>
       </p>
 
       <ul class="flex flex-wrap justify-center md:justify-start gap-2 mb-4">
-        {SERVICE_AREAS.map((area) => (
-          <li class="inline-flex items-center gap-1.5 bg-main/10 text-dark text-sm font-semibold rounded-full px-3 py-1.5">
-            <Icon name="lucide:map-pin" size={14} class="text-main" />
-            {area}
+        {CITY_PAGES.map((c) => (
+          <li>
+            <a
+              href={`${BASE}plumber-${c.slug}`}
+              class="inline-flex items-center gap-1.5 bg-main/10 text-dark text-sm font-semibold rounded-full px-3 py-1.5 hover:bg-main hover:text-white transition"
+            >
+              <Icon name="lucide:map-pin" size={14} class="text-main" />
+              {c.city}
+            </a>
           </li>
         ))}
       </ul>
@@ -32,10 +38,15 @@ import { SERVICE_AREAS, BASE } from "../../consts";
         <span data-i18n="es" style="display:none">¿No sabes si tu zona está cubierta? Llámanos — también cubrimos la mayoría de las áreas cercanas.</span>
       </p>
 
-      <p>
+      <p class="mb-3">
         <span data-i18n="en">Call or text us, send your service address, and we will confirm availability based on your location and the type of job.</span>
         <span data-i18n="es" style="display:none">Llama o manda mensaje, envía la dirección del servicio y confirmaremos disponibilidad según tu ubicación y el tipo de trabajo.</span>
       </p>
+
+      <a href={`${BASE}service-areas`} class="text-main hover:underline font-semibold text-sm">
+        <span data-i18n="en">See details for every city we serve →</span>
+        <span data-i18n="es" style="display:none">Ver detalles de cada ciudad que atendemos →</span>
+      </a>
     </div>
     <div class="reveal-right order-1 md:order-2">
       <Image

@@ -1,7 +1,7 @@
 ---
 import { Image } from "astro:assets";
 import { Icon } from "astro-icon/components";
-import { PHONE_TEL, WHATSAPP_URL, EMAIL_MAILTO, BASE } from "../../consts";
+import { PHONE_TEL, WHATSAPP_URL, EMAIL_MAILTO, BASE, SITE_TITLE } from "../../consts";
 ---
 
 <section class="relative overflow-hidden text-white py-14 lg:py-24">
@@ -17,11 +17,11 @@ import { PHONE_TEL, WHATSAPP_URL, EMAIL_MAILTO, BASE } from "../../consts";
   <div class="absolute inset-0 bg-gradient-to-br from-dark/95 to-main/90"></div>
   <div class="hero-stagger container text-center relative z-10">
     <p class="font-label uppercase tracking-wide text-xs sm:text-sm font-semibold text-accent mb-3">
-      <span data-i18n="en">Serving Southwest Florida from Cape Coral</span>
-      <span data-i18n="es" style="display:none">Sirviendo el Suroeste de Florida desde Cape Coral</span>
+      <span data-i18n="en">Serving Southwest Florida from North Fort Myers</span>
+      <span data-i18n="es" style="display:none">Sirviendo el Suroeste de Florida desde North Fort Myers</span>
     </p>
 
-    <h1 class="text-white">Professional Drain Cleaning</h1>
+    <h1 class="text-white">{SITE_TITLE}</h1>
 
     <p class="text-lg sm:text-xl font-semibold text-white/90 mb-4">
       <span data-i18n="en">24/7 Drain Cleaning &amp; Plumbing Services in Southwest Florida</span>
@@ -34,8 +34,8 @@ import { PHONE_TEL, WHATSAPP_URL, EMAIL_MAILTO, BASE } from "../../consts";
     </p>
 
     <p class="max-w-2xl mx-auto text-white/80 mb-8">
-      <span data-i18n="en">Licensed &amp; insured. Based in Cape Coral. We come to your location.</span>
-      <span data-i18n="es" style="display:none">Licenciado y asegurado. Basado en Cape Coral. Vamos directamente a tu ubicación.</span>
+      <span data-i18n="en">Licensed &amp; insured. Based in North Fort Myers. We come to your location.</span>
+      <span data-i18n="es" style="display:none">Licenciado y asegurado. Basado en North Fort Myers. Vamos directamente a tu ubicación.</span>
     </p>
 
     <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 max-w-2xl mx-auto">

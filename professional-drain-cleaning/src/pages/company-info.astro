@@ -1,0 +1,120 @@
+---
+import Layout from "../layouts/Main.astro";
+import {
+  SEO_TITLE_COMPANY_INFO,
+  COMPANY_INFO_DESCRIPTION,
+  SITE_TITLE,
+  LEGAL_NAME,
+  SUNBIZ,
+} from "../consts";
+
+const rows = [
+  {
+    en: "Legal Business Name",
+    es: "Nombre Legal de la Empresa",
+    value: LEGAL_NAME,
+  },
+  {
+    en: "Document Number",
+    es: "Número de Documento",
+    value: SUNBIZ.documentNumber,
+  },
+  {
+    en: "FEI/EIN Number",
+    es: "Número FEI/EIN",
+    value: SUNBIZ.fein,
+  },
+  {
+    en: "Date Filed",
+    es: "Fecha de Registro",
+    value: SUNBIZ.dateFiled,
+  },
+  {
+    en: "Effective Date",
+    es: "Fecha Efectiva",
+    value: SUNBIZ.effectiveDate,
+  },
+  {
+    en: "State of Formation",
+    es: "Estado de Formación",
+    value: SUNBIZ.state,
+  },
+  {
+    en: "Status",
+    es: "Estado",
+    value: SUNBIZ.status,
+  },
+  {
+    en: "Registered Agent",
+    es: "Agente Registrado",
+    value: SUNBIZ.registeredAgent,
+  },
+  {
+    en: "Principal Address",
+    es: "Dirección Principal",
+    value: SUNBIZ.principalAddress,
+  },
+  {
+    en: "Mailing Address",
+    es: "Dirección Postal",
+    value: SUNBIZ.mailingAddress,
+  },
+];
+---
+
+<Layout title={SEO_TITLE_COMPANY_INFO} description={COMPANY_INFO_DESCRIPTION}>
+  <section class="section">
+    <div class="container max-w-3xl">
+      <p class="font-label uppercase tracking-wide text-xs sm:text-sm font-semibold text-accent mb-2">
+        <span data-i18n="en">Transparency</span>
+        <span data-i18n="es" style="display:none">Transparencia</span>
+      </p>
+      <h1>
+        <span data-i18n="en">Company Information &amp; Florida Business License</span>
+        <span data-i18n="es" style="display:none">Información de la Empresa y Licencia Comercial de Florida</span>
+      </h1>
+      <p class="mb-6">
+        <span data-i18n="en">
+          {SITE_TITLE} operates as {LEGAL_NAME}, a Florida Limited Liability Company registered
+          and in active good standing with the Florida Division of Corporations (Sunbiz). The
+          official filing details below are provided for transparency.
+        </span>
+        <span data-i18n="es" style="display:none">
+          {SITE_TITLE} opera bajo el nombre {LEGAL_NAME}, una Compañía de Responsabilidad Limitada
+          (LLC) de Florida registrada y activa ante la División de Corporaciones de Florida
+          (Sunbiz). Los detalles oficiales del registro se muestran a continuación por
+          transparencia.
+        </span>
+      </p>
+
+      <div class="overflow-hidden rounded-xl border border-gray-200">
+        <table class="w-full text-left border-collapse">
+          <tbody>
+            {rows.map((row, i) => (
+              <tr class={i % 2 === 0 ? "bg-cream" : "bg-white"}>
+                <th scope="row" class="align-top w-1/2 sm:w-2/5 px-4 py-3 font-semibold text-dark border-b border-gray-200">
+                  <span data-i18n="en">{row.en}</span>
+                  <span data-i18n="es" style="display:none">{row.es}</span>
+                </th>
+                <td class="px-4 py-3 text-gray-700 border-b border-gray-200">{row.value}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+
+      <p class="text-sm text-gray-500 mt-6">
+        <span data-i18n="en">
+          You can independently verify this registration by searching "Professional Drain Cleaner
+          LLC" or document number {SUNBIZ.documentNumber} on the Florida Division of Corporations
+          website (Sunbiz.org).
+        </span>
+        <span data-i18n="es" style="display:none">
+          Puedes verificar este registro de forma independiente buscando "Professional Drain
+          Cleaner LLC" o el número de documento {SUNBIZ.documentNumber} en el sitio web de la
+          División de Corporaciones de Florida (Sunbiz.org).
+        </span>
+      </p>
+    </div>
+  </section>
+</Layout>

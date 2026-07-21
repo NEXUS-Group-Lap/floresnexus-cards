@@ -1,6 +1,7 @@
 ---
 import { Icon } from "astro-icon/components";
-import { PHONE_DISPLAY, PHONE_TEL, WHATSAPP_URL, EMAIL_ADDRESS, EMAIL_MAILTO } from "../../consts";
+import { PHONE_DISPLAY, PHONE_TEL, WHATSAPP_URL, EMAIL_ADDRESS, EMAIL_MAILTO, BUSINESS_STREET, BUSINESS_CITY, BUSINESS_STATE, BUSINESS_ZIP } from "../../consts";
+const businessAddress = `${BUSINESS_STREET}, ${BUSINESS_CITY}, ${BUSINESS_STATE} ${BUSINESS_ZIP}`;
 ---
 
 <section class="section section-contacts">
@@ -81,9 +82,22 @@ import { PHONE_DISPLAY, PHONE_TEL, WHATSAPP_URL, EMAIL_ADDRESS, EMAIL_MAILTO } f
               <span data-i18n="es" style="display:none">Disponibles 24/7</span>
             </p>
             <p class="text-sm text-gray-500 mb-0">
-              <span data-i18n="en">Cape Coral &amp; Southwest Florida — we come to you</span>
-              <span data-i18n="es" style="display:none">Cape Coral y el Suroeste de Florida — vamos a tu ubicación</span>
+              <span data-i18n="en">North Fort Myers &amp; Southwest Florida — we come to you</span>
+              <span data-i18n="es" style="display:none">North Fort Myers y el Suroeste de Florida — vamos a tu ubicación</span>
             </p>
+          </div>
+        </div>
+
+        <div class="flex items-center gap-4 bg-cream border border-gray-200 rounded-lg p-4">
+          <div class="bg-main text-white flex items-center justify-center rounded-full w-12 h-12 shrink-0">
+            <Icon name="lucide:map-pin" size={22} aria-hidden="true" />
+          </div>
+          <div>
+            <p class="font-semibold mb-0">
+              <span data-i18n="en">Office Address</span>
+              <span data-i18n="es" style="display:none">Dirección de la Oficina</span>
+            </p>
+            <span class="text-gray-700">{businessAddress}</span>
           </div>
         </div>
       </div>

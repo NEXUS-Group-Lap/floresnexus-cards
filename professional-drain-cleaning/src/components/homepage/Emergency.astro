@@ -1,6 +1,6 @@
 ---
 import { Icon } from "astro-icon/components";
-import { PHONE_DISPLAY, PHONE_TEL } from "../../consts";
+import { PHONE_DISPLAY, PHONE_TEL, SITE_TITLE } from "../../consts";
 ---
 
 <section id="emergency" class="bg-accent text-white scroll-mt-20">
@@ -11,8 +11,8 @@ import { PHONE_DISPLAY, PHONE_TEL } from "../../consts";
       <span data-i18n="es" style="display:none">Servicio de Emergencia de Drenaje y Plomería 24/7</span>
     </h2>
     <p class="reveal text-white/90 mb-8">
-      <span data-i18n="en">Drain and plumbing problems can happen at any time. If you have a clogged drain, sewer backup, slow drainage, water issue, or urgent plumbing problem, call Professional Drain Cleaning for emergency service.</span>
-      <span data-i18n="es" style="display:none">Los problemas de drenaje y plomería pueden pasar en cualquier momento. Si tienes un drenaje tapado, backup de sewer, drenaje lento, problema de agua o una emergencia de plomería, llama a Professional Drain Cleaning.</span>
+      <span data-i18n="en">Drain and plumbing problems can happen at any time. If you have a clogged drain, sewer backup, slow drainage, water issue, or urgent plumbing problem, call {SITE_TITLE} for emergency service.</span>
+      <span data-i18n="es" style="display:none">Los problemas de drenaje y plomería pueden pasar en cualquier momento. Si tienes un drenaje tapado, backup de sewer, drenaje lento, problema de agua o una emergencia de plomería, llama a {SITE_TITLE}.</span>
     </p>
     <a href={PHONE_TEL} class="reveal btn bg-white text-accent rounded-lg hover:bg-gray-100 hover:-translate-y-0.5 transition h-auto py-3 px-6">
       <Icon name="lucide:phone-call" size={18} />

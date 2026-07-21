@@ -1,9 +1,9 @@
 {
-  "name": "Professional Drain Cleaning",
+  "name": "Professional Drain Cleaner",
   "short_name": "Pro Drain",
   "start_url": "/professionaldraincleaning/",
   "scope": "/professionaldraincleaning/",
-  "description": "24/7 drain cleaning and plumbing services in Cape Coral and Southwest Florida.",
+  "description": "24/7 drain cleaning and plumbing services in North Fort Myers, Cape Coral, and Southwest Florida.",
   "display_override": ["window-control-overlay", "minimal-ui"],
   "orientation": "portrait",
   "theme_color": "#1467AC",
