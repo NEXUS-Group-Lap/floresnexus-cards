@@ -1,6 +1,5 @@
 ---
 import '../styles/globals.css';
-import { AnimatedMarqueeHero } from '../components/ui/hero-3';
 
 const nexusCards = [
   {
@@ -20,6 +19,18 @@ const nexusCards = [
     category: "Landscaping",
     description: "Professional lawn care in Cape Coral, FL — mowing, trimming, and more.",
     siteUrl: "/floreslawn/",
+  },
+  {
+    name: "Las Delicias",
+    category: "Restaurant",
+    description: "Authentic homestyle restaurant serving fresh, flavorful dishes made with love.",
+    siteUrl: "/lasdelicias/",
+  },
+  {
+    name: "Professional Drain Cleaning",
+    category: "Plumbing",
+    description: "Fast, reliable drain cleaning and unclogging services for homes and businesses.",
+    siteUrl: "/professionaldraincleaning/",
   },
 ];
 ---
@@ -46,21 +57,33 @@ const nexusCards = [
     style="font-family: 'Inter', system-ui, -apple-system, sans-serif;"
   >
     <!-- ═══ HERO ═══ -->
-    <AnimatedMarqueeHero
-      client:load
-      tagline="floresnexus.cards"
-      title="Nexus Cards Directory"
-      description="Business pages powered by Flores Nexus Group — browse our active sites below."
-      ctaText="Browse Directory"
-      ctaHref="#directory"
-      secondaryCtaText="Get Yours at FloresNexus.com"
-      secondaryCtaHref="https://floresnexus.com"
-      sites={[
-        { name: "Pulpería La Morenita", url: "/lamorenita/" },
-        { name: "Alma Closet", url: "/alma/" },
-        { name: "Flores Lawn Care", url: "/floreslawn/" },
-      ]}
-    />
+    <section class="flex flex-col items-center justify-center px-4 py-24 text-center sm:px-6" style="background: #F7F5F0;">
+      <div class="mb-4 inline-block rounded-full border border-mono-lighter bg-white/50 px-4 py-1.5 text-sm font-medium text-mono-gray">
+        floresnexus.cards
+      </div>
+      <h1 class="max-w-3xl text-5xl font-bold tracking-tighter text-mono-black md:text-7xl">
+        Nexus Cards Directory
+      </h1>
+      <p class="mt-6 max-w-xl text-lg text-mono-gray">
+        Business pages powered by Flores Nexus Group — browse our active sites below.
+      </p>
+      <div class="mt-8 flex flex-wrap items-center justify-center gap-4">
+        <a
+          href="#directory"
+          class="rounded-full bg-mono-black px-8 py-3 font-semibold text-mono-white shadow-lg transition-colors hover:bg-accent"
+        >
+          Browse Directory
+        </a>
+        <a
+          href="https://floresnexus.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="rounded-full border-2 border-mono-black bg-transparent px-8 py-3 font-semibold text-mono-black transition-colors hover:border-accent hover:text-accent"
+        >
+          Get Yours at FloresNexus.com
+        </a>
+      </div>
+    </section>
 
     <!-- ═══ DIRECTORY ═══ -->
     <section class="px-5 py-20 sm:px-6" id="directory">
@@ -75,49 +98,35 @@ const nexusCards = [
           </p>
         </div>
 
-        <div class="mx-auto grid max-w-[1000px] grid-cols-1 gap-7 sm:grid-cols-2 lg:grid-cols-3">
+        <div class="mx-auto flex max-w-[800px] flex-col gap-4">
           {nexusCards.map((card, i) => (
-            <div class={`scroll-fade-up stagger-${i + 1}`}>
-              <a
-                href={card.siteUrl}
-                target={card.siteUrl.startsWith('http') ? '_blank' : undefined}
-                rel={card.siteUrl.startsWith('http') ? 'noopener noreferrer' : undefined}
-                class="group block cursor-pointer overflow-hidden rounded-2xl border border-mono-lighter bg-mono-white no-underline transition-all duration-[350ms] hover:-translate-y-1 hover:shadow-xl"
-              >
-                <div class="flex items-center gap-1.5 border-b border-mono-lighter bg-mono-white px-4 py-2.5">
-                  <span class="h-2 w-2 rounded-full bg-mono-light/40"></span>
-                  <span class="h-2 w-2 rounded-full bg-mono-light/40"></span>
-                  <span class="h-2 w-2 rounded-full bg-mono-light/40"></span>
-                  <span class="ml-2 flex-1 overflow-hidden rounded-md bg-mono-white px-3 py-1 border border-mono-lighter">
-                    <span class="block truncate text-[10px] text-mono-gray">
-                      {card.siteUrl.startsWith('http')
-                        ? card.siteUrl.replace(/^https?:\/\//, '')
-                        : `floresnexus.cards${card.siteUrl}`}
-                    </span>
+            <a
+              href={card.siteUrl}
+              target={card.siteUrl.startsWith('http') ? '_blank' : undefined}
+              rel={card.siteUrl.startsWith('http') ? 'noopener noreferrer' : undefined}
+              class={`group scroll-fade-up stagger-${i + 1} flex items-center gap-5 rounded-2xl border border-mono-lighter bg-mono-white p-4 no-underline transition-all duration-300 hover:-translate-y-0.5 hover:border-accent hover:shadow-xl sm:p-5`}
+            >
+              <div class="site-preview hidden w-32 flex-shrink-0 rounded-xl border border-mono-lighter sm:block sm:w-40">
+                <iframe
+                  src={card.siteUrl}
+                  loading="lazy"
+                  tabindex="-1"
+                  title={`${card.name} preview`}
+                ></iframe>
+              </div>
+              <div class="min-w-0 flex-1">
+                <div class="mb-1 flex flex-wrap items-center gap-2">
+                  <h3 class="truncate text-lg font-bold text-mono-black">{card.name}</h3>
+                  <span class="inline-block flex-shrink-0 rounded-full bg-accent/10 px-3 py-0.5 text-[0.7rem] font-bold uppercase tracking-wider text-accent">
+                    {card.category}
                   </span>
                 </div>
-                <div class="site-preview">
-                  <iframe
-                    src={card.siteUrl}
-                    loading="lazy"
-                    tabindex="-1"
-                    title={`${card.name} preview`}
-                  ></iframe>
-                </div>
-                <div class="p-5">
-                  <div class="mb-3 flex items-center justify-between">
-                    <span class="inline-block rounded-full bg-accent/10 px-3 py-1 text-[0.7rem] font-bold uppercase tracking-wider text-accent">
-                      {card.category}
-                    </span>
-                    <svg class="h-4 w-4 text-mono-light transition-colors duration-200 group-hover:text-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg>
-                  </div>
-                  <h3 class="mb-1.5 text-lg font-bold text-mono-black">{card.name}</h3>
-                  <p class="text-sm leading-relaxed text-mono-gray">
-                    {card.description}
-                  </p>
-                </div>
-              </a>
-            </div>
+                <p class="truncate text-sm text-mono-gray">
+                  {card.description}
+                </p>
+              </div>
+              <svg class="h-5 w-5 flex-shrink-0 text-mono-light transition-colors duration-200 group-hover:text-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg>
+            </a>
           ))}
         </div>
       </div>

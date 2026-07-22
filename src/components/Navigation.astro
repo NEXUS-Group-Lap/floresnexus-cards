@@ -12,13 +12,7 @@ const base = _b.endsWith('/') ? _b : _b + '/';
     <div class="flex h-16 items-center justify-between">
       <div class="flex items-center">
         <a href={base} class="flex items-center" aria-label={siteConfig.site.name}>
-          <img
-            src="/logo-dark.png"
-            alt={siteConfig.site.name}
-            class="h-12 w-auto"
-            onerror="this.style.display='none'; this.nextElementSibling.style.display='block';"
-          />
-          <span class="text-mono-black text-xl font-bold" style="display:none">
+          <span class="text-mono-black text-xl font-bold">
             {siteConfig.site.name}
           </span>
         </a>
