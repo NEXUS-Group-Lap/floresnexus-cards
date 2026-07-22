@@ -7,30 +7,35 @@ const nexusCards = [
     category: "Latin Grocery",
     description: "Authentic Latin grocery store with fresh food and community favorites.",
     siteUrl: "/lamorenita/",
+    preview: "/previews/lamorenita.webp",
   },
   {
     name: "Alma Closet",
     category: "Fashion & Resale",
     description: "Curated fashion — unique pieces on Poshmark, eBay, and Mercari.",
     siteUrl: "/alma/",
+    preview: "/previews/alma.webp",
   },
   {
     name: "Flores Lawn Care",
     category: "Landscaping",
     description: "Professional lawn care in Cape Coral, FL — mowing, trimming, and more.",
     siteUrl: "/floreslawn/",
+    preview: "/previews/floreslawn.webp",
   },
   {
     name: "Las Delicias",
     category: "Restaurant",
     description: "Authentic homestyle restaurant serving fresh, flavorful dishes made with love.",
     siteUrl: "/lasdelicias/",
+    preview: "/previews/lasdelicias.webp",
   },
   {
     name: "Professional Drain Cleaning",
     category: "Plumbing",
     description: "Fast, reliable drain cleaning and unclogging services for homes and businesses.",
     siteUrl: "/professionaldraincleaning/",
+    preview: "/previews/professionaldraincleaning.webp",
   },
 ];
 ---
@@ -98,34 +103,38 @@ const nexusCards = [
           </p>
         </div>
 
-        <div class="mx-auto flex max-w-[800px] flex-col gap-4">
+        <div class="nexus-grid mx-auto max-w-[1100px]">
           {nexusCards.map((card, i) => (
             <a
               href={card.siteUrl}
               target={card.siteUrl.startsWith('http') ? '_blank' : undefined}
               rel={card.siteUrl.startsWith('http') ? 'noopener noreferrer' : undefined}
-              class={`group scroll-fade-up stagger-${i + 1} flex items-center gap-5 rounded-2xl border border-mono-lighter bg-mono-white p-4 no-underline transition-all duration-300 hover:-translate-y-0.5 hover:border-accent hover:shadow-xl sm:p-5`}
+              class={`nexus-card group scroll-fade-up stagger-${i + 1}`}
             >
-              <div class="site-preview hidden w-32 flex-shrink-0 rounded-xl border border-mono-lighter sm:block sm:w-40">
-                <iframe
-                  src={card.siteUrl}
+              <div class="nexus-card-chrome">
+                <span class="nexus-card-dot"></span>
+                <span class="nexus-card-dot"></span>
+                <span class="nexus-card-dot"></span>
+                <span class="nexus-card-urlbar">floresnexus.cards{card.siteUrl}</span>
+              </div>
+              <div class="site-preview">
+                <img
+                  src={card.preview}
+                  alt={`${card.name} site preview`}
                   loading="lazy"
-                  tabindex="-1"
-                  title={`${card.name} preview`}
-                ></iframe>
+                  decoding="async"
+                  width="900"
+                  height="600"
+                />
               </div>
-              <div class="min-w-0 flex-1">
-                <div class="mb-1 flex flex-wrap items-center gap-2">
-                  <h3 class="truncate text-lg font-bold text-mono-black">{card.name}</h3>
-                  <span class="inline-block flex-shrink-0 rounded-full bg-accent/10 px-3 py-0.5 text-[0.7rem] font-bold uppercase tracking-wider text-accent">
-                    {card.category}
-                  </span>
+              <div class="nexus-card-body">
+                <div class="nexus-card-meta">
+                  <span class="nexus-card-badge">{card.category}</span>
+                  <svg class="nexus-card-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg>
                 </div>
-                <p class="truncate text-sm text-mono-gray">
-                  {card.description}
-                </p>
+                <h3 class="nexus-card-title">{card.name}</h3>
+                <p class="nexus-card-description">{card.description}</p>
               </div>
-              <svg class="h-5 w-5 flex-shrink-0 text-mono-light transition-colors duration-200 group-hover:text-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg>
             </a>
           ))}
         </div>

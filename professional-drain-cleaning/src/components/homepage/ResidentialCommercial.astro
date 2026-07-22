@@ -1,7 +1,8 @@
 ---
 import { Image } from "astro:assets";
 import { Icon } from "astro-icon/components";
-import { BASE } from "../../consts";
+import residentialJobImg from "../../assets/img/real/residential-commercial/residential-job.png";
+import commercialJobImg from "../../assets/img/real/residential-commercial/commercial-job.png";
 ---
 
 <section class="section">
@@ -9,7 +10,7 @@ import { BASE } from "../../consts";
     <div class="grid md:grid-cols-2 gap-6 mb-8">
       <div class="reveal-left hover-lift rounded-xl border border-gray-200 overflow-hidden">
         <Image
-          src={`${BASE}img/real/residential-commercial/residential-job.png`}
+          src={residentialJobImg}
           alt=""
           width="700"
           height="420"
@@ -31,7 +32,7 @@ import { BASE } from "../../consts";
       </div>
       <div class="reveal-right hover-lift rounded-xl border border-gray-200 overflow-hidden">
         <Image
-          src={`${BASE}img/real/residential-commercial/commercial-job.png`}
+          src={commercialJobImg}
           alt=""
           width="700"
           height="420"

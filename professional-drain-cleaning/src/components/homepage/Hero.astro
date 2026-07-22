@@ -1,12 +1,13 @@
 ---
 import { Image } from "astro:assets";
 import { Icon } from "astro-icon/components";
-import { PHONE_TEL, WHATSAPP_URL, EMAIL_MAILTO, BASE, SITE_TITLE } from "../../consts";
+import { PHONE_TEL, WHATSAPP_URL, EMAIL_MAILTO, SITE_TITLE } from "../../consts";
+import heroTechImg from "../../assets/img/stock/hero-tech.jpg";
 ---
 
 <section class="relative overflow-hidden text-white py-14 lg:py-24">
   <Image
-    src={`${BASE}img/stock/hero-tech.jpg`}
+    src={heroTechImg}
     alt=""
     width="1600"
     height="1200"

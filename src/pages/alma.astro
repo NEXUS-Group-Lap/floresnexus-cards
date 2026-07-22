@@ -1,4 +1,5 @@
 ---
+import { Icon } from 'astro-icon/components';
 ---
 
 <!doctype html>
@@ -8,8 +9,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <meta name="description" content="Thank you for supporting Alma Closet. Find Alma on Instagram, Poshmark, eBay, and Mercari, and follow new drops from her personal closet.">
     <title>Alma Closet | Thank You & Links</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         * {
             margin: 0;
@@ -238,7 +240,14 @@
             box-shadow: var(--shadow-md);
             border-color: var(--accent-gold);
         }
-        .platform-card i {
+        .icon {
+            width: 1em;
+            height: 1em;
+            display: inline-block;
+            vertical-align: -0.125em;
+            color: currentColor;
+        }
+        .platform-card .icon {
             font-size: 2.5rem;
             color: var(--accent-gold);
             margin-bottom: 0.8rem;
@@ -342,8 +351,8 @@
             <p class="fade-up" style="animation-delay: 0.3s;">I'm Alma, and this is my personal closet of selected clothing, bags, shoes, and accessories.</p>
             <p class="fade-up" style="animation-delay: 0.4s;">Thank you for supporting my closet. I personally select and share pieces through Instagram and my resale platforms. You can use this page to find where I post, where I sell, and how to follow new drops.</p>
             <div class="thankyou-buttons fade-up" style="animation-delay: 0.5s;">
-                <a href="https://www.instagram.com/alma_martinez_l?utm_source=qr" target="_blank" class="btn-primary"><i class="fab fa-instagram"></i> Follow on Instagram</a>
-                <a href="#find-me" class="btn-outline"><i class="fas fa-search"></i> Find Me Here</a>
+                <a href="https://www.instagram.com/alma_martinez_l?utm_source=qr" target="_blank" class="btn-primary"><Icon name="simple-icons:instagram" class="icon" /> Follow on Instagram</a>
+                <a href="#find-me" class="btn-outline"><Icon name="heroicons:magnifying-glass" class="icon" /> Find Me Here</a>
             </div>
         </div>
     </section>
@@ -364,19 +373,19 @@
             <p style="text-align: center; max-width: 600px; margin: 0 auto 1rem auto; color: #5C5550;">You can find my available pieces and new posts through these platforms.</p>
             <div class="platforms-grid">
                 <a href="https://www.instagram.com/alma_martinez_l?utm_source=qr" target="_blank" class="platform-card">
-                    <i class="fab fa-instagram"></i>
+                    <Icon name="simple-icons:instagram" class="icon" />
                     <span>Instagram</span>
                 </a>
                 <a href="https://poshmark.com/closet/almamartinez171" target="_blank" class="platform-card">
-                    <i class="fab fa-poshmark"></i>
+                    <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="none" stroke="currentColor" stroke-width="1.5"/><text x="12" y="16.5" text-anchor="middle" font-size="12" font-family="Georgia, serif" fill="currentColor">P</text></svg>
                     <span>Poshmark</span>
                 </a>
                 <a href="https://ebay.us/m/H1ZyX6" target="_blank" class="platform-card">
-                    <i class="fab fa-ebay"></i>
+                    <Icon name="simple-icons:ebay" class="icon" />
                     <span>eBay</span>
                 </a>
                 <a href="https://www.mercari.com/u/delalma84?sv=0" target="_blank" class="platform-card">
-                    <i class="fas fa-exchange-alt"></i>
+                    <Icon name="heroicons:arrows-right-left" class="icon" />
                     <span>Mercari</span>
                 </a>
             </div>
@@ -388,7 +397,7 @@
             <div class="instagram-section">
                 <h3>Follow for new drops</h3>
                 <p>I post new pieces and updates on Instagram. Follow Alma Closet to see new clothing, bags, shoes, accessories, and special finds.</p>
-                <a href="https://www.instagram.com/alma_martinez_l?utm_source=qr" target="_blank" class="btn-primary"><i class="fab fa-instagram"></i> Follow on Instagram</a>
+                <a href="https://www.instagram.com/alma_martinez_l?utm_source=qr" target="_blank" class="btn-primary"><Icon name="simple-icons:instagram" class="icon" /> Follow on Instagram</a>
             </div>
         </div>
     </section>

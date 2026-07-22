@@ -1,7 +1,8 @@
 ---
 import { Image } from "astro:assets";
 import { Icon } from "astro-icon/components";
-import { PHONE_TEL, BASE, SITE_TITLE } from "../../consts";
+import { PHONE_TEL, SITE_TITLE } from "../../consts";
+import ownerImg from "../../assets/img/real/hero/owner.jpg";
 
 const points = [
   {
@@ -28,7 +29,7 @@ const points = [
     <div class="reveal-group grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
       <div class="reveal-left order-2 md:order-1">
         <Image
-          src={`${BASE}img/real/hero/owner.jpg`}
+          src={ownerImg}
           alt=""
           width="700"
           height="560"

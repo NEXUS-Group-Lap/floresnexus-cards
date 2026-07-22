@@ -3,6 +3,7 @@ import { Image } from "astro:assets";
 import { Icon } from "astro-icon/components";
 import { BASE, SITE_TITLE } from "../../consts";
 import { CITY_PAGES } from "../../data/cityPages";
+import serviceAreaMapImg from "../../assets/img/real/mobile-service/service-area-map.png";
 ---
 
 <section id="service-area" class="section scroll-mt-20">
@@ -50,7 +51,7 @@ import { CITY_PAGES } from "../../data/cityPages";
     </div>
     <div class="reveal-right order-1 md:order-2">
       <Image
-        src={`${BASE}img/real/mobile-service/service-area-map.png`}
+        src={serviceAreaMapImg}
         alt=""
         width="800"
         height="533"

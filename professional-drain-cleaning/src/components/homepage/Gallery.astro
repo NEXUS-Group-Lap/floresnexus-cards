@@ -2,36 +2,40 @@
 import { Icon } from "astro-icon/components";
 
 import { Image } from "astro:assets";
-import { BASE } from "../../consts";
+import drainCleaningImg from "../../assets/img/real/gallery/drain-cleaning.jpg";
+import cameraInspectionImg from "../../assets/img/real/gallery/camera-inspection.png";
+import waterHeaterImg from "../../assets/img/real/gallery/water-heater.png";
+import bathroomRemodelImg from "../../assets/img/real/gallery/bathroom-remodel.png";
+import wellWaterImg from "../../assets/img/real/gallery/well-water.jpg";
 
 const features = [
   {
     icon: "lucide:droplets",
-    img: `${BASE}img/real/gallery/drain-cleaning.jpg`,
+    img: drainCleaningImg,
     en: { label: "Drain Cleaning" },
     es: { label: "Limpieza de Drenajes" },
   },
   {
     icon: "lucide:camera",
-    img: `${BASE}img/real/gallery/camera-inspection.png`,
+    img: cameraInspectionImg,
     en: { label: "Camera Inspections" },
     es: { label: "Inspecciones con Cámara" },
   },
   {
     icon: "lucide:flame",
-    img: `${BASE}img/real/gallery/water-heater.png`,
+    img: waterHeaterImg,
     en: { label: "Water Heaters" },
     es: { label: "Calentadores de Agua" },
   },
   {
     icon: "lucide:bath",
-    img: `${BASE}img/real/gallery/bathroom-remodel.png`,
+    img: bathroomRemodelImg,
     en: { label: "Bathroom Remodel Plumbing" },
     es: { label: "Plomería para Remodelación de Baños" },
   },
   {
     icon: "lucide:filter",
-    img: `${BASE}img/real/gallery/well-water.jpg`,
+    img: wellWaterImg,
     en: { label: "Well Water & Filtration" },
     es: { label: "Agua de Pozo y Filtración" },
   },
