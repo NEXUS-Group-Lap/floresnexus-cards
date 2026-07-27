@@ -4,3 +4,6 @@
 [submodule "las-delicias"]
 	path = las-delicias
 	url = https://github.com/NEXUS-Group-Lap/las-delicias.git
+[submodule "JCP"]
+	path = JCP
+	url = https://github.com/NEXUS-Group-Lap/JCP-GENERAL-BUSINESS.git

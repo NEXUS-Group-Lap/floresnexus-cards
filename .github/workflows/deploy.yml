@@ -89,6 +89,30 @@ jobs:
           mkdir -p dist/lasdelicias
           cp -r las-delicias/dist/. dist/lasdelicias/
 
+      - name: Install JCP dependencies
+        run: npm ci
+        working-directory: JCP
+
+      - name: Build JCP site
+        run: npx vinext build
+        working-directory: JCP
+        env:
+          STATIC_EXPORT: "1"
+          BASE_PATH: /JCP
+          NEXT_PUBLIC_BASE_PATH: /JCP
+
+      - name: Merge JCP into dist
+        run: |
+          rm -rf dist/JCP
+          mkdir -p dist/JCP
+          cp -r JCP/dist/client/. dist/JCP/
+          rm -rf dist/JCP/.sites-runtime dist/JCP/.vite
+          # vinext does not support Next's basePath alongside output:"export"
+          # (it 404s every route), so the JS/CSS assets it emits still use
+          # root-absolute "/assets/..." URLs. Rewrite those to live under
+          # /JCP/assets/ so they resolve once served from that subpath.
+          grep -rlZ '"/assets/' dist/JCP --include='*.html' --include='*.js' --include='*.css' | xargs -0 -r sed -i 's#"/assets/#"/JCP/assets/#g'
+
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
