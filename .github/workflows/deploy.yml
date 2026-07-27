@@ -112,6 +112,12 @@ jobs:
           # root-absolute "/assets/..." URLs. Rewrite those to live under
           # /JCP/assets/ so they resolve once served from that subpath.
           grep -rlZ '"/assets/' dist/JCP --include='*.html' --include='*.js' --include='*.css' | xargs -0 -r sed -i 's#"/assets/#"/JCP/assets/#g'
+          # Vite's own client-side chunk/CSS preloader also hardcodes a "/"
+          # base when basePath isn't configured, so lazy-loaded chunks (e.g.
+          # the map component) 404 in the browser and crash the page. Patch
+          # that compiled helper directly — see __vitePreload in Vite's
+          # preload-helper source.
+          grep -rlZ 'function(e){return`/`+e}' dist/JCP --include='*.js' | xargs -0 -r sed -i 's#function(e){return`/`+e}#function(e){return`/JCP/`+e}#g'
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
