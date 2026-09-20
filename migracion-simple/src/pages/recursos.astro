@@ -1,0 +1,84 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { Image } from 'astro:assets';
+import { RECURSOS_IMAGE } from '../lib/category-images';
+import { withBase } from '../lib/url';
+
+const FACEBOOK_ICON = 'M22.675 0h-21.35c-.732 0-1.325.593-1.325 1.325v21.351c0 .731.593 1.324 1.325 1.324h11.495v-9.294h-3.128v-3.622h3.128v-2.671c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24l-1.918.001c-1.504 0-1.795.715-1.795 1.763v2.313h3.587l-.467 3.622h-3.12v9.294h6.116c.73 0 1.323-.593 1.323-1.324v-21.351c0-.732-.593-1.325-1.325-1.325z';
+const YOUTUBE_ICON = 'M23.498 6.186a2.994 2.994 0 0 0-2.107-2.117C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.391.524A2.994 2.994 0 0 0 .502 6.186 31.6 31.6 0 0 0 0 12a31.6 31.6 0 0 0 .502 5.814 2.994 2.994 0 0 0 2.107 2.117c1.886.524 9.391.524 9.391.524s7.505 0 9.391-.524a2.994 2.994 0 0 0 2.107-2.117A31.6 31.6 0 0 0 24 12a31.6 31.6 0 0 0-.502-5.814zM9.75 15.568V8.432L15.818 12z';
+---
+<BaseLayout title="Recursos recomendados | Migración Simple" description="Cuentas oficiales, organizaciones comunitarias y canales que complementan la información de Migración Simple.">
+  <section class="section" style="position:relative; overflow:hidden;">
+    <div class="glow glow-gold" style="width:420px; height:420px; top:-160px; right:-140px;" aria-hidden="true"></div>
+    <div class="container" style="position:relative; z-index:1;">
+      <div class="breadcrumbs"><a href={withBase('/')}>Inicio</a> / Recursos</div>
+      <div class="section-head" data-reveal><div><h2>Recursos recomendados</h2><p>Contenido complementario de otras organizaciones, no de Migración Simple.</p></div></div>
+
+      <figure class="category-banner" data-reveal>
+        <Image src={RECURSOS_IMAGE.src} alt={RECURSOS_IMAGE.alt} widths={[500, 900, 1400]} sizes="(max-width: 850px) 100vw, 1120px" loading="eager" />
+      </figure>
+      <div class="notice" style="margin-bottom:20px;" data-reveal>
+        <strong>Antes de seguir estas páginas:</strong> no son parte de Migración Simple y no verificamos legalmente todo lo que publican. Prioriza siempre las fuentes oficiales (USCIS, ICE, EOIR) y confirma cualquier duda con un abogado de inmigración con licencia.
+      </div>
+
+      <div class="resource-group" data-reveal>
+        <h3>Cuentas oficiales</h3>
+        <p>Nacional, cualquier estado.</p>
+        <ul class="resource-list">
+          <li><a class="resource-chip" style="--dot:var(--brand)" href="https://www.facebook.com/uscis.es/" target="_blank" rel="noopener">
+            <span class="resource-dot"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d={FACEBOOK_ICON}/></svg></span>
+            <span class="resource-text"><strong>USCIS Español</strong><span>facebook.com/uscis.es</span></span>
+          </a></li>
+          <li><a class="resource-chip" style="--dot:var(--brand)" href="https://www.facebook.com/ICEgovEspanol/" target="_blank" rel="noopener">
+            <span class="resource-dot"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d={FACEBOOK_ICON}/></svg></span>
+            <span class="resource-text"><strong>ICE en Español</strong><span>facebook.com/ICEgovEspanol</span></span>
+          </a></li>
+          <li><a class="resource-chip" style="--dot:var(--brand)" href="https://www.facebook.com/doj.eoir/" target="_blank" rel="noopener">
+            <span class="resource-dot"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d={FACEBOOK_ICON}/></svg></span>
+            <span class="resource-text"><strong>EOIR (Dept. of Justice)</strong><span>facebook.com/doj.eoir</span></span>
+          </a></li>
+        </ul>
+      </div>
+
+      <div class="resource-group" data-reveal>
+        <h3>Comunitarias — suroeste de Florida</h3>
+        <p>Cape Coral, Fort Myers, Naples, Immokalee. No incluimos bufetes privados individuales, para no dar la impresión de favorecer un negocio sobre sus competidores.</p>
+        <ul class="resource-list">
+          <li><a class="resource-chip" style="--dot:var(--brand-2)" href="https://www.facebook.com/AmigoCenterImmokalee/" target="_blank" rel="noopener">
+            <span class="resource-dot"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d={FACEBOOK_ICON}/></svg></span>
+            <span class="resource-text"><strong>Amigo Center (Immokalee)</strong><span>facebook.com/AmigoCenterImmokalee</span></span>
+          </a></li>
+          <li class="resource-chip resource-chip--pending">
+            <span class="resource-dot">?</span>
+            <span class="resource-text"><strong>Catholic Charities, Diocese of Venice</strong><span>catholiccharitiesdov.org — falta confirmar el enlace de Facebook</span></span>
+          </li>
+          <li class="resource-chip resource-chip--pending">
+            <span class="resource-dot">+</span>
+            <span class="resource-text"><strong>2–3 páginas locales pendientes</strong><span>TODO: agregar las que conozcas de primera mano (revisar fecha de última publicación antes de sumarlas)</span></span>
+          </li>
+        </ul>
+      </div>
+
+      <div class="resource-group" data-reveal>
+        <h3>Canales de YouTube</h3>
+        <p>Creadores independientes, no verificados legalmente por el sitio — el aviso de arriba aplica igual aquí.</p>
+        <ul class="resource-list">
+          <li><a class="resource-chip" style="--dot:var(--warn-ink)" href="https://www.youtube.com/playlist?list=PLIsWuqSba1BsnY5GOh7qrAnWcUL88frvM" target="_blank" rel="noopener">
+            <span class="resource-dot"><svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d={YOUTUBE_ICON}/></svg></span>
+            <span class="resource-text"><strong>Univision — "Hablemos de Inmigración"</strong><span>medio de noticias establecido</span></span>
+          </a></li>
+          <li><a class="resource-chip" style="--dot:var(--warn-ink)" href="https://www.youtube.com/@InmigrandoconKathia" target="_blank" rel="noopener">
+            <span class="resource-dot"><svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d={YOUTUBE_ICON}/></svg></span>
+            <span class="resource-text"><strong>Inmigrando con Kathia</strong><span>Kathia Quiros, abogada</span></span>
+          </a></li>
+          <li><a class="resource-chip" style="--dot:var(--warn-ink)" href="https://www.youtube.com/c/LaHoraDelInmigrante" target="_blank" rel="noopener">
+            <span class="resource-dot"><svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d={YOUTUBE_ICON}/></svg></span>
+            <span class="resource-text"><strong>La Hora del Inmigrante</strong><span>John De La Vega, Florida</span></span>
+          </a></li>
+        </ul>
+      </div>
+
+      <p class="notice" data-reveal><strong>¿Buscas una guía en vez de un recurso externo?</strong> <a href={withBase('/guias')}>Explora todas las guías de Migración Simple →</a></p>
+    </div>
+  </section>
+</BaseLayout>

@@ -119,6 +119,23 @@ jobs:
           # preload-helper source.
           grep -rlZ 'function(e){return`/`+e}' dist/JCP --include='*.js' | xargs -0 -r sed -i 's#function(e){return`/`+e}#function(e){return`/JCP/`+e}#g'
 
+      - name: Install Migración Simple dependencies
+        run: npm ci
+        working-directory: migracion-simple
+
+      - name: Build Migración Simple site
+        run: npm run build
+        working-directory: migracion-simple
+        env:
+          SITE_URL: https://floresnexus.cards
+          BASE_PATH: /migracionsimple/
+
+      - name: Merge Migración Simple into dist
+        run: |
+          rm -rf dist/migracionsimple
+          mkdir -p dist/migracionsimple
+          cp -r migracion-simple/dist/. dist/migracionsimple/
+
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:

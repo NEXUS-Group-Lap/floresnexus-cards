@@ -1,0 +1,19 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { Image } from 'astro:assets';
+import abogados from '../assets/images/categoria-abogados.jpg';
+---
+<BaseLayout title="Acerca de | Migración Simple">
+  <div class="article-wrap"><article class="article">
+    <a class="eyebrow" href="https://floresnexus.com" target="_blank" rel="noopener" data-reveal>FloresNexus.com</a>
+    <h1 data-reveal style="--reveal-delay:60ms">Qué es Migración Simple</h1>
+    <p class="lead" data-reveal style="--reveal-delay:110ms">Migración Simple es un proyecto editorial de <a href="https://floresnexus.com" target="_blank" rel="noopener">FloresNexus.com</a> creado para explicar información migratoria oficial de Estados Unidos con lenguaje claro.</p>
+    <figure class="hero-photo" style="margin:24px 0; --reveal-delay:160ms" data-reveal>
+      <Image src={abogados} alt="Una persona firma un documento junto a una laptop, sobre un escritorio de madera" widths={[500, 900]} sizes="(max-width: 850px) 100vw, 820px" loading="eager" />
+    </figure>
+    <h2 data-reveal>Cómo trabajamos</h2>
+    <ul data-reveal><li>Usamos fuentes oficiales del Gobierno de Estados Unidos.</li><li>Separamos información general de asesoría legal individual.</li><li>Mostramos la fecha de revisión de cada guía.</li><li>Enlazamos a la fuente oficial para que puedas verificar la información.</li></ul>
+    <h2 data-reveal>Lo que no somos</h2>
+    <p data-reveal>No somos una agencia del Gobierno de Estados Unidos, no somos USCIS, ICE, CBP, EOIR ni un bufete de abogados.</p>
+  </article></div>
+</BaseLayout>

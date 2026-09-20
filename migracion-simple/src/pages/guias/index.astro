@@ -1,0 +1,101 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { Image } from 'astro:assets';
+import { getCollection } from 'astro:content';
+import { groupByCategory } from '../../lib/categories';
+import { categoryImage } from '../../lib/category-images';
+import { withBase } from '../../lib/url';
+const groups = groupByCategory(await getCollection('guides'));
+---
+<BaseLayout title="Guías | Migración Simple">
+  <section class="section" style="position:relative; overflow:hidden;">
+    <div class="glow glow-red" style="width:420px; height:420px; top:-160px; left:-140px;" aria-hidden="true"></div>
+    <div class="container" style="position:relative; z-index:1;">
+      <div class="section-head" data-reveal><div><h2>Todas las guías</h2><p>Explicaciones breves con fuentes oficiales, organizadas por tema.</p></div></div>
+
+      <div class="guide-search" data-reveal>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="2"/><path d="m20 20-3.5-3.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        <input id="guide-search-input" type="search" placeholder="Busca por tema, por ejemplo: permiso de trabajo, I-94, asilo…" aria-label="Buscar guías" />
+      </div>
+      <p id="guide-search-empty" class="guide-search-empty" hidden>No encontramos guías para esa búsqueda. Intenta con otra palabra o <a href={withBase('/guias')}>mira todas las guías</a>.</p>
+
+      <nav class="category-jump" aria-label="Ir a un tema" id="category-jump" data-reveal>
+        {groups.map(({ category, slug, items }) => (
+          <a href={`#${slug}`}>{category} <span>({items.length})</span></a>
+        ))}
+      </nav>
+      {groups.map(({ category, slug, items }) => (
+        <div class="category-section" id={slug}>
+          <figure class="category-banner" data-reveal>
+            <Image src={categoryImage(category).src} alt="" widths={[500, 900, 1400]} sizes="(max-width: 850px) 100vw, 1120px" loading="lazy" />
+          </figure>
+          <div class="section-head" data-reveal><div><h3>{category}</h3></div></div>
+          <div class="grid">
+            {items.map((guide, i) => (
+              <a
+                class="card"
+                href={withBase(guide.data.path)}
+                data-search={[guide.data.title, guide.data.description, guide.data.category, ...guide.data.keywords].join(' ').toLowerCase()}
+                data-reveal
+                style={`--reveal-delay:${(i % 6) * 50}ms`}
+              >
+                <span class="tag">{guide.data.category}</span>
+                <h3>{guide.data.title}</h3>
+                <p>{guide.data.description}</p>
+              </a>
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+</BaseLayout>
+
+<script>
+  const input = document.querySelector<HTMLInputElement>('#guide-search-input');
+  const emptyMsg = document.querySelector<HTMLElement>('#guide-search-empty');
+  const sections = Array.from(document.querySelectorAll<HTMLElement>('.category-section'));
+  const jumpNav = document.querySelector<HTMLElement>('#category-jump');
+
+  function normalize(s: string) {
+    return s.normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase().trim();
+  }
+
+  function filter(rawQuery: string) {
+    const query = normalize(rawQuery);
+    let totalVisible = 0;
+
+    for (const section of sections) {
+      const cards = Array.from(section.querySelectorAll<HTMLElement>('.card'));
+      let visibleInSection = 0;
+      for (const card of cards) {
+        const haystack = normalize(card.dataset.search ?? '');
+        const match = !query || haystack.includes(query);
+        card.hidden = !match;
+        if (match) visibleInSection++;
+      }
+      section.hidden = query !== '' && visibleInSection === 0;
+      totalVisible += visibleInSection;
+    }
+
+    if (jumpNav) jumpNav.hidden = query !== '';
+    if (emptyMsg) emptyMsg.hidden = !(query !== '' && totalVisible === 0);
+  }
+
+  if (input) {
+    const params = new URLSearchParams(location.search);
+    const initial = params.get('q') ?? '';
+    if (initial) {
+      input.value = initial;
+      filter(initial);
+    }
+
+    input.addEventListener('input', () => {
+      filter(input.value);
+      const url = new URL(location.href);
+      if (input.value) url.searchParams.set('q', input.value);
+      else url.searchParams.delete('q');
+      history.replaceState({}, '', url);
+    });
+  }
+</script>

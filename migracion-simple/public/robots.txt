@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://migracionsimple.floresnexus.com/sitemap-index.xml
